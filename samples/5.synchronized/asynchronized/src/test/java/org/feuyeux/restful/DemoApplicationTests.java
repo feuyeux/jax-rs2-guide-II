@@ -2,8 +2,6 @@ package org.feuyeux.restful;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.feuyeux.restful.domain.Book;
-import org.feuyeux.restful.domain.Books;
 import org.feuyeux.restful.web.AsyncResource;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,9 +16,6 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.web.client.RestTemplate;
 
 import javax.ws.rs.client.*;
-import javax.ws.rs.core.MediaType;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
@@ -47,21 +42,12 @@ public class DemoApplicationTests {
         assertEquals(HttpStatus.OK, entity.getStatusCode());
     }
 
-
     @Test
-    public void testAsyncBatchSave() throws InterruptedException, ExecutionException {
-        List<Book> bookList = new ArrayList<>(COUNT);
-        log.debug("**->Test Batch Save");
+    public void testAsync() throws InterruptedException, ExecutionException {
         try {
-            for (int i = 0; i < COUNT; i++) {
-                final Book newBook = new Book(i + "-" + System.nanoTime());
-                bookList.add(newBook);
-            }
-            Books books = new Books(bookList);
-            final Entity<Books> booksEntity = Entity.entity(books, "application/json;charset=UTF-8");
             final Invocation.Builder request = target("http://localhost:" + this.port + "/books").request();
             final AsyncInvoker async = request.async();
-            final Future<String> responseFuture = async.post(booksEntity, String.class);
+            final Future<String> responseFuture = async.get(String.class);
             log.debug("First response @" + System.currentTimeMillis());
             String result = null;
             try {
@@ -77,24 +63,11 @@ public class DemoApplicationTests {
         }
     }
 
-    private WebTarget target(String url) {
-        Client client = ClientBuilder.newClient();
-        return client.target(url);
-    }
-
     @Test
-    public void testAsyncBatchSaveCallBack() throws InterruptedException, ExecutionException {
-        List<Book> bookList = new ArrayList<>(COUNT);
-        log.debug("**->Test Batch Save");
+    public void testAsyncCallBack() throws InterruptedException, ExecutionException {
         try {
-            for (int i = 0; i < COUNT; i++) {
-                final Book newBook = new Book(i + "-" + System.nanoTime());
-                bookList.add(newBook);
-            }
-            Books books = new Books(bookList);
-            final Entity<Books> booksEntity = Entity.entity(books, MediaType.APPLICATION_XML_TYPE);
             final AsyncInvoker async = target("http://localhost:" + this.port + "/books").request().async();
-            final Future<String> responseFuture = async.post(booksEntity, new InvocationCallback<String>() {
+            final Future<String> responseFuture = async.get(new InvocationCallback<String>() {
                 @Override
                 public void completed(String result) {
                     log.debug("On Completed: " + result);
@@ -106,18 +79,23 @@ public class DemoApplicationTests {
                     throwable.printStackTrace();
                 }
             });
-            log.debug("First response @" + System.currentTimeMillis());
+            log.debug("First response time::" + System.currentTimeMillis());
             String result = null;
             try {
                 result = responseFuture.get(AsyncResource.TIMEOUT + 1, TimeUnit.SECONDS);
             } catch (TimeoutException e) {
                 log.debug("%%%% " + e.getMessage());
             } finally {
-                log.debug("Second response @" + System.currentTimeMillis());
+                log.debug("Second response time::" + System.currentTimeMillis());
                 log.debug("<<<<<<<<<<< book id array: " + result);
             }
         } finally {
-            log.debug("<-**Test Batch Save");
+            log.debug("testAsyncCallBack done.");
         }
+    }
+
+    private WebTarget target(String url) {
+        Client client = ClientBuilder.newClient();
+        return client.target(url);
     }
 }

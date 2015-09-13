@@ -6,33 +6,15 @@ import java.io.Serializable;
 
 @XmlRootElement
 public class Book implements Serializable {
-    private static final long serialVersionUID = 1L;
-    private static final int NAME_LENGTH = 100;
-
     private Long bookId;
     private String bookName;
     private String publisher;
 
     public Book() {
-        super();
     }
 
-    public Book(final Long bookId) {
-        this.bookId = bookId;
-    }
-
-    public Book(final String bookName) {
-        this.bookName = bookName;
-    }
-
-    public Book(final Long bookId, final String bookName) {
-        super();
-        this.bookId = bookId;
-        this.bookName = bookName;
-    }
-
-    public Book(final Long bookId, final String bookName, String publisher) {
-        this.bookId = bookId;
+    public Book(final long bookId, final String bookName, String publisher) {
+        this.bookId = Long.valueOf(bookId);
         this.bookName = bookName;
         this.publisher = publisher;
     }
@@ -66,6 +48,10 @@ public class Book implements Serializable {
 
     @Override
     public String toString() {
-        return bookId + ":" + bookName + ":" + publisher;
+        StringBuilder sb=new StringBuilder();
+        sb.append(getBookId()).append(",")
+                .append(getBookName()).append(",")
+                .append(getPublisher());
+        return sb.toString();
     }
 }

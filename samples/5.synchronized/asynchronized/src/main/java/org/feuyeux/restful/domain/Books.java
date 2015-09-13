@@ -4,6 +4,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @XmlRootElement(name = "books")
@@ -11,7 +12,7 @@ public class Books implements Serializable {
     private List<Book> bookList;
 
     public Books() {
-        super();
+        bookList = new ArrayList<>();
     }
 
     public Books(final List<Book> bookList) {
