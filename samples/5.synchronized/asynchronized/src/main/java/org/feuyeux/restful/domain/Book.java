@@ -6,9 +6,6 @@ import java.io.Serializable;
 
 @XmlRootElement
 public class Book implements Serializable {
-    private static final long serialVersionUID = 1L;
-    private static final int NAME_LENGTH = 100;
-
     private Long bookId;
     private String bookName;
     private String publisher;

@@ -1,6 +1,7 @@
 package org.feuyeux.restful.web;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.feuyeux.restful.domain.Book;
 import org.feuyeux.restful.domain.Books;
 import org.springframework.util.CollectionUtils;
@@ -16,7 +17,7 @@ import java.util.concurrent.*;
 @Path("books")
 @Produces({"application/javascript;charset=UTF-8", "application/json;charset=UTF-8", "text/javascript;charset=UTF-8"})
 public class AsyncResource {
-    private static final Logger log = Logger.getLogger(AsyncResource.class);
+    private static final Logger log = LogManager.getLogger(AsyncResource.class);
     public static final long TIMEOUT = 120;
 
     public AsyncResource() {
@@ -73,7 +74,7 @@ public class AsyncResource {
     }
 
     class BatchRunner implements Callable<String> {
-        private List<Book> bookList;
+        private final List<Book> bookList;
 
         public BatchRunner(List<Book> bookList) {
             this.bookList = bookList;

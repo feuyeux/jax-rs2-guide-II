@@ -39,12 +39,13 @@ public class DemoApplicationTests {
     @Value("${local.server.port}")
     private int port;
 
-    private RestTemplate restTemplate = new TestRestTemplate();
+    private final RestTemplate restTemplate = new TestRestTemplate();
 
     @Test
     public void ok() {
         ResponseEntity<String> entity = this.restTemplate.getForEntity("http://localhost:" + this.port + "/hello" + "/ok", String.class);
         assertEquals(HttpStatus.OK, entity.getStatusCode());
+        log.info(entity.getBody());
     }
 
 
