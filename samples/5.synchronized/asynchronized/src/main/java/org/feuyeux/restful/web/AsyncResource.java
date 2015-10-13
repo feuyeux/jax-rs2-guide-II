@@ -1,65 +1,47 @@
 package org.feuyeux.restful.web;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.log4j.Logger;
 import org.feuyeux.restful.domain.Book;
 import org.feuyeux.restful.domain.Books;
-import org.springframework.util.CollectionUtils;
+import org.springframework.stereotype.Component;
 
-import javax.ws.rs.POST;
+import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.container.*;
 import javax.ws.rs.core.Response;
-import java.util.List;
-import java.util.concurrent.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
+@Component
 @Path("books")
-@Produces({"application/javascript;charset=UTF-8", "application/json;charset=UTF-8", "text/javascript;charset=UTF-8"})
+@Produces({"application/json;charset=UTF-8", "application/javascript;charset=UTF-8", "text/javascript;charset=UTF-8"})
 public class AsyncResource {
-    private static final Logger log = LogManager.getLogger(AsyncResource.class);
+    private static final Logger log = Logger.getLogger(AsyncResource.class);
     public static final long TIMEOUT = 120;
+    final ExecutorService threadPool = Executors.newFixedThreadPool(10);
 
-    public AsyncResource() {
-    }
-
-    @POST
-    public void asyncBatchSave(@Suspended final AsyncResponse asyncResponse, final Books books) {
+    @GET
+    public void getAll(@Suspended final AsyncResponse asyncResponse) {
         configResponse(asyncResponse);
-        final BatchRunner batchTask = new BatchRunner(books.getBookList());
-        Future<String> bookIdsFuture = Executors.newSingleThreadExecutor().submit(batchTask);
-        log.debug("submitted.");
-        String ids;
-        try {
-            log.debug("getting result...");
-            ids = bookIdsFuture.get();
-            log.debug("To resume");
-            asyncResponse.resume(ids);
-            log.debug("Resume done");
-        } catch (InterruptedException | ExecutionException e) {
-            log.error(e.getMessage());
-        }
+        final BatchRunner batchTask = new BatchRunner(asyncResponse);
+        threadPool.submit(batchTask);
     }
 
     private void configResponse(final AsyncResponse asyncResponse) {
-        asyncResponse.register(new CompletionCallback() {
-            @Override
-            public void onComplete(Throwable throwable) {
-                if (throwable == null) {
-                    log.info("CompletionCallback-onComplete: OK");
-                } else {
-                    log.info("CompletionCallback-onComplete: ERROR: " + throwable.getMessage());
-                }
+        asyncResponse.register((CompletionCallback) throwable -> {
+            if (throwable == null) {
+                log.info("CompletionCallback-onComplete: OK");
+            } else {
+                log.info("CompletionCallback-onComplete: ERROR: " + throwable.getMessage());
             }
         });
 
-        asyncResponse.register(new ConnectionCallback() {
-            @Override
-            public void onDisconnect(AsyncResponse disconnected) {
-                //Status.GONE=410
-                log.info("ConnectionCallback-onDisconnect");
-                disconnected.resume(Response.status(Response.Status.GONE).entity("disconnect!").build());
-            }
+        asyncResponse.register((ConnectionCallback) disconnected -> {
+            //Status.GONE=410
+            log.info("ConnectionCallback-onDisconnect");
+            disconnected.resume(Response.status(Response.Status.GONE).entity("disconnect!").build());
         });
 
         asyncResponse.setTimeoutHandler(new TimeoutHandler() {
@@ -73,45 +55,32 @@ public class AsyncResource {
         asyncResponse.setTimeout(TIMEOUT, TimeUnit.SECONDS);
     }
 
-    class BatchRunner implements Callable<String> {
-        private final List<Book> bookList;
+    class BatchRunner implements Runnable {
+        private final AsyncResponse response;
 
-        public BatchRunner(List<Book> bookList) {
-            this.bookList = bookList;
+        public BatchRunner(AsyncResponse asyncResponse) {
+            this.response = asyncResponse;
         }
 
         @Override
-        public String call() {
-            String ids = null;
+        public void run() {
             try {
-                ids = batchSave();
-                log.info(">>>>>>>>>> " + ids);
+                Books books = doBatch();
+                response.resume(books);
             } catch (InterruptedException e) {
                 log.error(e);
             }
-            return ids;
         }
 
-        private String batchSave() throws InterruptedException {
-            if (!CollectionUtils.isEmpty(bookList)) {
-                StringBuilder result = new StringBuilder();
-                for (int i = 0; i < bookList.size(); i++) {
-                    for (int j = 0; j < 1000; j++) {
-                        if (j % 1000 == 0) {
-                            Thread.sleep(500);
-                            log.info("" + i);
-                        }
-                    }
-                    Book book = bookList.get(i);
-                    book.setBookId(i + 10000l);
-                    book.setPublisher("华章");
-                    log.info("saving book::" + book);
-                    result.append(book).append(" ");
-                }
-                return result.toString();
-            } else {
-                return "";
+        private Books doBatch() throws InterruptedException {
+            Books books = new Books();
+            for (int i = 0; i < 10; i++) {
+                Thread.sleep(500);
+                Book book = new Book(i + 10000l, "Java RESTful Web Services", "华章");
+                log.debug(book);
+                books.getBookList().add(book);
             }
+            return books;
         }
     }
 }

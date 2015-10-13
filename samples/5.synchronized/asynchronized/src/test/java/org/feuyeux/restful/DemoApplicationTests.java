@@ -2,7 +2,6 @@ package org.feuyeux.restful;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.feuyeux.restful.domain.Book;
 import org.feuyeux.restful.domain.Books;
 import org.feuyeux.restful.web.AsyncResource;
 import org.junit.Test;
@@ -18,9 +17,6 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.web.client.RestTemplate;
 
 import javax.ws.rs.client.*;
-import javax.ws.rs.core.MediaType;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
@@ -48,77 +44,50 @@ public class DemoApplicationTests {
         log.info(entity.getBody());
     }
 
+    @Test
+    public void testAsync() throws InterruptedException, ExecutionException {
+        final Invocation.Builder request = target("http://localhost:" + this.port + "/books").request();
+        final AsyncInvoker async = request.async();
+        final Future<Books> responseFuture = async.get(Books.class);
+        log.debug("First response time = " + System.currentTimeMillis());
+        Books result = null;
+        try {
+            result = responseFuture.get(AsyncResource.TIMEOUT + 1, TimeUnit.SECONDS);
+        } catch (TimeoutException e) {
+            log.debug("", e);
+        } finally {
+            log.debug("Second response time = " + System.currentTimeMillis());
+            log.debug(result.getBookList().size());
+        }
+    }
 
     @Test
-    public void testAsyncBatchSave() throws InterruptedException, ExecutionException {
-        List<Book> bookList = new ArrayList<>(COUNT);
-        log.debug("**->Test Batch Save");
+    public void testAsyncCallBack() throws InterruptedException, ExecutionException {
+        final AsyncInvoker async = target("http://localhost:" + this.port + "/books").request().async();
+        final Future<Books> responseFuture = async.get(new InvocationCallback<Books>() {
+            @Override
+            public void completed(Books result) {
+                log.debug("On Completed: " + result.getBookList().size());
+            }
+
+            @Override
+            public void failed(Throwable throwable) {
+                log.debug("On Failed: " + throwable.getMessage());
+                throwable.printStackTrace();
+            }
+        });
+        log.debug("First response time::" + System.currentTimeMillis());
         try {
-            for (int i = 0; i < COUNT; i++) {
-                final Book newBook = new Book(i + "-" + System.nanoTime());
-                bookList.add(newBook);
-            }
-            Books books = new Books(bookList);
-            final Entity<Books> booksEntity = Entity.entity(books, "application/json;charset=UTF-8");
-            final Invocation.Builder request = target("http://localhost:" + this.port + "/books").request();
-            final AsyncInvoker async = request.async();
-            final Future<String> responseFuture = async.post(booksEntity, String.class);
-            log.debug("First response @" + System.currentTimeMillis());
-            String result = null;
-            try {
-                result = responseFuture.get(AsyncResource.TIMEOUT + 1, TimeUnit.SECONDS);
-            } catch (TimeoutException e) {
-                log.debug("%%%% " + e.getMessage());
-            } finally {
-                log.debug("Second response @" + System.currentTimeMillis());
-                log.debug("<<<<<<<<<<< book id array: " + result);
-            }
+            responseFuture.get(AsyncResource.TIMEOUT + 1, TimeUnit.SECONDS);
+        } catch (TimeoutException e) {
+            log.debug("", e);
         } finally {
-            log.debug("<-**Test Batch Save");
+            log.debug("Second response time::" + System.currentTimeMillis());
         }
     }
 
     private WebTarget target(String url) {
         Client client = ClientBuilder.newClient();
         return client.target(url);
-    }
-
-    @Test
-    public void testAsyncBatchSaveCallBack() throws InterruptedException, ExecutionException {
-        List<Book> bookList = new ArrayList<>(COUNT);
-        log.debug("**->Test Batch Save");
-        try {
-            for (int i = 0; i < COUNT; i++) {
-                final Book newBook = new Book(i + "-" + System.nanoTime());
-                bookList.add(newBook);
-            }
-            Books books = new Books(bookList);
-            final Entity<Books> booksEntity = Entity.entity(books, MediaType.APPLICATION_XML_TYPE);
-            final AsyncInvoker async = target("http://localhost:" + this.port + "/books").request().async();
-            final Future<String> responseFuture = async.post(booksEntity, new InvocationCallback<String>() {
-                @Override
-                public void completed(String result) {
-                    log.debug("On Completed: " + result);
-                }
-
-                @Override
-                public void failed(Throwable throwable) {
-                    log.debug("On Failed: " + throwable.getMessage());
-                    throwable.printStackTrace();
-                }
-            });
-            log.debug("First response @" + System.currentTimeMillis());
-            String result = null;
-            try {
-                result = responseFuture.get(AsyncResource.TIMEOUT + 1, TimeUnit.SECONDS);
-            } catch (TimeoutException e) {
-                log.debug("%%%% " + e.getMessage());
-            } finally {
-                log.debug("Second response @" + System.currentTimeMillis());
-                log.debug("<<<<<<<<<<< book id array: " + result);
-            }
-        } finally {
-            log.debug("<-**Test Batch Save");
-        }
     }
 }
