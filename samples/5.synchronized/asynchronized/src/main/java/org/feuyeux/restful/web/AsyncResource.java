@@ -1,6 +1,7 @@
 package org.feuyeux.restful.web;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.feuyeux.restful.domain.Book;
 import org.feuyeux.restful.domain.Books;
 import org.springframework.stereotype.Component;
@@ -18,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 @Path("books")
 @Produces({"application/json;charset=UTF-8", "application/javascript;charset=UTF-8", "text/javascript;charset=UTF-8"})
 public class AsyncResource {
-    private static final Logger log = Logger.getLogger(AsyncResource.class);
+    private static final Logger log = LogManager.getLogger(AsyncResource.class);
     public static final long TIMEOUT = 120;
     final ExecutorService threadPool = Executors.newFixedThreadPool(10);
 
