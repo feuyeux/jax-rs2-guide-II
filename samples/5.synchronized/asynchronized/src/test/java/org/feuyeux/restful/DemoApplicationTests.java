@@ -1,7 +1,7 @@
 package org.feuyeux.restful;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.feuyeux.restful.domain.Books;
 import org.feuyeux.restful.web.AsyncResource;
 import org.junit.Test;
@@ -29,8 +29,7 @@ import static org.junit.Assert.assertEquals;
 @IntegrationTest("server.port=0")
 @WebAppConfiguration
 public class DemoApplicationTests {
-    private static final Log log = LogFactory.getLog(DemoApplicationTests.class);
-    private static final int COUNT = 10;
+    private static final Logger log = LogManager.getLogger(DemoApplicationTests.class);
 
     @Value("${local.server.port}")
     private int port;
@@ -49,15 +48,14 @@ public class DemoApplicationTests {
         final Invocation.Builder request = target("http://localhost:" + this.port + "/books").request();
         final AsyncInvoker async = request.async();
         final Future<Books> responseFuture = async.get(Books.class);
-        log.debug("First response time = " + System.currentTimeMillis());
-        Books result = null;
+        long beginTime = System.currentTimeMillis();
         try {
-            result = responseFuture.get(AsyncResource.TIMEOUT + 1, TimeUnit.SECONDS);
+            Books result = responseFuture.get(AsyncResource.TIMEOUT + 1, TimeUnit.SECONDS);
+            log.debug("Testing result size = {}", result.getBookList().size());
         } catch (TimeoutException e) {
-            log.debug("", e);
+            log.debug("Fail to request asynchronously", e);
         } finally {
-            log.debug("Second response time = " + System.currentTimeMillis());
-            log.debug(result.getBookList().size());
+            log.debug("Elapsed time = {}", System.currentTimeMillis() - beginTime);
         }
     }
 
