@@ -6,3 +6,4 @@
 target
 *.log
 *.out
+.DS_Store
