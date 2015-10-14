@@ -7,3 +7,10 @@ target
 *.log
 *.out
 .DS_Store
+*.class
+*.jar
+*.war
+*.ear
+nb-configuration.xml
+Thumbs.db
+.*~

@@ -8,7 +8,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>demo</name>
+    <name>asynchronized</name>
     <description>Async Demo project for JAX-RS2 Spring Boot Based</description>
 
     <properties>

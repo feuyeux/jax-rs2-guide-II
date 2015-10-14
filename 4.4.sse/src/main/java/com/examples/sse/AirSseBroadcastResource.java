@@ -1,32 +1,25 @@
 package com.examples.sse;
 
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.Executors;
-import java.util.concurrent.LinkedBlockingQueue;
-
-import javax.inject.Singleton;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.DefaultValue;
-import javax.ws.rs.GET;
-import javax.ws.rs.NotFoundException;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.MediaType;
-
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.glassfish.jersey.media.sse.EventOutput;
 import org.glassfish.jersey.media.sse.OutboundEvent;
 import org.glassfish.jersey.media.sse.SseBroadcaster;
 import org.glassfish.jersey.media.sse.SseFeature;
 import org.glassfish.jersey.server.ChunkedOutput;
 
+import javax.inject.Singleton;
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingQueue;
+
 @Singleton
 @Path("broadcast")
 public class AirSseBroadcastResource {
-    private static final Logger LOG = Logger.getLogger(AirSseBroadcastResource.class);
+    private static final Logger log = LogManager.getLogger(AirSseBroadcastResource.class);
     private static final BlockingQueue<BroadcastProcess> processQueue = new LinkedBlockingQueue<>(1);
 
     @Path("book")
@@ -49,11 +42,10 @@ public class AirSseBroadcastResource {
     @Produces(SseFeature.SERVER_SENT_EVENTS)
     @GET
     public EventOutput getBook(@DefaultValue("0") @QueryParam("clientId") int clientId) throws InterruptedException {
-        LOG.info("clientId=" + clientId);
+        log.info("request from client {}", clientId);
         BroadcastProcess broadcastProcess = processQueue.peek();
         if (broadcastProcess != null) {
-            final long countDown = broadcastProcess.countDown();
-            LOG.info("countDown count= " + countDown);
+            broadcastProcess.countDown();
             final EventOutput eventOutput = new EventOutput();
             broadcastProcess.getBroadcaster().add(eventOutput);
             return eventOutput;
@@ -69,14 +61,14 @@ public class AirSseBroadcastResource {
         private final SseBroadcaster broadcaster = new SseBroadcaster() {
             @Override
             public void onException(ChunkedOutput<OutboundEvent> out, Exception e) {
-                LOG.error("SSE Broadcast ERROR", e);
+                log.error("SSE Broadcast ERROR", e);
             }
         };
 
         public BroadcastProcess(int total, String bookName) {
             this.processId = System.nanoTime();
             this.bookName = bookName;
-            LOG.info("initialize BroadcastProcess: process(" + total + ") processId=" + processId + ",bookName=" + bookName);
+            log.info("initialize BroadcastProcess: process({}) processId={},,bookName={}", total, processId, bookName);
             latch = total > 0 ? new CountDownLatch(total) : null;
         }
 
@@ -106,7 +98,7 @@ public class AirSseBroadcastResource {
                 broadcaster.broadcast(event);
                 broadcaster.closeAll();
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                log.error("", e);
             }
         }
     }
