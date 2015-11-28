@@ -4,6 +4,15 @@
 
 [**https://github.com/feuyeux/jax-rs2-guide-II**](https://github.com/feuyeux/jax-rs2-guide-II)
 
+- 1.5.my-first-service
+- 1.5.my-first-webapp
+- 1.6.1.myrest-servlet2-webxml
+- 1.6.2.myrest-servlet3-webxml
+- 1.6.3.myrest-subservlet
+- 1.6.4.myrest-servlet3-application
+- 1.6.5.myrest-servlet2-rc 
+- 1.6.6.myrest-servlet2-application
+- 1.6.7.myrest-servlet3-application
 - [4.2 JAX-RS2的异步机制](4.2.asynchronized)
 - [4.4 基于HTML5的异步通信](4.4.sse)
 
