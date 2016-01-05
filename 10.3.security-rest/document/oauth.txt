@@ -1,0 +1,7 @@
+https://developers.google.com/accounts/docs/OAuth2
+
+Client Id
+443727222204.apps.googleusercontent.com
+Client Secret
+Uui6C_jDXmStcDz_oheXbbaq
+http://localhost:8080/api/oauth2/authorize

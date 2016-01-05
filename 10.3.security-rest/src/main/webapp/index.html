@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Index</title>
+<meta charset="utf-8">
+<style type="text/css">
+body {
+	font: 12px/20px arial, sans-serif;
+}
+</style>
+<script src="webjars/jquery/2.0.3/jquery.js"></script>
+<script src="js/restbook.js"></script>
+</head>
+
+<body>
+ <div id="resultDiv" style="border: 1px solid green;">测试结果</div>
+ <h3>1 查询全部(没有分页功能)</h3>
+ <input id="getButton3" type="button" value="GetAll" onclick="getAllBook();" />
+ 
+ <h3>2 主键查询(query)</h3>
+ <input type="text" id="queryUrl" name="queryUrl" value="/book?id=1" style="width: 200px" />
+ <input id="getButton1" type="button" value="Get By Query" onclick="getBookByQuery();" />
+ 
+ <h3>3 主键查询(path)</h3>
+ <input type="text" id="pathUrl" name="pathUrl" value="/1" style="width: 200px" />
+ <input id="getButton2" type="button" value="Get By Path" onclick="getBookByPath();" />
+ 
+ <h3>4 更新</h3>
+ <div>
+  <p>
+   book Id: <input type="text" id="bookId0" name="bookId0" />
+   book name: <input type="text" id="bookName0" name="bookName0" />
+   publisher: <input type="text" id="publisher0" name="publisher0" />
+  </p>
+  <p>
+   data format:
+   <input id="jsonRadio0" type="radio" name="updateRadio" value="application/json" checked="checked"/>json
+   <input id="xmlRadio0" type="radio"  name="updateRadio" value="application/xml"/>xml
+  </p>
+   <input id="putButton" type="button" value="Update" onclick="putBook();" />
+ </div>
+ 
+ <h3>5 删除</h3>
+  <div>
+  <input type="text" id="delUrl" name="delUrl" value="/1" style="width: 200px" />
+   <input id="deleteButton" type="button" value="Delete" onclick="deleteBook();" />
+ </div>
+ 
+ <h3>6 新增</h3>
+ <div>
+  <p>
+   book name: <input type="text" id="bookName" name="bookName" />
+   publisher: <input type="text" id="publisher" name="publisher" />
+  </p>
+  
+  <p>
+   data format:
+   <input id="jsonRadio" type="radio" name="saveRadio" value="application/json" checked="checked"/>json
+   <input id="xmlRadio" type="radio"  name="saveRadio" value="application/xml"/>xml
+  </p>
+  <input id="createButton" type="button" value="Create" onclick="postBook();" />
+ </div>
+</body>
+</html>

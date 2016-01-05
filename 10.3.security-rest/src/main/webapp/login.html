@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+<meta charset="utf-8">
+<style type="text/css">
+body {
+	font: 12px/20px arial, sans-serif;
+	margin-left:30px;
+	margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+	<form action="j_security_check">
+		<div>
+			<span>User Name</span>
+			<input id="j_username" name="j_username" type="text" />
+		</div>
+		<div style="margin-top:10px;margin-bottom:10px;">
+			<span>Pass Word</span>
+			<input id="j_password" name="j_password" type="password" />
+		</div>
+		<input type="submit" value="Sign In" />
+	</form>
+</body>
+</html>

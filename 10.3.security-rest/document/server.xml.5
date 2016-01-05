@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Server port="8005" shutdown="SHUTDOWN">
+	<Listener SSLEngine="on"
+		className="org.apache.catalina.core.AprLifecycleListener" />
+	<Listener className="org.apache.catalina.core.JasperListener" />
+	<Listener className="org.apache.catalina.core.JreMemoryLeakPreventionListener" />
+	<Listener className="org.apache.catalina.mbeans.GlobalResourcesLifecycleListener" />
+	<Listener className="org.apache.catalina.core.ThreadLocalLeakPreventionListener" />
+
+	<GlobalNamingResources>
+		<Resource auth="Container" description="User database that can be updated and saved"
+			factory="org.apache.catalina.users.MemoryUserDatabaseFactory" name="tom"
+			pathname="conf/tomcat-users.xml" type="org.apache.catalina.UserDatabase" />
+	</GlobalNamingResources>
+
+	<Service name="Catalina">
+		<Connector clientAuth="true" port="8443" minSpareThreads="5"
+			maxSpareThreads="75" enableLookups="true" disableUploadTimeout="true"
+			acceptCount="100" maxThreads="200" scheme="https" secure="true"
+			SSLEnabled="true"
+			keystoreFile="D:\-aries\github\jax-rs2-guide\sample\6\security-rest\keystore\restServer.keystore"
+			keystoreType="JKS" keystorePass="restful"
+			truststoreFile="D:\-aries\github\jax-rs2-guide\sample\6\security-rest\keystore\restServer.keystore"
+			truststoreType="JKS" truststorePass="restful" SSLVerifyClient="require"
+			SSLEngine="on" sslProtocol="TLS" />
+
+		<Engine defaultHost="localhost" name="Catalina">
+
+			<Realm className="org.apache.catalina.realm.UserDatabaseRealm"
+				resourceName="tom" />
+
+			<Host appBase="webapps" autoDeploy="true" name="localhost"
+				unpackWARs="true">
+				<Context docBase="security-rest" path="/security-rest"
+					reloadable="true" source="org.eclipse.jst.j2ee.server:security-rest" />
+			</Host>
+		</Engine>
+	</Service>
+</Server>

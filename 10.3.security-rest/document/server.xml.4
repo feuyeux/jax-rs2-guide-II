@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Server port="8005" shutdown="SHUTDOWN">
+	<Listener SSLEngine="on" className="org.apache.catalina.core.AprLifecycleListener" />
+	<Listener className="org.apache.catalina.core.JasperListener" />
+	<Listener className="org.apache.catalina.core.JreMemoryLeakPreventionListener" />
+	<Listener className="org.apache.catalina.mbeans.GlobalResourcesLifecycleListener" />
+	<Listener className="org.apache.catalina.core.ThreadLocalLeakPreventionListener" />
+
+	<Service name="Catalina">
+		<Connector connectionTimeout="20000" port="8080" protocol="HTTP/1.1"
+			redirectPort="8443" />
+		<Engine defaultHost="localhost" name="Catalina">
+			<Host appBase="webapps" autoDeploy="true" name="localhost" unpackWARs="true">
+				<Context docBase="security-rest" path="/security-rest" reloadable="true"
+					source="org.eclipse.jst.j2ee.server:security-rest">
+					<Realm className="org.apache.catalina.realm.JAASRealm" appName="RestJaasRealm"
+						roleClassNames="com.example.jaas.RestRolePrincipal" userClassNames="com.example.jaas.RestUserPrincipal" />
+				</Context>
+			</Host>
+		</Engine>
+	</Service>
+</Server>

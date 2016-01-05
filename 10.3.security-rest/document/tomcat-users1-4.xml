@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tomcat-users>
+    <role rolename="admin" />
+    <role rolename="user" />
+    <user username="CN=mars64, OU=Rest, O=JaxRs2, L=HaiDian, ST=Beijing, C=China" password="null" roles="admin"/>
+	<user username="CN=mars64, OU=Rest, O=JaxRs2, L=HuangGu, ST=Shenyang, C=China" password="null" roles="user"/>
+</tomcat-users>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

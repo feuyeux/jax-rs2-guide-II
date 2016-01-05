@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Server port="8005" shutdown="SHUTDOWN">
+	<Listener SSLEngine="on" className="org.apache.catalina.core.AprLifecycleListener" />
+	<Listener className="org.apache.catalina.core.JasperListener" />
+	<Listener className="org.apache.catalina.core.JreMemoryLeakPreventionListener" />
+	<Listener className="org.apache.catalina.mbeans.GlobalResourcesLifecycleListener" />
+	<Listener className="org.apache.catalina.core.ThreadLocalLeakPreventionListener" />
+
+	<Service name="Catalina">
+		<Connector connectionTimeout="20000" port="8080" protocol="HTTP/1.1"
+			redirectPort="8443" />
+		<Engine defaultHost="localhost" name="Catalina">
+
+			<Realm className="org.apache.catalina.realm.JDBCRealm" driverName="org.gjt.mm.mysql.Driver"
+				connectionURL="jdbc:mysql://localhost:3306/simple_service_book?user=root&amp;password=root"
+				userTable="users" userNameCol="user_name" userCredCol="user_pass"
+				userRoleTable="user_roles" roleNameCol="role_name" />
+
+			<Host appBase="webapps" autoDeploy="true" name="localhost" unpackWARs="true">
+				<Context docBase="security-rest" path="/security-rest" reloadable="true"
+					source="org.eclipse.jst.j2ee.server:security-rest" />
+			</Host>
+		</Engine>
+	</Service>
+</Server>
