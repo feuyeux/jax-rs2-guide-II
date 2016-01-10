@@ -1,0 +1,29 @@
+D:\-aries\github\jax-rs2-guide\sample\3\2simple-service-jackson>curl http://localhost:8080/simple-service-jackson/api/books
+{
+  "bookList" : [ {
+    "bookId" : 1,
+    "bookName" : "Java Restful Web Services实战",
+    "publisher" : null
+  }, {
+    "bookId" : 2,
+    "bookName" : "Java EE 7 精髓",
+    "publisher" : null
+  } ]
+}
+
+curl http://localhost:8080/simple-service-jackson/api/books/emptybook
+{
+  "chapters" : [ ],
+  "bookId" : "1",
+  "bookName" : "Java Restful Web Services实战"
+}
+
+curl http://localhost:8080/simple-service-jackson/api/books/hybirdbook
+{"bookId":"2","bookName":"Java Restful Web Services实战"}
+
+curl http://localhost:8080/simple-service-jackson/api/books/nojaxbbook
+{
+  "chapters" : [ ],
+  "bookId" : "3",
+  "bookName" : "Java Restful Web Services实战"
+}

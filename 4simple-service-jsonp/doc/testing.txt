@@ -1,0 +1,28 @@
+curl http://localhost:8080/simple-service-jsonp/api/books
+[
+    {
+        "bookId":1,
+        "bookName":"JSF和Richfaces实战",
+        "publisher":"电子·博文"
+    },
+    {
+        "bookId":2,
+        "bookName":"Java Restful Web Services实战",
+        "publisher":"机工·华章"
+    }
+]
+
+curl http://localhost:8080/simple-service-jsonp/api/books/book?id=2
+{
+    "bookId":2,
+    "bookName":"Java Restful Web Services实战",
+    "publisher":"机工·华章"
+}
+
+curl -H "Content-Type: application/json" -X POST -d "{\"bookName\":\"abc\",\"publisher\":\"me\"}" http://localhost:8080/simple-service-jsonp/api/books
+
+{
+    "bookId":12447994371104,
+    "bookName":"abc",
+    "publisher":"me"
+}
