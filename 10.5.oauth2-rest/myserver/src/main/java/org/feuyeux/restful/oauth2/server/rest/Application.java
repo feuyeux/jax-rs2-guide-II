@@ -6,6 +6,6 @@ public class Application extends ResourceConfig {
 
     public Application() {
         register(JerseyResource.class);
-        register(ConferenceService.class);
+        register(RestService.class);
     }
 }

@@ -1,21 +1,17 @@
 <%@ page import="org.springframework.security.core.AuthenticationException" %>
-<%@ page import="org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter" %>
 <%@ page import="org.springframework.security.oauth2.common.exceptions.UnapprovedClientAuthenticationException" %>
+<%@ page import="org.springframework.security.web.WebAttributes" %>
 <%@ taglib prefix="authz" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
-<html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Server</title>
-    <link type="text/css" rel="stylesheet"
-          href="../webjars/bootstrap/3.0.3/css/bootstrap.min.css"/>
-    <script type="text/javascript"
-            src="../webjars/jquery/1.9.0/jquery.min.js"></script>
-    <script type="text/javascript"
-            src="../webjars/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="../webjars/bootstrap/3.0.3/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="../webjars/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript" src="../webjars/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -23,17 +19,15 @@
 <div class="container">
     <h1>Server</h1>
     <%
-        if (session.getAttribute(AbstractAuthenticationProcessingFilter.SPRING_SECURITY_LAST_EXCEPTION_KEY) != null
-                && !(session
-                .getAttribute(AbstractAuthenticationProcessingFilter.SPRING_SECURITY_LAST_EXCEPTION_KEY) instanceof UnapprovedClientAuthenticationException)) {
+        if (session.getAttribute(WebAttributes.AUTHENTICATION_EXCEPTION) != null
+                && !(session.getAttribute(WebAttributes.AUTHENTICATION_EXCEPTION)
+                instanceof UnapprovedClientAuthenticationException)) {
     %>
     <div class="error">
         <h2>Woops!</h2>
-
         <p>
-            Access could not be granted. (<%=((AuthenticationException) session
-                .getAttribute(AbstractAuthenticationProcessingFilter.SPRING_SECURITY_LAST_EXCEPTION_KEY))
-                .getMessage()%>)
+            Access could not be granted.
+            (<%=((AuthenticationException) session.getAttribute(WebAttributes.AUTHENTICATION_EXCEPTION)).getMessage()%>)
         </p>
     </div>
     <%
