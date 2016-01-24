@@ -25,7 +25,7 @@ public class RestService {
 
     @GET
     @Path("/tarots")
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
     public List<Map<String, String>> getTarots() {
         return tarots;
     }

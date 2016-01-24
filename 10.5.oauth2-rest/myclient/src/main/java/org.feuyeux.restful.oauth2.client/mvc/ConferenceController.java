@@ -10,6 +10,9 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.core.MediaType;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.ByteArrayInputStream;
@@ -34,19 +37,12 @@ public class ConferenceController {
     @RequestMapping("/myserver/tarots")
     public String getTarots(Model model) throws Exception {
         try {
-            InputStream photosXML = new ByteArrayInputStream(restTemplate.getForObject(
-                    URI.create(tarotsListURL), byte[].class));
-
-            List<Speaker> speakers = new ArrayList<Speaker>();
-            SAXParserFactory parserFactory = SAXParserFactory.newInstance();
-            SAXParser parser = parserFactory.newSAXParser();
-            parser.parse(photosXML, parserSpeaker(speakers));
-
-            model.addAttribute("tarots", speakers);
-
+            Client client = ClientBuilder.newClient();
+            List list = client.target(tarotsListURL).request(MediaType.APPLICATION_JSON).get(List.class);
             return "tarots";
         } catch (Exception e) {
             throw new IllegalStateException(e);
+            //return null;
         }
     }
 
@@ -89,12 +85,12 @@ public class ConferenceController {
     }
 
 
-	@RequestMapping("/myserver/trusted/message")
-	public String trusted(Model model) throws Exception {
+    @RequestMapping("/myserver/trusted/message")
+    public String trusted(Model model) throws Exception {
         String message = trustedClientRestTemplate.getForObject(URI.create(trustedMessageURL), String.class);
-		model.addAttribute("message", message);
-		return "message";
-	}
+        model.addAttribute("message", message);
+        return "message";
+    }
 
     @RequestMapping("/myserver/test")
     public String test(Model model) throws Exception {
@@ -113,6 +109,26 @@ public class ConferenceController {
 
     public void setUnprotectedRestTemplate(RestOperations unprotectedRestTemplate) {
         this.unprotectedRestTemplate = unprotectedRestTemplate;
+    }
+
+    private DefaultHandler parserTarot(final List<Speaker> tarots) throws Exception {
+        return new DefaultHandler() {
+            @Override
+            public void startElement(String uri, String localName, String qName, Attributes attributes)
+                    throws SAXException {
+                if ("map".equals(qName)) {
+                    Speaker speaker = new Speaker();
+                    speaker.setId(new Long(attributes.getValue("id")));
+                    speaker.setName(attributes.getValue("name"));
+                    speaker.setCompany(attributes.getValue("company"));
+                    speaker.setPhotoUri(attributes.getValue("photoUri"));
+                    speaker.setTitle(attributes.getValue("title"));
+                    speaker.setTwitter(attributes.getValue("twitter"));
+                    speaker.setBio(attributes.getValue("bio"));
+                    tarots.add(speaker);
+                }
+            }
+        };
     }
 
     private DefaultHandler parserSpeaker(final List<Speaker> speakers) throws Exception {
