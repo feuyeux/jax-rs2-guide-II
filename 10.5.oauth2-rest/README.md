@@ -1,5 +1,21 @@
-rest-oauth2-sample
+oauth2-rest
 ==================
 
-### Presentation Slides
-http://www.slideshare.net/rcandidosilva/javaone-2014-securing-restful-resources-with-oauth2
+## start server and client
+```
+ mvn clean install -DskipTests && cd myclient && mvn tomcat:run
+```
+
+
+## access list from client
+
+```
+http://localhost:8080/myclient/
+```
+
+## rest resources on server
+
+```
+http://localhost:8080/myserver/rest/hello
+http://localhost:8080/myserver/rest/tarots
+```

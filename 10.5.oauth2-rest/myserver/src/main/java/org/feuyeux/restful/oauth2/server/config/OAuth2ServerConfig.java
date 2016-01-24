@@ -31,6 +31,7 @@ public class OAuth2ServerConfig {
         protected void configure(HttpSecurity http) throws Exception {
             http.requestMatchers().antMatchers("/rest/**")
             .and().authorizeRequests()
+                .antMatchers("/rest/tarots").access("hasRole('ROLE_USER')")
                 .antMatchers("/rest/speakers").access("hasRole('ROLE_USER')")
                 .antMatchers("/rest/test").access("hasRole('ROLE_USER')")
                 .antMatchers("/rest/trusted/**").access("hasRole('ROLE_USER')");

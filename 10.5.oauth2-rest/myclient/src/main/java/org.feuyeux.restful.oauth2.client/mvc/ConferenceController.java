@@ -21,6 +21,7 @@ import java.util.List;
 @Controller
 public class ConferenceController {
 
+    private String tarotsListURL = "http://localhost:8080/myserver/rest/tarots";
     private String speakersListURL = "http://localhost:8080/myserver/rest/speakers";
     private String sessionsListURL = "http://localhost:8080/myserver/rest/sessions";
     private String trustedMessageURL = "http://localhost:8080/myserver/rest/trusted/message";
@@ -29,6 +30,25 @@ public class ConferenceController {
     private RestOperations restTemplate;
     private RestOperations trustedClientRestTemplate;
     private RestOperations unprotectedRestTemplate;
+
+    @RequestMapping("/myserver/tarots")
+    public String getTarots(Model model) throws Exception {
+        try {
+            InputStream photosXML = new ByteArrayInputStream(restTemplate.getForObject(
+                    URI.create(tarotsListURL), byte[].class));
+
+            List<Speaker> speakers = new ArrayList<Speaker>();
+            SAXParserFactory parserFactory = SAXParserFactory.newInstance();
+            SAXParser parser = parserFactory.newSAXParser();
+            parser.parse(photosXML, parserSpeaker(speakers));
+
+            model.addAttribute("tarots", speakers);
+
+            return "tarots";
+        } catch (Exception e) {
+            throw new IllegalStateException(e);
+        }
+    }
 
     @RequestMapping("/myserver/speakers")
     public String getSpeakers(Model model) throws Exception {
