@@ -38,7 +38,7 @@
                 <bean class="org.springframework.security.oauth2.provider.vote.ScopeVoter"/>
                 <bean class="org.springframework.security.access.vote.AuthenticatedVoter"/>
                 <bean class="org.springframework.security.web.access.expression.WebExpressionVoter">
-                    <property name="expressionHandler" ref="oauthWebExpressionHandler" />
+                    <property name="expressionHandler" ref="oauthWebExpressionHandler"/>
                 </bean>
             </list>
         </constructor-arg>
@@ -70,7 +70,8 @@
         <property name="tokenStore" ref="tokenStore"/>
     </bean>
 
-    <bean id="userApprovalHandler" class="org.springframework.security.oauth2.provider.approval.ApprovalStoreUserApprovalHandler">
+    <bean id="userApprovalHandler"
+          class="org.springframework.security.oauth2.provider.approval.ApprovalStoreUserApprovalHandler">
         <property name="approvalStore" ref="approvalStore"/>
         <property name="clientDetailsService" ref="clientDetails"/>
         <property name="requestFactory">
@@ -150,8 +151,8 @@
     <mvc:default-servlet-handler/>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/jsp/" />
-        <property name="suffix" value=".jsp" />
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
     </bean>
 
 </beans>

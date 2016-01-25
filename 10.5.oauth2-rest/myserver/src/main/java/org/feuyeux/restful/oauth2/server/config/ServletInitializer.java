@@ -1,7 +1,6 @@
 package org.feuyeux.restful.oauth2.server.config;
 
 import org.feuyeux.restful.oauth2.server.rest.Application;
-import org.feuyeux.restful.oauth2.server.rest.Application;
 import org.glassfish.jersey.servlet.ServletContainer;
 import org.springframework.util.ClassUtils;
 import org.springframework.web.context.WebApplicationContext;

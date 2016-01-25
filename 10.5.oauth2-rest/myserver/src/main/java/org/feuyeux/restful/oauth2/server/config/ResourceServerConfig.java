@@ -21,16 +21,16 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http.requestMatchers().antMatchers("/rest/**", "/oauth/users/**", "/oauth/clients/**")
-        .and().authorizeRequests()
-            .antMatchers("/rest/tarots").access("#oauth2.hasScope('read')")
-            .antMatchers("/rest/speakers").access("#oauth2.hasScope('read')")
-            .antMatchers("/rest/test").access("#oauth2.hasScope('read')")
-            .antMatchers("/rest/trusted/**").access("#oauth2.hasScope('trust')")
+                .and().authorizeRequests()
+                .antMatchers("/rest/tarots").access("#oauth2.hasScope('read')")
+                .antMatchers("/rest/speakers").access("#oauth2.hasScope('read')")
+                .antMatchers("/rest/test").access("#oauth2.hasScope('read')")
+                .antMatchers("/rest/trusted/**").access("#oauth2.hasScope('trust')")
                 .regexMatchers(HttpMethod.DELETE, "/oauth/users/([^/].*?)/tokens/.*")
                 .access("#oauth2.clientHasRole('ROLE_CLIENT') " +
                         "and (hasRole('ROLE_USER') " +
                         "or #oauth2.isClient()) and #oauth2.hasScope('write')")
-            .regexMatchers(HttpMethod.GET, "/oauth/clients/.*")
+                .regexMatchers(HttpMethod.GET, "/oauth/clients/.*")
                 .access("#oauth2.clientHasRole('ROLE_CLIENT') " +
                         "and #oauth2.isClient() " +
                         "and #oauth2.hasScope('read')");

@@ -10,9 +10,6 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.core.MediaType;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.ByteArrayInputStream;
@@ -37,8 +34,7 @@ public class ConferenceController {
     @RequestMapping("/myserver/tarots")
     public String getTarots(Model model) throws Exception {
         try {
-            Client client = ClientBuilder.newClient();
-            List list = client.target(tarotsListURL).request(MediaType.APPLICATION_JSON).get(List.class);
+            String message = restTemplate.getForObject(URI.create(tarotsListURL), String.class);
             return "tarots";
         } catch (Exception e) {
             throw new IllegalStateException(e);
@@ -69,7 +65,8 @@ public class ConferenceController {
     public String getSessions(Model model) throws Exception {
         try {
             InputStream photosXML = new ByteArrayInputStream(unprotectedRestTemplate.getForObject(
-                    URI.create(sessionsListURL), byte[].class));
+                    URI.create(sessionsListURL), byte[].class)
+            );
 
             List<Session> sessions = new ArrayList<Session>();
             SAXParserFactory parserFactory = SAXParserFactory.newInstance();

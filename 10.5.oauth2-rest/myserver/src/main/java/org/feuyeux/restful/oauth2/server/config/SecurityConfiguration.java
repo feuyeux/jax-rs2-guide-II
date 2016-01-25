@@ -17,9 +17,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
-            .inMemoryAuthentication()
+                .inMemoryAuthentication()
                 .withUser("duke").password("java").roles("USER")
-            .and()
+                .and()
                 .withUser("rodrigo").password("123456").roles("USER");
     }
 
@@ -38,20 +38,20 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers("/login.jsp").permitAll().and()
-            .authorizeRequests()
+                .authorizeRequests()
                 .anyRequest().hasRole("USER")
                 .and()
-            .exceptionHandling()
+                .exceptionHandling()
                 .accessDeniedPage("/login.jsp?authorization_error=true")
                 .and()
-            .csrf()
+                .csrf()
                 .requireCsrfProtectionMatcher(
                         new AntPathRequestMatcher("/oauth/authorize")).disable()
-            .logout()
+                .logout()
                 .logoutSuccessUrl("/index.jsp")
                 .logoutUrl("/logout.do")
                 .and()
-            .formLogin()
+                .formLogin()
                 .usernameParameter("j_username")
                 .passwordParameter("j_password")
                 .failureUrl("/login.jsp?authentication_error=true")
