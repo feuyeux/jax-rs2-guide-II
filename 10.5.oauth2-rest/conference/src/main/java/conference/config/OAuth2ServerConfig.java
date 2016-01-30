@@ -30,7 +30,7 @@ public class OAuth2ServerConfig {
         protected void configure(HttpSecurity http) throws Exception {
             http.requestMatchers().antMatchers("/rest/**")
                     .and().authorizeRequests()
-                    .antMatchers("/rest/tarots").access("hasRole('ROLE_USER')");
+                    .antMatchers("/rest/tarots").access("hasRole('ROLE_KING')");
         }
     }
 
@@ -53,5 +53,4 @@ public class OAuth2ServerConfig {
         handler.setUseApprovalStore(true);
         return handler;
     }
-
 }

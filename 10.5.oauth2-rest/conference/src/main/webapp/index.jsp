@@ -14,7 +14,7 @@
 
 <div class="container">
     <h1>Resource Server</h1>
-    <authz:authorize ifAllGranted="ROLE_USER">
+    <authz:authorize ifAllGranted="ROLE_KING">
         <div class="form-horizontal">
             <form action="<c:url value="/logout.do"/>" role="form">
                 <button class="btn btn-primary" type="submit">Logout</button>

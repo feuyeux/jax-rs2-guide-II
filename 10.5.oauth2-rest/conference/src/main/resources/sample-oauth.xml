@@ -17,7 +17,7 @@
         <sec:intercept-url pattern="/res/condutor" access="#oauth2.hasScope('read')"/>
         <sec:intercept-url pattern="/res/logradouro" access="hasRole('ROLE_ADMIN')"/>
         <sec:intercept-url pattern="/res/veiculo" access="hasRole('ROLE_ADMIN')"/>
-        <sec:intercept-url pattern="/res/infracao" access="hasRole('ROLE_USER')"/>
+        <sec:intercept-url pattern="/res/infracao" access="hasRole('ROLE_KING')"/>
         <sec:custom-filter ref="resourceServerFilter" before="PRE_AUTH_FILTER"/>
         <sec:access-denied-handler ref="oauthAccessDeniedHandler"/>
         <sec:expression-handler ref="oauthWebExpressionHandler"/>
@@ -154,5 +154,4 @@
         <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
-
 </beans>

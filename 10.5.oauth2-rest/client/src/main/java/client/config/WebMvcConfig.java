@@ -39,6 +39,10 @@ import java.util.List;
 @EnableWebMvc
 @PropertySource("classpath:client.properties")
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
+    @Override
+    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+        configurer.enable();
+    }
 
     @Bean
     public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
@@ -61,11 +65,6 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
         viewResolver.setPrefix("/WEB-INF/jsp/");
         viewResolver.setSuffix(".jsp");
         return viewResolver;
-    }
-
-    @Override
-    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
-        configurer.enable();
     }
 
     @Bean
@@ -94,7 +93,6 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
     @Configuration
     @EnableOAuth2Client
     protected static class ResourceConfiguration {
-
         @Value("${accessTokenUri}")
         private String accessTokenUri;
 

@@ -1,6 +1,6 @@
 package conference.config;
 
-import conference.oauth.AccessConfirmationController;
+import conference.oauth.ConfirmController;
 import conference.oauth.AdminController;
 import conference.oauth.UserApprovalHandler;
 import org.springframework.context.annotation.Bean;
@@ -52,13 +52,12 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
     }
 
     @Bean
-    public AccessConfirmationController accessConfirmationController(ClientDetailsService clientDetailsService, ApprovalStore approvalStore) {
-        AccessConfirmationController accessConfirmationController = new AccessConfirmationController();
+    public ConfirmController accessConfirmController(ClientDetailsService clientDetailsService, ApprovalStore approvalStore) {
+        ConfirmController accessConfirmationController = new ConfirmController();
         accessConfirmationController.setClientDetailsService(clientDetailsService);
         accessConfirmationController.setApprovalStore(approvalStore);
         return accessConfirmationController;
     }
-
 
     @Bean
     public AdminController adminController(TokenStore tokenStore, ConsumerTokenServices consumerTokenServices,

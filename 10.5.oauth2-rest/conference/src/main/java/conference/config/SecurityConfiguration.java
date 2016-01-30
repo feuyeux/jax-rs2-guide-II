@@ -17,9 +17,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-                .withUser("duke").password("java").roles("USER")
+                .withUser("duke").password("java").roles("KING")
                 .and()
-                .withUser("rodrigo").password("123456").roles("USER");
+                .withUser("rodrigo").password("123456").roles("KING");
     }
 
     @Override
@@ -37,7 +37,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers("/login.jsp").permitAll().and()
                 .authorizeRequests()
-                .anyRequest().hasRole("USER")
+                .anyRequest().hasRole("KING")
                 .and()
                 .exceptionHandling()
                 .accessDeniedPage("/login.jsp?authorization_error=true")
