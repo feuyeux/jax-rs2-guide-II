@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @XmlRootElement
-public class Tarots implements Serializable{
+public class Tarots implements Serializable {
     private List<Tarot> tarotList;
 
     @XmlElement(name = "tarot")

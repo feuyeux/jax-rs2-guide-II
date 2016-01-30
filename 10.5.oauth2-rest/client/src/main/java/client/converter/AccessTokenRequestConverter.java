@@ -10,7 +10,7 @@ import java.util.Set;
 
 public class AccessTokenRequestConverter implements GenericConverter {
 
-    private Set<ConvertiblePair> convertibleTypes = new HashSet<ConvertiblePair>(
+    private final Set<ConvertiblePair> convertibleTypes = new HashSet<>(
             Arrays.asList(new ConvertiblePair(AccessTokenRequest.class, AccessTokenRequest.class)));
 
     public Set<ConvertiblePair> getConvertibleTypes() {

@@ -69,7 +69,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
     }
 
     @Bean
-    public ClientController conferenceController(@Qualifier("conferenceRestTemplate") RestOperations restTemplate) {
+    public ClientController tarotController(@Qualifier("tarotRestTemplate") RestOperations restTemplate) {
         ClientController controller = new ClientController();
         controller.setRestTemplate(restTemplate);
         return controller;
@@ -119,7 +119,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
         @Bean
         @Scope(value = "session", proxyMode = ScopedProxyMode.INTERFACES)
-        public OAuth2RestTemplate conferenceRestTemplate() {
+        public OAuth2RestTemplate tarotRestTemplate() {
             return new OAuth2RestTemplate(conference(), new DefaultOAuth2ClientContext(accessTokenRequest));
         }
     }

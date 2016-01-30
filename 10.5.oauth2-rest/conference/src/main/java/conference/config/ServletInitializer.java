@@ -13,7 +13,6 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
 public class ServletInitializer extends AbstractDispatcherServletInitializer {
-
     @Override
     protected WebApplicationContext createServletApplicationContext() {
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
