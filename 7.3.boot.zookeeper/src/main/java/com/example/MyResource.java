@@ -1,0 +1,40 @@
+package com.example;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.stereotype.Component;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import java.util.List;
+
+/**
+ * Created by erichan
+ * on 16/2/10.
+ */
+@Component
+@Path("/")
+public class MyResource {
+    @Autowired
+    private DiscoveryClient discovery;
+    @Value("${spring.application.name:bootZookeeper}")
+    private String appName;
+
+    @Path("hi")
+    @GET
+    public String hi() {
+        return "Hello World! from " + discovery.getLocalServiceInstance();
+    }
+
+    @Path("ss")
+    @GET
+    @Produces("application/json")
+    public List<ServiceInstance> getServices() {
+        return discovery.getInstances(appName);
+    }
+}
+
