@@ -23,7 +23,6 @@ import javax.ws.rs.Path;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients
 public class BootZookeeperApplication {
     public static void main(String[] args) {
         SpringApplication.run(BootZookeeperApplication.class, args);

@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
 import java.util.List;
 
 /**
@@ -27,10 +26,23 @@ public class MyResource {
     @Path("hi")
     @GET
     public String hi() {
-        return "Hello World! from " + discovery.getLocalServiceInstance();
+        ServiceInstance serviceInstance = discovery.getLocalServiceInstance();
+        return serviceInstance.getHost() + ":" + serviceInstance.getPort();
     }
 
-    @Path("ss")
+    @Path("hi2")
+    @GET
+    public String hi2() {
+        List<ServiceInstance> serviceInstances = getServices();
+        StringBuilder result = new StringBuilder();
+        for(ServiceInstance serviceInstance:serviceInstances){
+            result.append(serviceInstance.getHost()).append(":").append(serviceInstance.getPort())
+                    .append(";").append(System.getProperty("line.separator"));
+        }
+        return result.toString();
+    }
+
+    @Path("all")
     @GET
     @Produces("application/json")
     public List<ServiceInstance> getServices() {
