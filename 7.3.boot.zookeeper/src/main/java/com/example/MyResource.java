@@ -34,10 +34,9 @@ public class MyResource {
     @GET
     public String hi2() {
         List<ServiceInstance> serviceInstances = getServices();
-        StringBuilder result = new StringBuilder();
-        for(ServiceInstance serviceInstance:serviceInstances){
-            result.append(serviceInstance.getHost()).append(":").append(serviceInstance.getPort())
-                    .append(";").append(System.getProperty("line.separator"));
+        StringBuilder result = new StringBuilder("        ");
+        for (ServiceInstance s : serviceInstances) {
+            result.append("server ").append(s.getHost()).append(":").append(s.getPort()).append(";");
         }
         return result.toString();
     }
