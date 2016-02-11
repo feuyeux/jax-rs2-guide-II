@@ -20,6 +20,7 @@ import java.util.List;
 public class MyResource {
     @Autowired
     private DiscoveryClient discovery;
+
     @Value("${spring.application.name:bootZookeeper}")
     private String appName;
 
