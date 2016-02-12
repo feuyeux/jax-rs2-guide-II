@@ -17,7 +17,7 @@ public class MyResource {
     @Autowired
     private DiscoveryClient discovery;
 
-    @Value("${spring.application.name:bootZookeeper}")
+    @Value("${spring.application.name:bootConsul}")
     private String appName;
 
     @Path("hi")
@@ -43,6 +43,12 @@ public class MyResource {
     @Produces("application/json")
     public List<ServiceInstance> getServices() {
         return discovery.getInstances(appName);
+    }
+
+    @Path("health")
+    @GET
+    public String health() {
+        return "OK";
     }
 }
 
