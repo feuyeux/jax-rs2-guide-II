@@ -1,8 +1,6 @@
 package com.example;
 
 import kafka.utils.ShutdownableThread;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
@@ -19,8 +17,6 @@ import java.util.Properties;
 @Service
 public class EagleService extends ShutdownableThread {
     private KafkaConsumer<String, String> consumer;
-    @Value("${zkConnect}")
-    private String zkConnect;
     @Value("${group}")
     private String group;
     @Value("${topic}")
@@ -38,7 +34,7 @@ public class EagleService extends ShutdownableThread {
     }
 
     @PostConstruct
-            public void init(){
+    public void init() {
         Properties props = new Properties();
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaServerList);
         props.put(ConsumerConfig.GROUP_ID_CONFIG, group);

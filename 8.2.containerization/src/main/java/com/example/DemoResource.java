@@ -1,8 +1,6 @@
 package com.example;
 
-import org.springframework.cache.annotation.CacheConfig;
-import org.springframework.cache.annotation.Cacheable;
-import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -12,9 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Path("hi")
-@EnableCaching
-@CacheConfig(cacheNames = "saying")
 public class DemoResource {
+    @Autowired
+    private CacheComponent cacheComponent;
+
     @GET
     @Produces("application/json")
     public List<String> hi() {
@@ -26,8 +25,7 @@ public class DemoResource {
 
     @GET
     @Path("{v}")
-    @Cacheable()
     public String hi2(@PathParam("v") String v) {
-        return v + "-" + System.nanoTime();
+        return cacheComponent.hi(v);
     }
 }
