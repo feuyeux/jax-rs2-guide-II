@@ -1,0 +1,8 @@
+app:
+  image: feuyeux/spring-boot-docker
+  links:
+    - redis
+redis:
+  image: index.tenxcloud.com/tenxcloud/redis
+  ports:
+    - "6379:6379"
