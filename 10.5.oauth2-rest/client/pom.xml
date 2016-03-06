@@ -4,18 +4,30 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>demo</groupId>
+        <groupId>org.feuyeux.restful</groupId>
         <artifactId>oauth2</artifactId>
         <version>1.0.0</version>
     </parent>
 
     <artifactId>client</artifactId>
     <packaging>war</packaging>
-    <name>Client</name>
-
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>9.3.5.v20151012</version>
+                <configuration>
+                    <httpConnector>
+                        <port>9999</port>
+                    </httpConnector>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
     <dependencies>
         <dependency>
-            <groupId>demo</groupId>
+            <groupId>org.feuyeux.restful</groupId>
             <artifactId>common</artifactId>
             <version>${project.version}</version>
         </dependency>

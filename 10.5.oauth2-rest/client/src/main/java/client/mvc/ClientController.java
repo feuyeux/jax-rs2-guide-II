@@ -12,7 +12,7 @@ import java.net.URI;
 @Controller
 public class ClientController {
 
-    private static final String tarotsUrl = "http://localhost:8080/conference/rest/tarots";
+    private static final String tarotsUrl = "http://localhost:8080/server/rest/tarots";
 
     private RestOperations restTemplate;
 
@@ -20,7 +20,7 @@ public class ClientController {
         this.restTemplate = restTemplate;
     }
 
-    @RequestMapping("/conference/tarots")
+    @RequestMapping("/tarots")
     public String getTarots(Model model) throws Exception {
         try {
             Tarots tarots = restTemplate.getForObject(URI.create(tarotsUrl), Tarots.class);

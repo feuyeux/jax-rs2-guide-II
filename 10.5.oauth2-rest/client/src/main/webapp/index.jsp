@@ -14,7 +14,7 @@
 <div class="container">
     <h1>Client Service</h1>
     <p>
-        <a href="<c:url value="/conference/tarots"/>">View Tarots</a><br/>
+        <a href="<c:url value="/tarots"/>">View Tarots</a><br/>
     </p>
 </div>
 
