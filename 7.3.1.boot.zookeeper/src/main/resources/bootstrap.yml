@@ -2,8 +2,5 @@ spring:
   application:
     name: bootZookeeper
   cloud:
-    config:
-      # TODO: refactor spring-cloud-config to use refresh, etc.. with out config client
-      enabled: false
     zookeeper:
-      connectString: 192.168.3.107:2181,192.168.3.107:2182,192.168.3.107:2183
+      connectString: 10.211.55.32:2181,10.211.55.32:2182,10.211.55.32:2183

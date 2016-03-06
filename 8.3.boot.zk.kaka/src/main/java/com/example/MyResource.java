@@ -19,16 +19,14 @@ import java.util.List;
 public class MyResource {
     @Context
     HttpServletRequest request;
-
     @Autowired
     private DiscoveryClient discovery;
-
     @Autowired
     private DogService dogService;
     @Autowired
     private EagleService eagleService;
 
-    @Value("${spring.application.name:bootZookeeper}")
+    @Value("${spring.application.name:bootZKKafka}")
     private String appName;
 
     @PostConstruct
@@ -39,7 +37,7 @@ public class MyResource {
     @Path("kk")
     @GET
     @Produces("application/json")
-    public List<String> k() {
+    public List<String> kk() {
         return EagleService.getTemp();
     }
 
@@ -72,4 +70,3 @@ public class MyResource {
         return discovery.getInstances(appName);
     }
 }
-
