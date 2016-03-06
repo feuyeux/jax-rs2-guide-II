@@ -1,7 +1,7 @@
 package conference.config;
 
-import conference.oauth.ConfirmController;
 import conference.oauth.AdminController;
+import conference.oauth.ConfirmController;
 import conference.oauth.UserApprovalHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

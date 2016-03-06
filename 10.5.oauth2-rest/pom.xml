@@ -3,9 +3,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.feuyeux.restful</groupId>
-    <artifactId>oauth2</artifactId>
-    <name>OAuth2 Demo</name>
-    <version>1.0.0</version>
+    <artifactId>oauth2-rest</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
