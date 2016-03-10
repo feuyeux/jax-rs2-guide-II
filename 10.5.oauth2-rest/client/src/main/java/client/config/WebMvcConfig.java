@@ -102,10 +102,10 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
         private AccessTokenRequest accessTokenRequest;
 
         @Bean
-        public OAuth2ProtectedResourceDetails conference() {
+        public OAuth2ProtectedResourceDetails tarotResource() {
             AuthorizationCodeResourceDetails details = new AuthorizationCodeResourceDetails();
-            details.setId("conference/client");
-            details.setClientId("client");
+            details.setId("tarotId");
+            details.setClientId("tarotClient");
             details.setClientSecret("secret");
             details.setAccessTokenUri(accessTokenUri);
             details.setUserAuthorizationUri(userAuthorizationUri);
@@ -116,7 +116,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
         @Bean
         @Scope(value = "session", proxyMode = ScopedProxyMode.INTERFACES)
         public OAuth2RestTemplate tarotRestTemplate() {
-            return new OAuth2RestTemplate(conference(), new DefaultOAuth2ClientContext(accessTokenRequest));
+            return new OAuth2RestTemplate(tarotResource(), new DefaultOAuth2ClientContext(accessTokenRequest));
         }
     }
 }

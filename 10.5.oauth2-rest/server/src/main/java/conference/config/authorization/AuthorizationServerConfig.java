@@ -1,4 +1,4 @@
-package conference.config;
+package conference.config.authorization;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -17,9 +17,6 @@ import org.springframework.security.oauth2.provider.token.store.InMemoryTokenSto
 @Configuration
 @EnableAuthorizationServer
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
-
-    private static final String RESOURCE_ID = "conference";
-
     @Autowired
     private TokenStore tokenStore;
 
@@ -30,13 +27,10 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Qualifier("authenticationManagerBean")
     private AuthenticationManager authenticationManager;
 
-//    @Value("${redirect:http://localhost:8080/client/conference/redirect}")
-//    private String redirectUri;
-
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.inMemory().withClient("client")
-                .resourceIds(RESOURCE_ID)
+        clients.inMemory().withClient("tarotClient")
+                .resourceIds("tarotResourceId")
                 .authorizedGrantTypes("authorization_code", "implicit")
                 .authorities("ROLE_CLIENT")
                 .scopes("read", "write")
@@ -56,6 +50,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Override
     public void configure(AuthorizationServerSecurityConfigurer oauthServer) throws Exception {
-        oauthServer.realm("conference/client");
+        oauthServer.realm("tarotResourceRealm");
     }
 }

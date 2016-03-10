@@ -14,13 +14,11 @@ import org.springframework.security.oauth2.provider.token.TokenStore;
 
 @Configuration
 public class OAuth2ServerConfig {
-
     @Autowired
     private ClientDetailsService clientDetailsService;
 
     @Autowired
     private TokenStore tokenStore;
-
 
     @Configuration
     @Order(10)
