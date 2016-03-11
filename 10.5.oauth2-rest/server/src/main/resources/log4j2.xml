@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="ERROR">
+    <Properties>
+        <Property name="filename">rest-oauth2-server.log</Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="PlainConsole" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level - %msg%n"/>
+        </Console>
+
+        <Console name="Console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %c{1} [%t] - %msg%n"/>
+        </Console>
+
+        <File name="File" fileName="logs/all-${filename}">
+            <PatternLayout>
+                <pattern>%d %p %C{1.} [%t] %m%n</pattern>
+            </PatternLayout>
+        </File>
+
+        <RollingFile name="RollingFile" fileName="logs/${filename}"
+                     filePattern="logs/$${date:yyyy-MM}/${filename}-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %c{1} [%t] - %msg%n"/>
+            <SizeBasedTriggeringPolicy size="500 MB"/>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <Root level="INFO">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="File"/>
+            <AppenderRef ref="RollingFile"/>
+        </Root>
+        <Logger name="org.springframework" level="ERROR" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Logger name="org.apache" level="ERROR" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Logger name="org.hibernate" level="ERROR" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Logger name="org.mybatis" level="ERROR" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+    </Loggers>
+</Configuration>

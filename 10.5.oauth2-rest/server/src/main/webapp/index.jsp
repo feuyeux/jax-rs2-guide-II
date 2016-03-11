@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Conference</title>
+    <title>Server Index</title>
     <link type="text/css" rel="stylesheet" href="webjars/bootstrap/3.0.3/css/bootstrap.min.css"/>
     <script type="text/javascript" src="webjars/jquery/1.9.0/jquery.min.js"></script>
     <script type="text/javascript" src="webjars/bootstrap/3.0.3/js/bootstrap.min.js"></script>
