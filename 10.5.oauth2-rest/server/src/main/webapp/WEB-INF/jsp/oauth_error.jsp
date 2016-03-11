@@ -15,9 +15,7 @@
 <body>
 
 <div class="container">
-
     <h1>OAuth Server OAuth2 Error</h1>
-
     <p>
         <c:out value="${message}"/>
         (
@@ -27,7 +25,6 @@
 
     <p>Please go back to your client application and try again, or
         contact the owner and ask for support</p>
-
 </div>
 
 </body>

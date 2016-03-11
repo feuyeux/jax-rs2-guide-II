@@ -29,7 +29,7 @@ public class ConfirmController {
         ClientDetails client = clientDetailsService.loadClientByClientId(clientAuth.getClientId());
         model.put("auth_request", clientAuth);
         model.put("client", client);
-        Map<String, String> scopes = new LinkedHashMap<String, String>();
+        Map<String, String> scopes = new LinkedHashMap<>();
         for (String scope : clientAuth.getScope()) {
             scopes.put(OAuth2Utils.SCOPE_PREFIX + scope, "true");
         }
