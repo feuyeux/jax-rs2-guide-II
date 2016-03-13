@@ -13,13 +13,13 @@
             <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %c{1} [%t] - %msg%n"/>
         </Console>
 
-        <File name="File" fileName="logs/all-${filename}">
+        <File name="File" fileName="/tmp/logs/all-${filename}">
             <PatternLayout>
                 <pattern>%d %p %C{1.} [%t] %m%n</pattern>
             </PatternLayout>
         </File>
 
-        <RollingFile name="RollingFile" fileName="logs/${filename}"
+        <RollingFile name="RollingFile" fileName="/tmp/logs/${filename}"
                      filePattern="logs/$${date:yyyy-MM}/${filename}-%d{MM-dd-yyyy}-%i.log.gz">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %c{1} [%t] - %msg%n"/>
             <SizeBasedTriggeringPolicy size="500 MB"/>

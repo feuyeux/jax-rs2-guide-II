@@ -44,5 +44,4 @@ public class ServletInitializer extends AbstractDispatcherServletInitializer {
         filter.setContextAttribute("org.springframework.web.servlet.FrameworkServlet.CONTEXT.dispatcher");
         servletContext.addFilter("springSecurityFilterChain", filter).addMappingForUrlPatterns(null, false, "/*");
     }
-
 }

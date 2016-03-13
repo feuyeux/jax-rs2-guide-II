@@ -35,24 +35,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/login.jsp").permitAll().and()
-                .authorizeRequests()
-                .anyRequest().hasRole(DemoConfig.ROLE)
+        http.authorizeRequests().antMatchers("/login.jsp").permitAll()
                 .and()
-                .exceptionHandling()
-                .accessDeniedPage("/login.jsp?authorization_error=true")
+                .authorizeRequests().anyRequest().hasRole(DemoConfig.ROLE)
                 .and()
-                .csrf()
-                .requireCsrfProtectionMatcher(new AntPathRequestMatcher("/oauth/authorize")).disable()
-                .logout()
-                .logoutSuccessUrl("/index.jsp")
-                .logoutUrl("/logout.do")
+                .exceptionHandling().accessDeniedPage("/login.jsp?authorization_error=true")
                 .and()
-                .formLogin()
-                .usernameParameter("j_username")
-                .passwordParameter("j_password")
-                .failureUrl("/login.jsp?authentication_error=true")
-                .loginPage("/login.jsp")
-                .loginProcessingUrl("/login.do");
+                .csrf().requireCsrfProtectionMatcher(new AntPathRequestMatcher("/oauth/authorize"))
+                .disable()
+                .logout().logoutSuccessUrl("/index.jsp").logoutUrl("/logout.do")
+                .and()
+                .formLogin().usernameParameter("j_username").passwordParameter("j_password").failureUrl("/login.jsp?authentication_error=true").loginPage("/login.jsp").loginProcessingUrl("/login.do");
     }
 }

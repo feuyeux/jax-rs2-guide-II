@@ -11,6 +11,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.converter.BufferedImageHttpMessageConverter;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.security.oauth2.client.DefaultOAuth2ClientContext;
+import org.springframework.security.oauth2.client.OAuth2ClientContext;
 import org.springframework.security.oauth2.client.OAuth2RestTemplate;
 import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
 import org.springframework.security.oauth2.client.token.AccessTokenRequest;
@@ -35,7 +36,6 @@ import java.util.List;
 
 @Configuration
 @EnableWebMvc
-@PropertySource("classpath:client.properties")
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
@@ -66,13 +66,6 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
     }
 
     @Bean
-    public ClientController tarotController(@Qualifier("tarotRestTemplate") RestOperations restTemplate) {
-        ClientController controller = new ClientController();
-        controller.setRestTemplate(restTemplate);
-        return controller;
-    }
-
-    @Bean
     public ConversionServiceFactoryBean conversionService() {
         ConversionServiceFactoryBean conversionService = new ConversionServiceFactoryBean();
         conversionService.setConverters(Collections.singleton(new AccessTokenRequestConverter()));
@@ -88,9 +81,18 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
         converters.add(new BufferedImageHttpMessageConverter());
     }
 
+
+    @Bean
+    public ClientController tarotController(@Qualifier("tarotRestTemplate") RestOperations restTemplate) {
+        ClientController controller = new ClientController();
+        controller.setRestTemplate(restTemplate);
+        return controller;
+    }
+
     @Configuration
     @EnableOAuth2Client
-    protected static class ResourceConfiguration {
+    @PropertySource("classpath:client.properties")
+    protected static class OAuth2Config {
         @Value("${accessTokenUri}")
         private String accessTokenUri;
 
@@ -116,7 +118,8 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
         @Bean
         @Scope(value = "session", proxyMode = ScopedProxyMode.INTERFACES)
         public OAuth2RestTemplate tarotRestTemplate() {
-            return new OAuth2RestTemplate(tarotResource(), new DefaultOAuth2ClientContext(accessTokenRequest));
+            DefaultOAuth2ClientContext context = new DefaultOAuth2ClientContext(accessTokenRequest);
+            return new OAuth2RestTemplate(tarotResource(), context);
         }
     }
 }

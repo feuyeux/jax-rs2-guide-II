@@ -1,6 +1,7 @@
 package org.feuyeux.restful.oauth2.client.mvc;
 
 import org.feuyeux.restful.oauth2.common.domain.Tarots;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,8 +12,8 @@ import java.net.URI;
 
 @Controller
 public class ClientController {
-
-    private static final String tarotsUrl = "http://localhost:8080/server/rest/tarots";
+    @Value("${tarotsURL}")
+    private String tarotsUrl;
 
     private RestOperations restTemplate;
 

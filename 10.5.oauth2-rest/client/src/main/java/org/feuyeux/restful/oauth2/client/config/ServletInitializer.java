@@ -36,7 +36,6 @@ public class ServletInitializer extends AbstractDispatcherServletInitializer {
     private void registerProxyFilter(ServletContext servletContext) {
         DelegatingFilterProxy filter = new DelegatingFilterProxy("oauth2ClientContextFilter");
         filter.setContextAttribute("org.springframework.web.servlet.FrameworkServlet.CONTEXT.dispatcher");
-        servletContext.addFilter("oauth2ClientContextFilter", filter).addMappingForUrlPatterns(null, false, "/*");
+        servletContext.addFilter("oauth2ClientContextFilter", filter).addMappingForUrlPatterns(null, true, "/*");
     }
-
 }
