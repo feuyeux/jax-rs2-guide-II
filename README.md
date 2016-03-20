@@ -4,17 +4,25 @@
 
 [**https://github.com/feuyeux/jax-rs2-guide-II**](https://github.com/feuyeux/jax-rs2-guide-II)
 
-- 1.5.my-first-service
-- 1.5.my-first-webapp
-- 1.6.1.myrest-servlet2-webxml
-- 1.6.2.myrest-servlet3-webxml
-- 1.6.3.myrest-subservlet
-- 1.6.4.myrest-servlet3-application
-- 1.6.5.myrest-servlet2-rc 
-- 1.6.6.myrest-servlet2-application
-- 1.6.7.myrest-servlet3-application
-- [4.2 JAX-RS2的异步机制](4.2.asynchronized)
-- [4.4 基于HTML5的异步通信](4.4.sse)
+1. 1.5.my-first-service
+1. 1.5.my-first-webapp
+1. 1.6.1.myrest-servlet2-webxml
+1. 1.6.2.myrest-servlet3-webxml
+1. 1.6.3.myrest-subservlet
+1. 1.6.4.myrest-servlet3-application
+1. 1.6.5.myrest-servlet2-rc
+1. 1.6.6.myrest-servlet2-application
+1. 1.6.7.myrest-servlet3-application
+1. [4.2 JAX-RS2的异步机制](4.2.asynchronized)
+1. [4.4 基于HTML5的异步通信](4.4.sse)
+1. [5 REST 客户端](5.jaxrs2-client)
+1. [7.2 Spring-boot基础](7.2.demo)
+1. [7.3.1 Spring Cloud Zookeeper示例](7.3.1.boot.zookeeper)
+1. [7.3.2 Spring Cloud Consul示例](7.3.2.boot.consul)
+1. [7.3.3 Spring Cloud Etcd示例](7.3.2.boot.etcd)
+1. [8.2 REST服务的容器化](8.2.containerization)
+1. [8.3 容器化微服务](8.3.boot.zk.kaka)
+
 
 #### 最新Jersey官方文档
 
@@ -32,7 +40,7 @@
 #### Jersey版本发布历史
 |版本号|发布日期|发版说明|
 |:-------|:----------|:-----------------------------|
-|2.22.2|16/Feb/16|[Jersey 2.22.2 Release Notes](https://jersey.java.net/release-notes/2.22.1.html)|
+|2.22.2|16/Feb/16|[Jersey 2.22.2 Release Notes](https://jersey.java.net/release-notes/2.22.2.html)|
 |2.22.1|07/Oct/15|[Jersey 2.22.1 Release Notes](https://jersey.java.net/release-notes/2.22.1.html)|
 |2.22|23/Sep/15|[Jersey 2.22 Release Notes](https://jersey.java.net/release-notes/2.22.html)|
 |2.21.1|16/Sep/15|[Jersey 2.21.1 Release Notes](https://jersey.java.net/release-notes/2.21.1.html)|
