@@ -33,12 +33,11 @@ public class ConfirmController {
         for (String scope : clientAuth.getScope()) {
             scopes.put(OAuth2Utils.SCOPE_PREFIX + scope, "true");
         }
-        approvalStore.getApprovals(principal.getName(), client.getClientId()).stream().filter(
-                approval -> clientAuth.getScope().contains(approval.getScope())).forEach(
-                approval -> {
-                    scopes.put(OAuth2Utils.SCOPE_PREFIX + approval.getScope(),
-                            approval.getStatus() == ApprovalStatus.APPROVED ? "true" : "false");
-                });
+        approvalStore.getApprovals(principal.getName(), client.getClientId())
+                .stream()
+                .filter(approval -> clientAuth.getScope().contains(approval.getScope()))
+                .forEach(approval -> scopes.put(OAuth2Utils.SCOPE_PREFIX + approval.getScope(),
+                        approval.getStatus() == ApprovalStatus.APPROVED ? "true" : "false"));
         model.put("scopes", scopes);
         return new ModelAndView("confirm", model);
     }

@@ -32,6 +32,7 @@
 #### Jersey版本发布历史
 |版本号|发布日期|发版说明|
 |:-------|:----------|:-----------------------------|
+|2.22.2|16/Feb/16|[Jersey 2.22.2 Release Notes](https://jersey.java.net/release-notes/2.22.1.html)|
 |2.22.1|07/Oct/15|[Jersey 2.22.1 Release Notes](https://jersey.java.net/release-notes/2.22.1.html)|
 |2.22|23/Sep/15|[Jersey 2.22 Release Notes](https://jersey.java.net/release-notes/2.22.html)|
 |2.21.1|16/Sep/15|[Jersey 2.21.1 Release Notes](https://jersey.java.net/release-notes/2.21.1.html)|

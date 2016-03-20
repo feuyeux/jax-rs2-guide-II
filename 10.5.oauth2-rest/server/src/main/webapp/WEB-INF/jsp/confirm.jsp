@@ -42,8 +42,7 @@
             You hereby authorize "<c:out value="${client.clientId}"/>" to access your protected resources.
         </p>
 
-        <form id="confirmationForm" name="confirmationForm"
-              action="<%=request.getContextPath()%>/oauth/authorize" method="post">
+        <form id="confirmationForm" name="confirmationForm" action="<%=request.getContextPath()%>/oauth/authorize" method="post">
             <input name="user_oauth_approval" value="true" type="hidden"/>
             <ul class="list-unstyled">
                 <c:forEach items="${scopes}" var="scope">

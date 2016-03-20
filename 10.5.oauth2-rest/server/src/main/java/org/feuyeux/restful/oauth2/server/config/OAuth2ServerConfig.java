@@ -23,8 +23,7 @@ public class OAuth2ServerConfig {
 
     @Configuration
     @Order(10)
-    protected static class UiResourceConfiguration
-            extends WebSecurityConfigurerAdapter {
+    protected static class UiResourceConfiguration extends WebSecurityConfigurerAdapter {
         @Override
         protected void configure(HttpSecurity http) throws Exception {
             http.requestMatchers().antMatchers("/rest/**")

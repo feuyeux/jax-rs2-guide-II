@@ -1,16 +1,12 @@
 package org.feuyeux.restful.oauth2.server.config;
 
-import org.feuyeux.restful.oauth2.server.oauth.AdminController;
 import org.feuyeux.restful.oauth2.server.oauth.ConfirmController;
-import org.feuyeux.restful.oauth2.server.oauth.UserApprovalHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.http.MediaType;
 import org.springframework.security.oauth2.provider.ClientDetailsService;
 import org.springframework.security.oauth2.provider.approval.ApprovalStore;
-import org.springframework.security.oauth2.provider.token.ConsumerTokenServices;
-import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.web.accept.ContentNegotiationManagerFactoryBean;
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.ViewResolver;
@@ -57,16 +53,6 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
         accessConfirmationController.setClientDetailsService(clientDetailsService);
         accessConfirmationController.setApprovalStore(approvalStore);
         return accessConfirmationController;
-    }
-
-    @Bean
-    public AdminController adminController(TokenStore tokenStore, ConsumerTokenServices consumerTokenServices,
-                                           UserApprovalHandler userApprovalHandler) {
-        AdminController adminController = new AdminController();
-        adminController.setTokenStore(tokenStore);
-        adminController.setTokenServices(consumerTokenServices);
-        adminController.setUserApprovalHandler(userApprovalHandler);
-        return adminController;
     }
 
     @Override
