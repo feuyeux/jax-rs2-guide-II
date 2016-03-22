@@ -1,0 +1,2 @@
+curl -H "Content-Type: application/json" http://localhost:8080/simple-service-moxy/api/books
+{"bookList":{"book":[{"bookId":1,"bookName":"AAA"},{"bookId":2,"bookName":"BBB"}]}}

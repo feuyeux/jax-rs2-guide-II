@@ -1,0 +1,10 @@
+curl http://localhost:8080/simple-service-jettison/api/books
+{"books":{"bookList":{"book":[{"@bookId":"1","@bookName":"Java Restful Web Services实战"},{"@bookId":"2","@bookName":"Java EE 7 精髓"}]}}}
+
+Jettison mapped notation
+curl http://localhost:8080/simple-service-jettison/api/books/jsonbook
+{"jsonBook":{"bookId":1,"bookName":"Java Restful Web Services实战"}}
+
+Badgerfish notation
+curl http://localhost:8080/simple-service-jettison/api/books/jsonbook2
+{"jsonBook2":{"bookId":{"$":"1"},"bookName":{"$":"Java Restful Web Services实战"}}}
