@@ -1,16 +1,7 @@
 package com.example.resource;
 
-import java.net.URI;
-
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.Invocation;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-
-import org.apache.log4j.Logger;
+import com.example.domain.Book;
+import com.example.domain.Books;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
@@ -20,19 +11,12 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.example.domain.Book;
-import com.example.domain.Books;
-import com.example.sevice.TUMyServiceTest;
+import javax.ws.rs.client.*;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import java.net.URI;
 
-/**
- * Integration Test
- * 
- * @author hanl
- *
- */
-//@org.junit.Ignore
 public class TIMyResourceTest {
-    private final static Logger LOGGER = Logger.getLogger(TUMyServiceTest.class);
     public static final String BASE_URI = "http://localhost:8080/webapi/";
     private HttpServer server;
     private WebTarget target;
@@ -57,52 +41,52 @@ public class TIMyResourceTest {
 
     @Test
     public void testQueryGetXML() {
-        TIMyResourceTest.LOGGER.debug(">>Test Query Get");
+        System.out.println(">>Test Query Get");
         final WebTarget queryTarget = target.path("/book").queryParam("id", Integer.valueOf(1));
         final Invocation.Builder invocationBuilder = queryTarget.request(MediaType.APPLICATION_XML_TYPE);
         final Response response = invocationBuilder.get();
         final Book result = response.readEntity(Book.class);
-        TIMyResourceTest.LOGGER.debug(result);
+        System.out.println(result);
         Assert.assertNotNull(result.getBookId());
-        TIMyResourceTest.LOGGER.debug("<<Test Query Get");
+        System.out.println("<<Test Query Get");
     }
 
     @Test
     public void testPathGetJSON() {
-        TIMyResourceTest.LOGGER.debug(">>Test Path Get");
+        System.out.println(">>Test Path Get");
         final WebTarget pathTarget = target.path("/1");
         final Invocation.Builder invocationBuilder = pathTarget.request(MediaType.APPLICATION_JSON_TYPE);
         final Book result = invocationBuilder.get(Book.class);
-        TIMyResourceTest.LOGGER.debug(result);
+        System.out.println(result);
         Assert.assertNotNull(result.getBookId());
-        TIMyResourceTest.LOGGER.debug("<<Test Path Get");
+        System.out.println("<<Test Path Get");
     }
 
     @Test
     public void testPostAndDelete() {
-        TIMyResourceTest.LOGGER.debug(">>Test Post");
+        System.out.println(">>Test Post");
         final Book newBook = new Book("Java Restful Web Service实战-" + System.nanoTime());
         final Entity<Book> bookEntity = Entity.entity(newBook, MediaType.APPLICATION_JSON_TYPE);
         final Book savedBook = target.request(MediaType.APPLICATION_JSON_TYPE).post(bookEntity, Book.class);
         Assert.assertNotNull(savedBook.getBookId());
-        TIMyResourceTest.LOGGER.debug("<<Test Post");
+        System.out.println("<<Test Post");
 
-        TIMyResourceTest.LOGGER.debug(">>Test Delete");
+        System.out.println(">>Test Delete");
         final WebTarget deleteTarget = target.path("/" + savedBook.getBookId());
         final Invocation.Builder invocationBuilder = deleteTarget.request();
         final String result = invocationBuilder.delete(String.class);
-        TIMyResourceTest.LOGGER.debug(result);
+        System.out.println(result);
         Assert.assertNotNull(result);
-        TIMyResourceTest.LOGGER.debug("<<Test Delete");
+        System.out.println("<<Test Delete");
     }
 
     @Test
     public void testGetAll() {
-        TIMyResourceTest.LOGGER.debug(">>Test Get All");
+        System.out.println(">>Test Get All");
         final Invocation.Builder invocationBuilder = target.request();
         final Books result = invocationBuilder.get(Books.class);
-        TIMyResourceTest.LOGGER.debug(result.getBookList());
+        System.out.println(result.getBookList());
         Assert.assertNotNull(result.getBookList());
-        TIMyResourceTest.LOGGER.debug("<<Test Get All");
+        System.out.println("<<Test Get All");
     }
 }

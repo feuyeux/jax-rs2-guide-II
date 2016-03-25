@@ -1,28 +1,16 @@
 package com.example.service;
 
-import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.example.dao.BookDao;
 import com.example.domain.Book;
 import com.example.domain.Books;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service
-/**
- * <p>BookService class.</p>
- *
- * @author hanl
- * @version $Id: $Id
- */
 public class BookService {
-    private static final Logger LOGGER = Logger.getLogger(BookService.class);
     @Autowired
     private BookDao bookDao;
 
-    /**
-     * <p>Constructor for BookService.</p>
-     */
     public BookService() {
     }
 
@@ -46,7 +34,6 @@ public class BookService {
         try {
             return bookDao.findById(bookId);
         } catch (final Exception e) {
-            BookService.LOGGER.error(e);
             return new Book(-1L, "");
         }
     }
@@ -64,7 +51,7 @@ public class BookService {
      * <p>updateBook.</p>
      *
      * @param bookId a {@link java.lang.Integer} object.
-     * @param book a {@link com.example.domain.Book} object.
+     * @param book   a {@link com.example.domain.Book} object.
      * @return a {@link com.example.domain.Book} object.
      */
     public Book updateBook(final Long bookId, final Book book) {

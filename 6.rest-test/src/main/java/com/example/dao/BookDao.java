@@ -1,29 +1,19 @@
 package com.example.dao;
 
-import java.util.List;
+import com.example.domain.Book;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import java.util.List;
 
-import org.apache.log4j.Logger;
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.Assert;
-
-import com.example.domain.Book;
-
-/**
- * <p>BookDao class.</p>
- *
- * @author hanl
- * @version $Id: $Id
- */
 @Repository
 public class BookDao {
-    private static final Logger LOGGER = Logger.getLogger(BookDao.class);
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -45,7 +35,6 @@ public class BookDao {
         try {
             return entityManager.find(Book.class, id);
         } catch (final Exception e) {
-            BookDao.LOGGER.error(e);
             return null;
         }
     }
@@ -62,9 +51,9 @@ public class BookDao {
     /**
      * <p>findAll.</p>
      *
-     * @param isPaging a boolean.
+     * @param isPaging    a boolean.
      * @param firstResult a int.
-     * @param maxResults a int.
+     * @param maxResults  a int.
      * @return a {@link java.util.List} object.
      */
     public List<Book> findAll(final boolean isPaging, final int firstResult, final int maxResults) {
@@ -96,11 +85,11 @@ public class BookDao {
     }
 
     /**
-    * <p>store.</p>
-    *
-    * @param entity a {@link com.example.domain.Book} object.
-    * @return a {@link com.example.domain.Book} object.
-    */
+     * <p>store.</p>
+     *
+     * @param entity a {@link com.example.domain.Book} object.
+     * @return a {@link com.example.domain.Book} object.
+     */
     @Transactional
     public Book store(final Book entity) {
         return entityManager.merge(entity);

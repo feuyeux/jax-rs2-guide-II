@@ -1,8 +1,8 @@
 package com.example;
 
-import javax.ws.rs.ApplicationPath;
-
 import org.glassfish.jersey.server.ResourceConfig;
+
+import javax.ws.rs.ApplicationPath;
 
 /**
  * <p>AirResourceConfig class.</p>
@@ -18,5 +18,5 @@ public class AirResourceConfig extends ResourceConfig {
     public AirResourceConfig() {
         packages("com.example.resource");
         /**register(BookResource.class);**/
-    }   
+    }
 }
