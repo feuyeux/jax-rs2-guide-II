@@ -16,7 +16,6 @@
 		<jquery.version>2.2.1</jquery.version>
 		<mysql-connector.version>5.1.38</mysql-connector.version>
 
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
 		<maven-war-plugin.version>2.6</maven-war-plugin.version>
 		<maven-resources-plugin.version>2.7</maven-resources-plugin.version>
@@ -33,7 +32,7 @@
 				<configuration>
 					<source>${JDK.version}</source>
 					<target>${JDK.version}</target>
-					<encoding>${project.build.sourceEncoding}</encoding>
+					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
 			<plugin>
