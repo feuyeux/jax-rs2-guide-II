@@ -2,6 +2,9 @@ package com.example.resource;
 
 import com.example.domain.Book;
 import com.example.domain.Books;
+import com.example.jackson.JsonBook;
+import com.example.jackson.JsonHybridBook;
+import com.example.jackson.JsonNoJaxbBook;
 import org.apache.log4j.Logger;
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.jackson.JacksonFeature;
@@ -14,10 +17,11 @@ import org.junit.runner.RunWith;
 
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.MediaType;
+
 @RunWith(ConcurrentRunner.class)
 public class BookResourceTest extends JerseyTest {
     private static final Logger LOGGER = Logger.getLogger(BookResourceTest.class);
-    
+
     @Override
     protected ResourceConfig configure() {
         enable(TestProperties.LOG_TRAFFIC);
@@ -58,7 +62,7 @@ public class BookResourceTest extends JerseyTest {
 
     @Test
     public void testPost() {
-        Entity<Book> e = Entity.entity(new Book("abc"), MediaType.APPLICATION_JSON_TYPE);
+        Entity<Book> e = Entity.entity(new Book(4L, "Java Restful Web Services实战II", "机械工业出版社"), MediaType.APPLICATION_JSON_TYPE);
         Book book = target("books").request(MediaType.APPLICATION_JSON_TYPE).post(e, Book.class);
         LOGGER.debug(book);
     }

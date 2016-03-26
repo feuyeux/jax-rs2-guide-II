@@ -1,19 +1,22 @@
-package com.example.resource;
+package com.example.jackson;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
-@XmlRootElement
-@XmlType(propOrder = {"bookId", "bookName", "chapters"})
-public class JsonBook {
+public class JsonNoJaxbBook {
     private String[] chapters;
     private String bookId;
     private String bookName;
 
-    public JsonBook() {
-        bookId = "1";
+    public JsonNoJaxbBook() {
+        bookId = "3";
         bookName = "Java Restful Web Services实战";
         chapters = new String[0];
+    }
+
+    public String[] getChapters() {
+        return chapters;
+    }
+
+    public void setChapters(String[] chapters) {
+        this.chapters = chapters;
     }
 
     public String getBookId() {
@@ -30,13 +33,5 @@ public class JsonBook {
 
     public void setBookName(String bookName) {
         this.bookName = bookName;
-    }
-
-    public String[] getChapters() {
-        return chapters;
-    }
-
-    public void setChapters(String[] chapters) {
-        this.chapters = chapters;
     }
 }

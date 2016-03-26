@@ -8,20 +8,18 @@
     <name>simple-service-jettison</name>
 
     <properties>
-        <JDK.version>1.7</JDK.version>
-        <jersey.version>2.17</jersey.version>
-        <junit.version>4.11</junit.version>
+        <JDK.version>1.8</JDK.version>
+        <guava.version>17.0</guava.version>
+        <jersey.version>2.22.2</jersey.version>
+        <jquery.version>2.2.1</jquery.version>
+        <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
+        <maven-war-plugin.version>2.6</maven-war-plugin.version>
+        <maven-resources-plugin.version>2.7</maven-resources-plugin.version>
+        <maven-eclipse-plugin.version>2.9</maven-eclipse-plugin.version>
+        <junit.version>4.12</junit.version>
         <slf4j.version>1.4.3</slf4j.version>
         <log4j.version>1.2.16</log4j.version>
-        <jquery.version>2.0.3</jquery.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven-compiler-plugin.version>2.5.1</maven-compiler-plugin.version>
-        <maven-war-plugin.version>2.3</maven-war-plugin.version>
-        <maven-resources-plugin.version>2.6</maven-resources-plugin.version>
-        <maven-eclipse-plugin.version>2.9</maven-eclipse-plugin.version>
-        <tomcat-servlet-api.version>7.0.42</tomcat-servlet-api.version>
-   <guava.version>17.0</guava.version>  
-  </properties>
+    </properties>
 
     <build>
         <plugins>
@@ -32,7 +30,7 @@
                 <configuration>
                     <source>${JDK.version}</source>
                     <target>${JDK.version}</target>
-                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
             <plugin>
@@ -53,32 +51,10 @@
                     <wtpversion>2.0</wtpversion>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>${maven-resources-plugin.version}</version>
-                <configuration>
-                    <encoding>${project.build.sourceEncoding}</encoding>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
 
     <dependencies>
-        <dependency>
-            <groupId>com.example</groupId>
-            <artifactId>example-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-
-        <!-- servlet -->
-        <dependency>
-            <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-servlet-api</artifactId>
-            <version>${tomcat-servlet-api.version}</version>
-            <scope>provided</scope>
-        </dependency>
-
         <!-- jersey -->
         <dependency>
             <groupId>org.glassfish.jersey.containers</groupId>
@@ -136,19 +112,10 @@
                 </exclusion>
             </exclusions>
         </dependency>
-   <dependency>
+        <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>${guava.version}</version>
-        </dependency>	
+        </dependency>
     </dependencies>
-
-    <repositories>
-        <repository>
-            <id>release.maven.java.net</id>
-            <name>java.net Maven Release Repository</name>
-            <url>https://maven.java.net/content/groups/public</url>
-            <layout>default</layout>
-        </repository>
-    </repositories>
 </project>

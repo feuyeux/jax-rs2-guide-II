@@ -2,6 +2,9 @@ package com.example.resource;
 
 import com.example.domain.Book;
 import com.example.domain.Books;
+import com.example.jackson.JsonBook;
+import com.example.jackson.JsonHybridBook;
+import com.example.jackson.JsonNoJaxbBook;
 import org.apache.log4j.Logger;
 
 import javax.ws.rs.*;
@@ -18,9 +21,10 @@ public class BookResource {
 
     static {
         memoryBase = com.google.common.collect.Maps.newHashMap();
-        BookResource.memoryBase.put(1L, new Book(1L, "JSF2和RichFaces4使用指南"));
-        BookResource.memoryBase.put(2L, new Book(2L, "Java Restful Web Services实战"));
-        BookResource.memoryBase.put(3L, new Book(3L, "Java EE 7 精髓"));
+        memoryBase.put(1L, new Book(1L, "JSF2和RichFaces4使用指南", "电子工业出版社", "9787121177378", "2012-09-01"));
+        memoryBase.put(2L, new Book(2L, "Java Restful Web Services实战", "机械工业出版社", "9787111478881", "2014-09-01"));
+        memoryBase.put(3L, new Book(3L, "Java EE 7 精髓", "人民邮电出版社", "9787115375483", "2015-02-01"));
+        memoryBase.put(4L, new Book(4L, "Java Restful Web Services实战II", "机械工业出版社"));
     }
 
     @Path("/emptybook")

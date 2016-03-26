@@ -1,4 +1,4 @@
-package com.example.resource;
+package com.example.jettison;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;

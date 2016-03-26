@@ -15,11 +15,13 @@ import java.util.Map.Entry;
 public class BookResource {
     private static final Logger LOGGER = Logger.getLogger(BookResource.class);
     private static final HashMap<Long, Book> memoryBase;
+
     static {
         memoryBase = com.google.common.collect.Maps.newHashMap();
-        BookResource.memoryBase.put(1L, new Book(1L, "JSF2和RichFaces4使用指南"));
-        BookResource.memoryBase.put(2L, new Book(2L, "Java Restful Web Services实战"));
-        BookResource.memoryBase.put(3L, new Book(3L, "Java EE 7 精髓"));
+        memoryBase.put(1L, new Book(1L, "JSF2和RichFaces4使用指南", "电子工业出版社", "9787121177378", "2012-09-01"));
+        memoryBase.put(2L, new Book(2L, "Java Restful Web Services实战", "机械工业出版社", "9787111478881", "2014-09-01"));
+        memoryBase.put(3L, new Book(3L, "Java EE 7 精髓", "人民邮电出版社", "9787115375483", "2015-02-01"));
+        memoryBase.put(4L, new Book(4L, "Java Restful Web Services实战II", "机械工业出版社"));
     }
 
     @GET

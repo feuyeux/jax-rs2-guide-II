@@ -1,14 +1,14 @@
-package com.example.resource;
+package com.example.jackson;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class JsonHybridBook {
-    @SuppressWarnings("unused")
     @JsonProperty("bookId")
     private String bookId;
 
-    @SuppressWarnings("unused")
     @JsonProperty("bookName")
     private String bookName;
 

@@ -1,5 +1,6 @@
 package com.example.resource;
 
+import com.example.jackson.JsonHybridBook;
 import com.fasterxml.jackson.databind.AnnotationIntrospector;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -9,6 +10,7 @@ import com.fasterxml.jackson.module.jaxb.JaxbAnnotationIntrospector;
 
 import javax.ws.rs.ext.ContextResolver;
 import javax.ws.rs.ext.Provider;
+
 @Provider
 public class JsonContextProvider implements ContextResolver<ObjectMapper> {
     final ObjectMapper d;

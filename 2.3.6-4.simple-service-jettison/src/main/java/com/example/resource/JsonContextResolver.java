@@ -2,6 +2,8 @@ package com.example.resource;
 
 import com.example.domain.Book;
 import com.example.domain.Books;
+import com.example.jettison.JsonBook;
+import com.example.jettison.JsonBook2;
 import org.glassfish.jersey.jettison.JettisonConfig;
 import org.glassfish.jersey.jettison.JettisonJaxbContext;
 

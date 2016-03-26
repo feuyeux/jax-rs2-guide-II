@@ -1,24 +1,19 @@
-package com.example.resource;
+package com.example.jettison;
 
-public class JsonNoJaxbBook {
-    private String[] chapters;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+public class JsonBook2 {
     private String bookId;
     private String bookName;
 
-    public JsonNoJaxbBook() {
-        bookId = "3";
+    public JsonBook2() {
+        bookId = "1";
         bookName = "Java Restful Web Services实战";
-        chapters = new String[0];
     }
 
-    public String[] getChapters() {
-        return chapters;
-    }
-
-    public void setChapters(String[] chapters) {
-        this.chapters = chapters;
-    }
-
+    @XmlElement
     public String getBookId() {
         return bookId;
     }
@@ -27,6 +22,7 @@ public class JsonNoJaxbBook {
         this.bookId = bookId;
     }
 
+    @XmlElement
     public String getBookName() {
         return bookName;
     }
