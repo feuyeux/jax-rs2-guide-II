@@ -10,24 +10,18 @@
     <name>simple-service-3</name>
 
     <properties>
-        <JDK.version>1.7</JDK.version>
-        <jersey.version>2.17</jersey.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <junit.version>4.11</junit.version>
-        <slf4j.version>1.4.3</slf4j.version>
-        <log4j.version>1.2.16</log4j.version>
-
+        <JDK.version>1.8</JDK.version>
+        <jersey.version>2.22.2</jersey.version>
         <spring.version>3.2.3.RELEASE</spring.version>
         <eclipselink.version>2.5.0</eclipselink.version>
-        <jquery.version>2.0.3</jquery.version>
-        <mysql-connector.version>5.1.25</mysql-connector.version>
-
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven-compiler-plugin.version>2.5.1</maven-compiler-plugin.version>
-        <maven-war-plugin.version>2.3</maven-war-plugin.version>
-        <maven-resources-plugin.version>2.6</maven-resources-plugin.version>
+        <jquery.version>2.2.1</jquery.version>
+        <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
+        <maven-war-plugin.version>2.6</maven-war-plugin.version>
+        <maven-resources-plugin.version>2.7</maven-resources-plugin.version>
         <maven-eclipse-plugin.version>2.9</maven-eclipse-plugin.version>
-        <netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server>
+        <junit.version>4.12</junit.version>
+        <slf4j.version>1.4.3</slf4j.version>
+        <log4j.version>1.2.16</log4j.version>
     </properties>
 
     <build>
@@ -41,100 +35,49 @@
                 <configuration>
                     <source>${JDK.version}</source>
                     <target>${JDK.version}</target>
+                    <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
-
-            <!-- plugin>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <version>9.1.0.RC0</version>
-                <executions>
-                    <execution>
-                        <id>start-jetty</id>
-                        <phase>pre-integration-test</phase>
-                        <goals>
-                            <goal>start</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>stop-jetty</id>
-                        <phase>post-integration-test</phase>
-                        <goals>
-                            <goal>stop</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin -->
         </plugins>
     </build>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.glassfish.jersey</groupId>
-                <artifactId>jersey-bom</artifactId>
-                <version>${jersey.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
     <dependencies>
-        <dependency>
-            <groupId>com.example</groupId>
-            <artifactId>example-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-
         <!-- jersey -->
         <dependency>
             <groupId>org.glassfish.jersey.containers</groupId>
             <artifactId>jersey-container-servlet</artifactId>
+            <version>${jersey.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.glassfish.jersey.media</groupId>
             <artifactId>jersey-media-moxy</artifactId>
+            <version>${jersey.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.glassfish.jersey.test-framework</groupId>
             <artifactId>jersey-test-framework-core</artifactId>
+            <version>${jersey.version}</version>
         </dependency>
 
         <!-- Jersey test containers -->
         <dependency>
             <groupId>org.glassfish.jersey.test-framework.providers</groupId>
             <artifactId>jersey-test-framework-provider-grizzly2</artifactId>
+            <version>${jersey.version}</version>
         </dependency>
 
         <!-- connector -->
         <dependency>
             <groupId>org.glassfish.jersey.connectors</groupId>
             <artifactId>jersey-apache-connector</artifactId>
+            <version>${jersey.version}</version>
         </dependency>
         <dependency>
             <groupId>org.glassfish.jersey.connectors</groupId>
             <artifactId>jersey-grizzly-connector</artifactId>
-        </dependency>
-
-        <!-- JPA2 -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql-connector.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>eclipselink</artifactId>
-            <version>${eclipselink.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.eclipse.persistence</groupId>
-                    <artifactId>commonj.sdo</artifactId>
-                </exclusion>
-            </exclusions>
+            <version>${jersey.version}</version>
         </dependency>
 
         <!-- log -->
