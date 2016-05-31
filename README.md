@@ -4,26 +4,39 @@
 
 [**https://github.com/feuyeux/jax-rs2-guide-II**](https://github.com/feuyeux/jax-rs2-guide-II)
 
-1. 1.5.my-first-service
-1. 1.5.my-first-webapp
-1. 1.6.1.myrest-servlet2-webxml
-1. 1.6.2.myrest-servlet3-webxml
-1. 1.6.3.myrest-subservlet
-1. 1.6.4.myrest-servlet3-application
-1. 1.6.5.myrest-servlet2-rc
-1. 1.6.6.myrest-servlet2-application
-1. 1.6.7.myrest-servlet3-application
+1. [1.5.my-first-service](1.5.my-first-service)
+1. [1.5.my-first-webapp](1.5.my-first-webapp)
+1. [1.6.1.myrest-servlet2-webxml](1.6.1.myrest-servlet2-webxml)
+1. [1.6.2.myrest-servlet3-webxml](1.6.2.myrest-servlet3-webxml)
+1. [1.6.3.myrest-subservlet](1.6.3.myrest-subservlet)
+1. [1.6.4.myrest-servlet3-application](1.6.4.myrest-servlet3-application)
+1. [1.6.5.myrest-servlet2-rc](1.6.5.myrest-servlet2-rc)
+1. [1.6.6.myrest-servlet2-application](1.6.6.myrest-servlet2-application)
+1. [1.6.7.myrest-servlet3-application](1.6.7.myrest-servlet3-application)
+1. [2.1.simple-service-3](2.1.simple-service-3)
+1. [2.1.simple-service-moxy](2.1.simple-service-moxy)
+1. [2.2.simple-service-jackson](2.2.simple-service-jackson)
+1. [2.3.6-1.simple-service-moxy](2.3.6-1.simple-service-moxy)
+1. [2.3.6-2.simple-service-jsonp](2.3.6-2.simple-service-jsonp)
+1. [2.3.6-3.simple-service-jackson](2.3.6-3.simple-service-jackson)
+1. [2.3.6-4.simple-service-jettison](2.3.6-4.simple-service-jettison)
+1. [2.3.simple-service-jettison](2.3.simple-service-jettison)
+1. [2.simple-service-3](2.simple-service-3)
+1. [3.jaxrs2-handle](3.jaxrs2-handle)
 1. [4.2 JAX-RS2的异步机制](4.2.asynchronized)
 1. [4.4 基于HTML5的异步通信](4.4.sse)
 1. [5 REST 客户端](5.jaxrs2-client)
+1. [6.rest-test](6.rest-test)
 1. [7.2 Spring-boot基础](7.2.demo)
 1. [7.3.1 Spring Cloud Zookeeper示例](7.3.1.boot.zookeeper)
 1. [7.3.2 Spring Cloud Consul示例](7.3.2.boot.consul)
 1. [7.3.3 Spring Cloud Etcd示例](7.3.2.boot.etcd)
 1. [8.2 REST服务的容器化](8.2.containerization)
 1. [8.3 容器化微服务](8.3.boot.zk.kaka)
-
-
+1. [9.simple-service](9.simple-service)
+1. [10.3.security-rest](10.3.security-rest)
+1. [10.5.oauth2-rest](10.5.oauth2-rest)
+ 
 #### 最新Jersey官方文档
 
 [**Jersey User Guide**](https://jersey.java.net/documentation/latest/user-guide.html)
