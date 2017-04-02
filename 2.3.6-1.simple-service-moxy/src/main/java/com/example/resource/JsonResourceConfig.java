@@ -8,6 +8,10 @@ import javax.ws.rs.ApplicationPath;
 public class JsonResourceConfig extends ResourceConfig {
     public JsonResourceConfig() {
         register(BookResource.class);
-        //property(org.glassfish.jersey.CommonProperties.MOXY_JSON_FEATURE_DISABLE, true);
+        
+        /**
+         * 自动探索Moxy更能关闭后。 没有指定json解析器，就报错了
+         */
+//        property(org.glassfish.jersey.CommonProperties.MOXY_JSON_FEATURE_DISABLE, true);   
     }
 }
