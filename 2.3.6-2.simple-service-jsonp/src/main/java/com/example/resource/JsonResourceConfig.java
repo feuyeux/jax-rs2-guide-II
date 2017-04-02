@@ -7,8 +7,11 @@ import org.glassfish.jersey.server.ResourceConfig;
 
 @ApplicationPath("/api/*")
 public class JsonResourceConfig extends ResourceConfig {
+	
     public JsonResourceConfig() {
         register(BookResource.class);
-        property(JsonGenerator.PRETTY_PRINTING, true);
+        
+        // 设置格式打印
+        property(JsonGenerator.PRETTY_PRINTING, true);  
     }
 }

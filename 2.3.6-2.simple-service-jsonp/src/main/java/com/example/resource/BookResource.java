@@ -13,7 +13,7 @@ import java.util.Set;
 
 @Path("books")
 @Consumes(MediaType.APPLICATION_JSON)
-@Produces(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
 public class BookResource {
     private static final Logger LOGGER = Logger.getLogger(BookResource.class);
     private static final HashMap<Long, JsonObject> memoryBase;
