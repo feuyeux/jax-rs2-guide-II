@@ -9,6 +9,8 @@ import javax.ws.rs.ApplicationPath;
 public class JsonResourceConfig extends ResourceConfig {
     public JsonResourceConfig() {
         register(BookResource.class);
+        
+        // 手动开启json的转换功能   zzkk
         register(JacksonFeature.class);
         register(JsonContextProvider.class);
     }

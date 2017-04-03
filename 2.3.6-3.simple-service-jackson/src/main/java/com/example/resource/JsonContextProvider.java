@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+import com.fasterxml.jackson.databind.type.TypeFactory;
 import com.fasterxml.jackson.module.jaxb.JaxbAnnotationIntrospector;
 
 import javax.ws.rs.ext.ContextResolver;
@@ -22,10 +23,14 @@ public class JsonContextProvider implements ContextResolver<ObjectMapper> {
     }
 
     private static ObjectMapper createCombinedMapper() {
-        return new ObjectMapper()
+        ObjectMapper mapper = new ObjectMapper()
                 .configure(SerializationFeature.WRAP_ROOT_VALUE, true)
                 .configure(DeserializationFeature.UNWRAP_ROOT_VALUE, true)
                 .setAnnotationIntrospector(createIntrospector());
+        // 格式化输出
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
+        return mapper;
+        
     }
 
     private static ObjectMapper createDefaultMapper() {
@@ -36,7 +41,7 @@ public class JsonContextProvider implements ContextResolver<ObjectMapper> {
 
     private static AnnotationIntrospector createIntrospector() {
         AnnotationIntrospector p = new JacksonAnnotationIntrospector();
-        AnnotationIntrospector s = new JaxbAnnotationIntrospector();
+        AnnotationIntrospector s = new JaxbAnnotationIntrospector(TypeFactory.defaultInstance());
         return AnnotationIntrospector.pair(p, s);
     }
 
