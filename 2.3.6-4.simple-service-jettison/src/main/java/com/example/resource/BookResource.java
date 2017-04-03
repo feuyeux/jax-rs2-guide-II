@@ -7,10 +7,14 @@ import com.example.jettison.JsonBook2;
 import org.apache.log4j.Logger;
 
 import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+
 import java.util.*;
 import java.util.Map.Entry;
 
 @Path("books")
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
 public class BookResource {
     private static final Logger LOGGER = Logger.getLogger(BookResource.class);
     private static final HashMap<Long, Book> memoryBase;
