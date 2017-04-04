@@ -6,10 +6,10 @@ import com.example.domain.Books;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
-@Path("book")
 public interface BookResource {
 
     @GET
+    @Path("inter")
     public String getWeight();
 
     @PUT

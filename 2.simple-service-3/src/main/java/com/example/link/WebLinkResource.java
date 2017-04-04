@@ -10,6 +10,7 @@ import java.net.URI;
 
 @Path("weblink-resource")
 public class WebLinkResource {
+	
     @Context
     UriInfo uriInfo;
 
@@ -45,7 +46,11 @@ public class WebLinkResource {
 
         final UriBuilder ub3 = uriInfo.getAbsolutePathBuilder();
         final URI location3 = ub3.scheme("http").host("localhost").port(9998).path("weblink-resource").path("" + newId).build();
-
-        return Response.created(location).link(location2, "view1").link(location3, "view2").entity(book).build();
+        
+        return Response.created(location)
+        		.link(location2, "view1")
+        		.link(location3, "view2")
+        		.entity(book) // 添加响应体
+        		.build();
     }
 }

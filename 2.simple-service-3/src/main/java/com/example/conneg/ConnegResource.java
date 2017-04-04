@@ -31,7 +31,11 @@ public class ConnegResource {
         return new Book(bookId);
     }
 
-
+    /**
+     * curl -H 'Accept: application/xml;q=.2, application/json;q=.1'  http://192.168.7.100/webapi/conneg-resource/book/1 -v
+     * @param bookId
+     * @return
+     */
     @GET
     @Produces({"application/json; qs=.9", "application/xml; qs=.5"})
     @Path("book/{id}")

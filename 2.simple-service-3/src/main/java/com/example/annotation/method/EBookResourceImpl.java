@@ -9,6 +9,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.atomic.AtomicLong;
 
+import javax.ws.rs.Path;
+
+@Path("book")
 public class EBookResourceImpl implements BookResource {
     private final static Logger LOGGER = Logger.getLogger(EBookResourceImpl.class);
     public static AtomicLong serverBookSequence = new AtomicLong();
