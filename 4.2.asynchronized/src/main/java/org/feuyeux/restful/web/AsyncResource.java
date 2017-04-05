@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 @Produces({"application/json;charset=UTF-8", "application/javascript;charset=UTF-8", "text/javascript;charset=UTF-8"})
 public class AsyncResource {
     private static final Logger log = LogManager.getLogger(AsyncResource.class);
-    public static final long TIMEOUT = 120;
+    public static final long TIMEOUT = 10;
     final ExecutorService threadPool = Executors.newFixedThreadPool(10);
 
     @GET
@@ -31,7 +31,7 @@ public class AsyncResource {
     }
 
     private void configResponse(final AsyncResponse asyncResponse) {
-        asyncResponse.register((CompletionCallback) throwable -> {
+        asyncResponse.register((CompletionCallback) throwable  -> {
             if (throwable == null) {
                 log.info("CompletionCallback-onComplete: OK");
             } else {
@@ -68,12 +68,14 @@ public class AsyncResource {
             try {
                 Books books = doBatch();
                 response.resume(books);
-            } catch (InterruptedException e) {
+            } catch (Exception e) {
                 log.error(e);
+                response.resume(Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Service has a exception").build());
             }
         }
 
         private Books doBatch() throws InterruptedException {
+//            int ii = 9/0;
             Books books = new Books();
             for (int i = 0; i < 10; i++) {
                 Thread.sleep(500);

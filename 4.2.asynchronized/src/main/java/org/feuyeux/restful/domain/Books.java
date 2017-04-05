@@ -9,6 +9,10 @@ import java.util.List;
 
 @XmlRootElement(name = "books")
 public class Books implements Serializable {
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1878046939659079113L;
     private List<Book> bookList;
 
     public Books() {
