@@ -9,10 +9,8 @@ import javax.ws.rs.ApplicationPath;
 public class AirResourceConfig extends ResourceConfig {
 
     public AirResourceConfig() {
-        super(
-                SseFeature.class,
-                AirSsePubSubResource.class,
-                AirSseBroadcastResource.class
-        );
+        super(SseFeature.class, // 開啓sse 功能
+              AirSsePubSubResource.class, 
+              AirSseBroadcastResource.class);
     }
 }

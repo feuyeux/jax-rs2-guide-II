@@ -19,6 +19,7 @@ import java.net.URISyntaxException;
 import java.util.concurrent.CountDownLatch;
 
 public class SseBroadcaseTest extends JerseyTest {
+    @SuppressWarnings("unused")
     private static final Logger log = LogManager.getLogger(SseBroadcaseTest.class);
 
     private final int MAX_COUNT = 3;
@@ -40,6 +41,7 @@ public class SseBroadcaseTest extends JerseyTest {
         config.register(SseFeature.class);
     }
 
+    @SuppressWarnings("unused")
     @Test
     public void testBroadcast() throws InterruptedException, URISyntaxException {
         final Invocation.Builder request = target().path("broadcast/book").queryParam("total", MAX_COUNT).request();
