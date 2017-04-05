@@ -9,6 +9,8 @@ import javax.ws.rs.client.ClientResponseContext;
 import javax.ws.rs.client.ClientResponseFilter;
 import javax.ws.rs.container.*;
 import javax.ws.rs.core.MultivaluedMap;
+import javax.ws.rs.ext.Provider;
+
 import java.io.IOException;
 import java.net.URI;
 import java.util.List;
@@ -17,6 +19,7 @@ import java.util.concurrent.atomic.AtomicLong;
 /*import org.glassfish.jersey.message.internal.HeadersFactory;*/
 
 @PreMatching
+@Provider
 public class AirLogFilter implements ContainerRequestFilter, ClientRequestFilter, ContainerResponseFilter, ClientResponseFilter {
     private static final Logger LOGGER = Logger.getLogger(AirLogFilter.class);
     private static final String NOTIFICATION_PREFIX = "* ";

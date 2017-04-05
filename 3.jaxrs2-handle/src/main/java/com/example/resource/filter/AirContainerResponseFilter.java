@@ -1,14 +1,17 @@
 package com.example.resource.filter;
 
-import org.apache.log4j.Logger;
+import java.io.IOException;
 
+import javax.annotation.Priority;
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.ContainerResponseContext;
 import javax.ws.rs.container.ContainerResponseFilter;
 import javax.ws.rs.ext.Provider;
-import java.io.IOException;
+
+import org.apache.log4j.Logger;
 
 @Provider
+@Priority(1000000)
 public class AirContainerResponseFilter implements ContainerResponseFilter {
     private static final Logger LOGGER = Logger.getLogger(AirContainerResponseFilter.class);
 

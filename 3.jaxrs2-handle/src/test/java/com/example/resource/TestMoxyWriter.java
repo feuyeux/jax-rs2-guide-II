@@ -11,6 +11,7 @@ import javax.ws.rs.core.Application;
 import javax.ws.rs.core.MediaType;
 
 public class TestMoxyWriter extends JerseyTest {
+    @SuppressWarnings("unused")
     private static final Logger LOGGER = Logger.getLogger(TestMoxyWriter.class);
 
     @Override

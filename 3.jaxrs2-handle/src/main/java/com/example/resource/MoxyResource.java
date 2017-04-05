@@ -16,7 +16,8 @@ public class MoxyResource {
     private static final Logger LOGGER = Logger.getLogger(MoxyResource.class);
 
     @GET
-    public void writing() {
+    public String writing() {
         LOGGER.debug("MOXy writing...");
+        return "Hello, jersey";
     }
 }
