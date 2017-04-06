@@ -1,14 +1,14 @@
 package com.example.client.entity;
 
-import javax.persistence.*;
+import java.io.Serializable;
+
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.io.Serializable;
 
 @XmlRootElement
 public class Book implements Serializable {
     private static final long serialVersionUID = 1L;
-    private static final int NAME_LENGTH = 100;
+    // private static final int NAME_LENGTH = 100;
     private Long bookId;
     private String bookName;
     private String publisher;
@@ -35,9 +35,7 @@ public class Book implements Serializable {
         this.publisher = publisher;
     }
 
-    @XmlAttribute(
-            name = "bookId"
-    )
+    @XmlAttribute(name = "bookId")
     public Long getBookId() {
         return this.bookId;
     }
@@ -46,9 +44,7 @@ public class Book implements Serializable {
         this.bookId = bookId;
     }
 
-    @XmlAttribute(
-            name = "bookName"
-    )
+    @XmlAttribute(name = "bookName")
     public String getBookName() {
         return this.bookName;
     }
@@ -57,9 +53,7 @@ public class Book implements Serializable {
         this.bookName = bookName;
     }
 
-    @XmlAttribute(
-            name = "publisher"
-    )
+    @XmlAttribute(name = "publisher")
     public String getPublisher() {
         return this.publisher;
     }

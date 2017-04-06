@@ -13,8 +13,8 @@ import javax.ws.rs.core.UriInfo;
 
 import org.apache.log4j.Logger;
 
-import com.example.domain.Book;
-import com.example.domain.Books;
+import com.example.client.entity.Book;
+import com.example.client.entity.Books;
 
 @Path("books")
 public class BookResource {

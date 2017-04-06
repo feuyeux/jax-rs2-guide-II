@@ -63,11 +63,13 @@
 	</build>
 
 	<dependencies>
+    <!-- 
 		<dependency>
 			<groupId>com.example</groupId>
 			<artifactId>example-common</artifactId>
 			<version>1.0-SNAPSHOT</version>
 		</dependency>
+     -->
 
 		<!-- jersey -->
 		<dependency>
