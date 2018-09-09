@@ -1,13 +1,13 @@
 package com.example.jaas;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
-
 import org.apache.catalina.Group;
 import org.apache.catalina.Role;
 import org.apache.catalina.User;
 import org.apache.catalina.UserDatabase;
+
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 
 public class RestUserPrincipal implements User {
     private String userName;

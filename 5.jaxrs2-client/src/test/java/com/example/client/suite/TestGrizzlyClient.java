@@ -1,10 +1,9 @@
 package com.example.client.suite;
 
-import org.junit.Test;
-
-import com.example.client.common.BasicTest;
 import com.example.client.GrizzlyClient;
 import com.example.client.Jaxrs2Client;
+import com.example.client.common.BasicTest;
+import org.junit.Test;
 
 public class TestGrizzlyClient extends BasicTest {
 

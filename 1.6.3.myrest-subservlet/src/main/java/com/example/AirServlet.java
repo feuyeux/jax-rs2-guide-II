@@ -1,9 +1,9 @@
 package com.example;
 
+import org.glassfish.jersey.servlet.ServletContainer;
+
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
-
-import org.glassfish.jersey.servlet.ServletContainer;
 
 @WebServlet(
 initParams = @WebInitParam(name = "jersey.config.server.provider.packages", value = "com.example"), 

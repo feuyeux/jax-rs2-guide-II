@@ -1,17 +1,16 @@
 package com.example.resource;
 
+import com.example.domain.Book;
+import com.example.domain.Books;
+import org.glassfish.jersey.client.ClientConfig;
+import org.glassfish.jersey.client.authentication.HttpAuthenticationFeature;
+import org.junit.Test;
+
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.MediaType;
-
-import org.glassfish.jersey.client.ClientConfig;
-import org.glassfish.jersey.client.authentication.HttpAuthenticationFeature;
-import org.junit.Test;
-
-import com.example.domain.Book;
-import com.example.domain.Books;
 
 /**
  * Need to launch Tomcat firstly

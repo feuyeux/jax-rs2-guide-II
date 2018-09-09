@@ -1,8 +1,8 @@
 package com.example.client.common;
 
-import java.lang.management.ManagementFactory;
-
 import com.sun.management.OperatingSystemMXBean;
+
+import java.lang.management.ManagementFactory;
 
 @SuppressWarnings("restriction")
 public class PerformanceLog {

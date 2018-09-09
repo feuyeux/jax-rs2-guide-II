@@ -1,7 +1,8 @@
 package com.example.client.resource;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.example.domain.Book;
+import com.example.domain.Books;
+import org.apache.log4j.Logger;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -10,11 +11,8 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriInfo;
-
-import org.apache.log4j.Logger;
-
-import com.example.domain.Book;
-import com.example.domain.Books;
+import java.util.ArrayList;
+import java.util.List;
 
 @Path("books")
 public class BookResource {

@@ -1,15 +1,14 @@
 package com.example.client.common;
 
-import java.net.URI;
-
-import javax.ws.rs.core.UriBuilder;
-
 import com.example.client.Jaxrs2Client;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.junit.After;
 import org.junit.Before;
+
+import javax.ws.rs.core.UriBuilder;
+import java.net.URI;
 
 public class BasicTest {
     HttpServer server;

@@ -1,10 +1,9 @@
 package com.example.domain;
 
-import java.io.Serializable;
-
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 
 @XmlRootElement(name = "gua")
 @XmlType(propOrder = { "sequence", "name", "pronounce" })

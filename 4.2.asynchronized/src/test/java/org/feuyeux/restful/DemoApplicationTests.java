@@ -7,14 +7,12 @@ import org.feuyeux.restful.web.AsyncResource;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.test.IntegrationTest;
-import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.boot.test.TestRestTemplate;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
-import org.springframework.web.client.RestTemplate;
 
 import javax.ws.rs.client.*;
 import java.util.concurrent.ExecutionException;
@@ -25,8 +23,7 @@ import java.util.concurrent.TimeoutException;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = DemoApplication.class)
-@IntegrationTest("server.port=0")
+@SpringBootTest(classes = DemoApplication.class)
 @WebAppConfiguration
 public class DemoApplicationTests {
     private static final Logger log = LogManager.getLogger(DemoApplicationTests.class);
@@ -34,7 +31,7 @@ public class DemoApplicationTests {
     @Value("${local.server.port}")
     private int port;
 
-    private final RestTemplate restTemplate = new TestRestTemplate();
+    private final TestRestTemplate restTemplate = new TestRestTemplate();
 
     @Test
     public void ok() {

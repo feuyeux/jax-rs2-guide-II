@@ -1,5 +1,5 @@
 ### 《Java Restful Web Service实战·第二版》示例源代码
-![jax-rs-guid.png](cover.png)
+<img width="350" src="cover.png"/>
 
 [**https://github.com/feuyeux/jax-rs2-guide-II**](https://github.com/feuyeux/jax-rs2-guide-II)
 
@@ -52,6 +52,7 @@
 #### Jersey版本发布历史
 | 版本号    | 发布日期        | 发版说明                                     |
 | :----- | :---------- | :--------------------------------------- |
+| 2.26   | 13/Apr/18 | [Jersey 2.27](https://jersey.github.io/release-notes/2.27.html) |
 | 2.26   | 06/Sep/17 | [Jersey 2.26](https://jersey.github.io/release-notes/2.26.html) |
 | 2.25   | 08/Dec/16   | [Jersey 2.25](https://jersey.github.io/release-notes/2.25.html) |
 | 2.24.1 | 21/Nov/16   | [Jersey 2.24.1](https://jersey.github.io/release-notes/2.24.1.html) |
@@ -91,5 +92,3 @@
 | 2.1    | 15/Jul/13   | [Jersey 2.1](https://jersey.github.io/release-notes/2.1.html) |
 | 2.0.1  | 03/Jan/14   | [Jersey 2.1](https://jersey.github.io/release-notes/2.0.1.html) |
 | 2.0    | 28/May/13   | [Jersey 2.0](https://jersey.github.io/release-notes/2.0.html) |
-
-#### 本书勘误

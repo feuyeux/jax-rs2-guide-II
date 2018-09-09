@@ -1,6 +1,9 @@
 package com.example.resource;
 
-import static org.junit.Assert.assertEquals;
+import com.example.domain.Book;
+import com.example.domain.Books;
+import org.glassfish.jersey.SslConfigurator;
+import org.junit.Test;
 
 import javax.net.ssl.SSLContext;
 import javax.ws.rs.client.Client;
@@ -9,11 +12,7 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.MediaType;
 
-import org.glassfish.jersey.SslConfigurator;
-import org.junit.Test;
-
-import com.example.domain.Book;
-import com.example.domain.Books;
+import static org.junit.Assert.assertEquals;
 
 public class TIClientCertTest {
     public static final String BASE_URI = "https://mars64:8443/security-rest/webapi/books/";

@@ -1,19 +1,16 @@
 package com.example.client;
 
-import javax.ws.rs.client.*;
-import javax.ws.rs.core.MediaType;
-
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.glassfish.grizzly.utils.Pair;
 import org.glassfish.jersey.apache.connector.ApacheClientProperties;
 import org.glassfish.jersey.apache.connector.ApacheConnectorProvider;
 import org.glassfish.jersey.client.ClientConfig;
 
+import javax.ws.rs.client.*;
+import javax.ws.rs.core.MediaType;
 import java.util.Set;
 
 import static javax.ws.rs.HttpMethod.*;
-
-import org.glassfish.grizzly.utils.Pair;
 
 public class PoolingClient<T> extends Jaxrs2Client {
     public PoolingClient() {

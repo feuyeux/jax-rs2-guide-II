@@ -1,15 +1,14 @@
 package com.example.jaas;
 
+import org.apache.log4j.Logger;
+
+import javax.security.auth.login.LoginException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.security.auth.login.LoginException;
-
-import org.apache.log4j.Logger;
 
 public class RestLoginDao {
     private static final Logger LOG = Logger.getLogger(RestLoginDao.class);

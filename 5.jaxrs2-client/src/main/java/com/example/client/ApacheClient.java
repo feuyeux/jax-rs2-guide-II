@@ -1,11 +1,9 @@
 package com.example.client;
 
-import javax.ws.rs.client.ClientBuilder;
-
-import org.glassfish.jersey.apache.connector.ApacheClientProperties;
 import org.glassfish.jersey.apache.connector.ApacheConnectorProvider;
 import org.glassfish.jersey.client.ClientConfig;
-import org.glassfish.jersey.client.ClientProperties;
+
+import javax.ws.rs.client.ClientBuilder;
 
 public class ApacheClient extends Jaxrs2Client {
     public ApacheClient() {

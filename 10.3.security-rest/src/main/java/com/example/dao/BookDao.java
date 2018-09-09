@@ -1,19 +1,17 @@
 package com.example.dao;
 
-import java.util.List;
+import com.example.domain.Book;
+import org.apache.log4j.Logger;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-
-import org.apache.log4j.Logger;
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.Assert;
-
-import com.example.domain.Book;
+import java.util.List;
 
 /**
  * <p>BookDao class.</p>

@@ -1,11 +1,10 @@
 package com.example;
 
-import javax.ws.rs.ApplicationPath;
-
+import com.example.resource.BookResource;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.server.filter.RolesAllowedDynamicFeature;
 
-import com.example.resource.BookResource;
+import javax.ws.rs.ApplicationPath;
 
 /**
  * <p>AirResourceConfig class.</p>

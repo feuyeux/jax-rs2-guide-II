@@ -1,11 +1,10 @@
 package com.example.client.suite;
 
-import org.junit.Test;
-
-import com.example.client.common.BasicTest;
 import com.example.client.Jaxrs2Client;
-import com.example.client.common.PerformanceLog;
 import com.example.client.PoolingClient;
+import com.example.client.common.BasicTest;
+import com.example.client.common.PerformanceLog;
+import org.junit.Test;
 
 public class TestPoolingClient extends BasicTest {
 

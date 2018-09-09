@@ -1,9 +1,9 @@
 package com.example.jaas;
 
-import java.io.Serializable;
-
 import org.apache.catalina.Role;
 import org.apache.catalina.UserDatabase;
+
+import java.io.Serializable;
 
 public class RestRolePrincipal implements Role, Serializable {
     private static final long serialVersionUID = 1L;

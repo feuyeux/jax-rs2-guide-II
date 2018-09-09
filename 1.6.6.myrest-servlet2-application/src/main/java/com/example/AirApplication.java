@@ -1,9 +1,8 @@
 package com.example;
 
+import javax.ws.rs.core.Application;
 import java.util.HashSet;
 import java.util.Set;
-
-import javax.ws.rs.core.Application;
 
 public class AirApplication extends Application {
 	@Override

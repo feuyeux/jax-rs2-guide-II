@@ -1,9 +1,8 @@
 package com.example.domain;
 
-import java.io.Serializable;
-
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 @XmlRootElement
 public class Book implements Serializable {
     private static final long serialVersionUID = 1L;
