@@ -52,7 +52,7 @@
 #### Jersey版本发布历史
 | 版本号    | 发布日期        | 发版说明                                     |
 | :----- | :---------- | :--------------------------------------- |
-| 2.26   | 13/Apr/18 | [Jersey 2.27](https://jersey.github.io/release-notes/2.27.html) |
+| 2.27   | 13/Apr/18 | [Jersey 2.27](https://jersey.github.io/release-notes/2.27.html) |
 | 2.26   | 06/Sep/17 | [Jersey 2.26](https://jersey.github.io/release-notes/2.26.html) |
 | 2.25   | 08/Dec/16   | [Jersey 2.25](https://jersey.github.io/release-notes/2.25.html) |
 | 2.24.1 | 21/Nov/16   | [Jersey 2.24.1](https://jersey.github.io/release-notes/2.24.1.html) |
