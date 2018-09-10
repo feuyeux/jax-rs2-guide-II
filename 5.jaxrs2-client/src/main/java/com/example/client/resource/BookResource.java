@@ -1,7 +1,7 @@
 package com.example.client.resource;
 
-import com.example.domain.Book;
-import com.example.domain.Books;
+import com.example.client.entity.Book;
+import com.example.client.entity.Books;
 import org.apache.log4j.Logger;
 
 import javax.ws.rs.GET;
