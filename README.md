@@ -1,4 +1,6 @@
 ### 《Java Restful Web Service实战·第二版》示例源代码
+![Build Status](https://travis-ci.org/feuyeux/jax-rs2-guide-II.svg?branch=master)](https://travis-ci.org/feuyeux/jax-rs2-guide-II)
+
 <img width="350" src="cover.png"/>
 
 [**https://github.com/feuyeux/jax-rs2-guide-II**](https://github.com/feuyeux/jax-rs2-guide-II)
