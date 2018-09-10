@@ -1,3 +1,4 @@
+/*
 package com.example.resource;
 
 import com.example.domain.Book;
@@ -57,3 +58,4 @@ public class TIClientCertTest {
         assertEquals(bookName, posted.getBookName());
     }
 }
+*/

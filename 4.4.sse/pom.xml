@@ -12,7 +12,7 @@
     <properties>
         <encoding>UTF-8</encoding>
         <java.version>1.8</java.version>
-        <jersey.version>2.22.1</jersey.version>
+        <jersey.version>2.25</jersey.version>
         <jquery.version>2.0.3</jquery.version>
         <log4j2.version>2.4.1</log4j2.version>
     </properties>

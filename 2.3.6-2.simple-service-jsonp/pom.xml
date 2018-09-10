@@ -12,7 +12,7 @@
 		<guava.version>17.0</guava.version>
 		<jersey.version>2.22.2</jersey.version>
 		<jquery.version>2.2.1</jquery.version>
-		<maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
+		<maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
 		<maven-war-plugin.version>2.6</maven-war-plugin.version>
 		<maven-resources-plugin.version>2.7</maven-resources-plugin.version>
 		<maven-eclipse-plugin.version>2.9</maven-eclipse-plugin.version>

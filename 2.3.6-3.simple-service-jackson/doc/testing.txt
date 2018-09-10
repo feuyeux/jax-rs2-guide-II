@@ -1,4 +1,4 @@
-D:\-aries\github\jax-rs2-guide\sample\3\2simple-service-jackson>curl http://localhost:8080/simple-service-jackson/api/books
+jax-rs2-guide\sample\3\2simple-service-jackson>curl http://localhost:8080/simple-service-jackson/api/books
 {
   "bookList" : [ {
     "bookId" : 1,

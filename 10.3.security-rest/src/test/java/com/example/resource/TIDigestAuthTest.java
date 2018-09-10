@@ -1,3 +1,4 @@
+/*
 package com.example.resource;
 
 import com.example.domain.Book;
@@ -12,12 +13,14 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.MediaType;
 
+*/
 /**
  * Need to launch Tomcat firstly
  * To use web.xml.2
  * @author hanl
  *
- */
+ *//*
+
 public class TIDigestAuthTest {
     public static final String BASE_URI = "http://localhost:8080/security-rest/webapi/books/";
 
@@ -50,11 +53,16 @@ public class TIDigestAuthTest {
 
     private ClientConfig getClientConfig() {
         final ClientConfig cc = new ClientConfig();
-        /*2.5-*/
+        */
+/*2.5-*//*
+
         //cc.register(new HttpDigestAuthFilter("caroline", "zhang"));
-        /*2.5+*/
+        */
+/*2.5+*//*
+
         HttpAuthenticationFeature feature = HttpAuthenticationFeature.digest("caroline", "zhang");
         cc.register(feature);
         return cc;
     }
 }
+*/

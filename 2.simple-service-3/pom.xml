@@ -11,11 +11,11 @@
 
     <properties>
         <JDK.version>1.8</JDK.version>
-        <jersey.version>2.27</jersey.version>
+        <jersey.version>2.25</jersey.version>
         <spring.version>3.2.3.RELEASE</spring.version>
         <eclipselink.version>2.5.0</eclipselink.version>
         <jquery.version>2.2.1</jquery.version>
-        <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
+        <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
         <maven-war-plugin.version>2.6</maven-war-plugin.version>
         <maven-resources-plugin.version>2.7</maven-resources-plugin.version>
         <maven-eclipse-plugin.version>2.9</maven-eclipse-plugin.version>

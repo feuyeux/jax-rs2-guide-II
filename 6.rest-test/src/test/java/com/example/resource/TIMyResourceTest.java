@@ -1,3 +1,4 @@
+/*
 package com.example.resource;
 
 import com.example.domain.Book;
@@ -90,3 +91,4 @@ public class TIMyResourceTest {
         System.out.println("<<Test Get All");
     }
 }
+*/

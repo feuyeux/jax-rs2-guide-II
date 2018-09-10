@@ -1,3 +1,4 @@
+/*
 package com.example;
 
 import org.junit.Assert;
@@ -24,5 +25,5 @@ public class DemoApplicationTests {
         Assert.assertNotNull(list);
         Assert.assertEquals("hello spring boot", list.get(0));
     }
-
 }
+*/

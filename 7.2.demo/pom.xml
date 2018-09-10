@@ -15,7 +15,8 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.5.9.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
 
     <properties>
@@ -53,6 +54,4 @@
             </plugin>
         </plugins>
     </build>
-
-
 </project>

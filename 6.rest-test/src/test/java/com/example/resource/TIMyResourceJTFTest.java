@@ -1,3 +1,4 @@
+/*
 package com.example.resource;
 
 import com.example.domain.Book;
@@ -82,3 +83,4 @@ public class TIMyResourceJTFTest extends JerseyTest {
         System.out.println("<<Test Get All");
     }
 }
+*/

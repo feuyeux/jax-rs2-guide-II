@@ -1,3 +1,4 @@
+/*
 package com.example.resource;
 
 import com.example.domain.Book;
@@ -12,12 +13,14 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.MediaType;
 
+*/
 /**
  * Need to launch Tomcat firstly
  * To use web.xml.1
  *
  * @author hanl
- */
+ *//*
+
 public class TIBasicAuthTest {
     public static final String BASE_URI = "http://localhost:8080/security-rest/webapi/books/";
 
@@ -42,9 +45,13 @@ public class TIBasicAuthTest {
 
     private ClientConfig getClientConfig() {
         final ClientConfig cc = new ClientConfig();
-        /*2.5-*/
+        */
+/*2.5-*//*
+
         //cc.register(new HttpBasicAuthFilter("caroline", "zhang"));
-        /*2.5+*/
+        */
+/*2.5+*//*
+
         HttpAuthenticationFeature feature = HttpAuthenticationFeature.basicBuilder().nonPreemptive().credentials("caroline", "zhang").build();
         cc.register(feature);
         return cc;
@@ -59,3 +66,4 @@ public class TIBasicAuthTest {
         client.target(BASE_URI).request(MediaType.APPLICATION_JSON_TYPE).post(bookEntity, Book.class);
     }
 }
+*/
