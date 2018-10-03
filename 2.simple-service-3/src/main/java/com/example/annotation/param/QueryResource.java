@@ -60,19 +60,16 @@ public class QueryResource {
         final List<Link> links = new ArrayList<>();
         final List<Yijing> yijings = new ArrayList<>();
         final ArrayList<Yijing> list = ParamCache.copy();
-        Collections.sort(list, new Comparator<Yijing>() {
-            @Override
-            public int compare(final Yijing o1, final Yijing o2) {
-                switch (sortName) {
-                    case "sequence":
-                        return o1.getSequence().compareTo(o2.getSequence());
-                    case "name":
-                        return o1.getName().compareTo(o2.getName());
-                    case "pronounce":
-                        return o1.getPronounce().compareTo(o2.getPronounce());
-                }
-                return 0;
+        list.sort((o1, o2) -> {
+            switch (sortName) {
+                case "sequence":
+                    return o1.getSequence().compareTo(o2.getSequence());
+                case "name":
+                    return o1.getName().compareTo(o2.getName());
+                case "pronounce":
+                    return o1.getPronounce().compareTo(o2.getPronounce());
             }
+            return 0;
         });
         final UriBuilder ub = uriInfo.getAbsolutePathBuilder().replacePath("query-resource/yijing");
         final int max = limit > list.size() ? list.size() : limit;

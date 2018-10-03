@@ -32,7 +32,7 @@ public class RestService {
     public void loadTarots() {
         if (tarots == null) {
             tarots = new Tarots();
-            List<Tarot> list = new ArrayList<Tarot>();
+            List<Tarot> list = new ArrayList<>();
             Tarot tarot = new Tarot();
             tarot.setCard("魔法师");
             tarot.setV("原创性,创造力,想像力,自我依靠,自然发生,自信,足智多谋,灵活,行家,自我控制,欺骗,手的灵巧");

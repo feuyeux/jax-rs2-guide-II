@@ -39,14 +39,14 @@ public class TIResourceJtfTest extends JerseyTest {
     @Test
     public void testQueryGetXML() {
         TIResourceJtfTest.LOGGER.debug(">>Test Query Get");
-        WebTarget queryTarget = target(TIResourceJtfTest.BASEURI + "book").queryParam("id", Integer.valueOf(1));
+        WebTarget queryTarget = target(TIResourceJtfTest.BASEURI + "book").queryParam("id", 1);
         Invocation.Builder invocationBuilder = queryTarget.request(MediaType.APPLICATION_XML_TYPE);
         Response response = invocationBuilder.get();
         final Book result = response.readEntity(Book.class);
         TIResourceJtfTest.LOGGER.debug(result);
         Assert.assertNotNull(result.getBookId());
 
-        queryTarget = target(TIResourceJtfTest.BASEURI + "book").queryParam("id", Integer.valueOf(2));
+        queryTarget = target(TIResourceJtfTest.BASEURI + "book").queryParam("id", 2);
         invocationBuilder = queryTarget.request(MediaType.APPLICATION_XML);
         response = invocationBuilder.get();
         final String beanXml = response.readEntity(String.class);

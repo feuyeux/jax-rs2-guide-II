@@ -16,8 +16,7 @@ public class HttpMethodTest extends JerseyTest {
     protected Application configure() {
         enable(TestProperties.LOG_TRAFFIC);
         enable(TestProperties.DUMP_ENTITY);
-        ResourceConfig resourceConfig = new ResourceConfig(EBookResourceImpl.class);
-        return resourceConfig;
+        return new ResourceConfig(EBookResourceImpl.class);
     }
 
     @Override

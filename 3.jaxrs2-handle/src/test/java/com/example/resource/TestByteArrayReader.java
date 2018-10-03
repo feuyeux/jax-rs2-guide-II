@@ -15,8 +15,7 @@ public class TestByteArrayReader extends JerseyTest {
     protected Application configure() {
         enable(org.glassfish.jersey.test.TestProperties.LOG_TRAFFIC);
         enable(org.glassfish.jersey.test.TestProperties.DUMP_ENTITY);
-        ResourceConfig config = new ResourceConfig(ByteArrayResource.class);
-        return config;
+        return new ResourceConfig(ByteArrayResource.class);
     }
 
     @Test

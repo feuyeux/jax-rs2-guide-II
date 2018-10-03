@@ -37,10 +37,7 @@ public class BookResource {
     public Books getBooks() {
         final List<Book> bookList = new ArrayList<>();
         final Collection<Book> bookCol = BookResource.memoryBase.values();
-        final Iterator<Book> iterator = bookCol.iterator();
-        while (iterator.hasNext()) {
-            bookList.add(iterator.next());
-        }
+        bookList.addAll(bookCol);
         final Books books = new Books(bookList);
         BookResource.LOGGER.debug("books=" + books);
         return books;

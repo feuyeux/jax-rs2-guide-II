@@ -9,7 +9,6 @@ import org.glassfish.jersey.media.sse.SseFeature;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
 import org.junit.Assert;
-import org.junit.Test;
 
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation;

@@ -5,13 +5,14 @@ import org.springframework.core.convert.converter.GenericConverter;
 import org.springframework.security.oauth2.client.token.AccessTokenRequest;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
 public class AccessTokenRequestConverter implements GenericConverter {
 
     private final Set<ConvertiblePair> convertibleTypes = new HashSet<>(
-            Arrays.asList(new ConvertiblePair(AccessTokenRequest.class, AccessTokenRequest.class)));
+        Collections.singletonList(new ConvertiblePair(AccessTokenRequest.class, AccessTokenRequest.class)));
 
     public Set<ConvertiblePair> getConvertibleTypes() {
         return convertibleTypes;

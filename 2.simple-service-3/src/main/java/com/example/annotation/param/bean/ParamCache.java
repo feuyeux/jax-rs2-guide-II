@@ -8,7 +8,7 @@ public class ParamCache {
     public final static ArrayList<Yijing> LIST;
 
     static {
-        LIST = new ArrayList<Yijing>();
+        LIST = new ArrayList<>();
         ParamCache.LIST.add(new Yijing("1", "乾", "qián"));
         ParamCache.LIST.add(new Yijing("2", "坤", "kūn"));
         ParamCache.LIST.add(new Yijing("3", "屯", "zhūn"));

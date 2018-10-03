@@ -18,6 +18,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 @Configuration
 @EnableWebMvc
@@ -42,8 +43,8 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
         ContentNegotiatingViewResolver contentViewResolver = new ContentNegotiatingViewResolver();
         contentViewResolver.setContentNegotiationManager(contentNegotiationManager.getObject());
-        contentViewResolver.setViewResolvers(Arrays.<ViewResolver>asList(viewResolver));
-        contentViewResolver.setDefaultViews(Arrays.<View>asList(defaultView));
+        contentViewResolver.setViewResolvers(Collections.<ViewResolver>singletonList(viewResolver));
+        contentViewResolver.setDefaultViews(Collections.<View>singletonList(defaultView));
         return contentViewResolver;
     }
 

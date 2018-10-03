@@ -43,9 +43,7 @@ public class BookResource {
     public Books getBooks() {
         final List<Book> bookList = new ArrayList<>();
         final Set<Map.Entry<Long, Book>> entries = BookResource.memoryBase.entrySet();
-        final Iterator<Entry<Long, Book>> iterator = entries.iterator();
-        while (iterator.hasNext()) {
-            final Entry<Long, Book> cursor = iterator.next();
+        for (Entry<Long, Book> cursor : entries) {
             BookResource.LOGGER.debug(cursor.getKey());
             bookList.add(cursor.getValue());
         }

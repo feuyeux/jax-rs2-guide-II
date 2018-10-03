@@ -23,9 +23,7 @@ public class Jaxrs2Client {
     protected void checkConfig() {
         final Configuration newConfiguration = client.getConfiguration();
         final Map<String, Object> properties = newConfiguration.getProperties();
-        final Iterator<Entry<String, Object>> iterator = properties.entrySet().iterator();
-        while (iterator.hasNext()) {
-            final Entry<String, Object> next = iterator.next();
+        for (Entry<String, Object> next : properties.entrySet()) {
             Jaxrs2Client.LOGGER.debug(next.getKey() + ":" + next.getValue());
         }
     }

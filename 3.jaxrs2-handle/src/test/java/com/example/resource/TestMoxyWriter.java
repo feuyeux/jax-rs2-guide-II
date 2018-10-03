@@ -15,8 +15,7 @@ public class TestMoxyWriter extends JerseyTest {
 
     @Override
     protected Application configure() {
-        ResourceConfig config = new ResourceConfig(ByteArrayResource.class);
-        return config;
+        return new ResourceConfig(ByteArrayResource.class);
     }
 
     @Test

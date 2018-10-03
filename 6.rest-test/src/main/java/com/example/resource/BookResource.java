@@ -21,8 +21,7 @@ public class BookResource {
     @GET
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public Books getBooks() {
-        final Books books = bookService.getBooks();
-        return books;
+        return bookService.getBooks();
     }
 
     /**
@@ -35,8 +34,7 @@ public class BookResource {
     @GET
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public Book getBookByPath(@PathParam("bookId") final Long bookId) {
-        final Book book = bookService.getBook(bookId);
-        return book;
+        return bookService.getBook(bookId);
     }
 
     /**
@@ -49,8 +47,7 @@ public class BookResource {
     @GET
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public Book getBookByQuery(@QueryParam("id") final Long bookId) {
-        final Book book = bookService.getBook(bookId);
-        return book;
+        return bookService.getBook(bookId);
     }
 
     /**

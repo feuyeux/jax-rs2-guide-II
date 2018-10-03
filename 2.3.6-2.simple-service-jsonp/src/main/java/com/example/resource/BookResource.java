@@ -42,16 +42,13 @@ public class BookResource {
     public JsonArray getBooks() {
         final JsonArrayBuilder arrayBuilder = Json.createArrayBuilder();
         final Set<Map.Entry<Long, JsonObject>> entries = BookResource.memoryBase.entrySet();
-        final Iterator<Entry<Long, JsonObject>> iterator = entries.iterator();
-        while (iterator.hasNext()) {
-            final Entry<Long, JsonObject> cursor = iterator.next();
+        for (Entry<Long, JsonObject> cursor : entries) {
             Long key = cursor.getKey();
             JsonObject value = cursor.getValue();
             BookResource.LOGGER.debug(key);
             arrayBuilder.add(value);
         }
-        JsonArray result = arrayBuilder.build();
-        return result;
+        return arrayBuilder.build();
     }
 
     @Path("/book")

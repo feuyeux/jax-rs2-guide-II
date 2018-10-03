@@ -41,7 +41,7 @@ public class UserApprovalHandler extends ApprovalStoreUserApprovalHandler {
                             break;
                         }
                     }
-                } catch (ClientRegistrationException e) {
+                } catch (ClientRegistrationException ignored) {
                 }
             }
         }

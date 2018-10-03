@@ -61,9 +61,7 @@ public class RestLoginModule implements LoginModule {
                 succeeded = true;
                 return succeeded;
             }
-        } catch (final IOException e) {
-            e.printStackTrace();
-        } catch (final UnsupportedCallbackException e) {
+        } catch (final IOException | UnsupportedCallbackException e) {
             e.printStackTrace();
         }
         return false;
@@ -72,7 +70,7 @@ public class RestLoginModule implements LoginModule {
     @Override
     public boolean commit() throws LoginException {
         RestLoginModule.LOG.info("committing...");
-        if (succeeded == false) {
+        if (!succeeded) {
             return false;
         } else {
             userPrincipal = new RestUserPrincipal(userName);
@@ -107,9 +105,9 @@ public class RestLoginModule implements LoginModule {
 
     @Override
     public boolean abort() throws LoginException {
-        if (succeeded == false) {
+        if (!succeeded) {
             return false;
-        } else if (succeeded == true && commitSucceeded == false) {
+        } else if (succeeded && !commitSucceeded) {
             succeeded = false;
             userName = null;
             if (passWord != null) {

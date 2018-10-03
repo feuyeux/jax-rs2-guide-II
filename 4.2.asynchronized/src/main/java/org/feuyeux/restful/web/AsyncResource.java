@@ -45,13 +45,10 @@ public class AsyncResource {
             disconnected.resume(Response.status(Response.Status.GONE).entity("disconnect!").build());
         });
 
-        asyncResponse.setTimeoutHandler(new TimeoutHandler() {
-            @Override
-            public void handleTimeout(AsyncResponse asyncResponse) {
-                //Status.SERVICE_UNAVAILABLE=503
-                log.info("TIMEOUT");
-                asyncResponse.resume(Response.status(Response.Status.SERVICE_UNAVAILABLE).entity("Operation time out.").build());
-            }
+        asyncResponse.setTimeoutHandler(r -> {
+            //Status.SERVICE_UNAVAILABLE=503
+            log.info("TIMEOUT");
+            r.resume(Response.status(Response.Status.SERVICE_UNAVAILABLE).entity("Operation time out.").build());
         });
         asyncResponse.setTimeout(TIMEOUT, TimeUnit.SECONDS);
     }
@@ -77,7 +74,7 @@ public class AsyncResource {
             Books books = new Books();
             for (int i = 0; i < 10; i++) {
                 Thread.sleep(500);
-                Book book = new Book(i + 10000l, "Java RESTful Web Services", "华章");
+                Book book = new Book(i + 10000L, "Java RESTful Web Services", "华章");
                 log.debug(book);
                 books.getBookList().add(book);
             }

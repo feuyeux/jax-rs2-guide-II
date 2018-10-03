@@ -14,7 +14,7 @@ public class Book implements Serializable {
     }
 
     public Book(final long bookId, final String bookName, String publisher) {
-        this.bookId = Long.valueOf(bookId);
+        this.bookId = bookId;
         this.bookName = bookName;
         this.publisher = publisher;
     }
@@ -48,10 +48,9 @@ public class Book implements Serializable {
 
     @Override
     public String toString() {
-        StringBuilder sb=new StringBuilder();
-        sb.append(getBookId()).append(",")
-                .append(getBookName()).append(",")
-                .append(getPublisher());
-        return sb.toString();
+        String sb = String.valueOf(getBookId()) + ","
+            + getBookName() + ","
+            + getPublisher();
+        return sb;
     }
 }

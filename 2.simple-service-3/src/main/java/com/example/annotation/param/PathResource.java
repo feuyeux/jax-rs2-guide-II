@@ -45,9 +45,7 @@ public class PathResource {
         final StringBuilder conds = new StringBuilder();
         conds.append(condition.getPath()).append(" ");
         final MultivaluedMap<String, String> matrixParameters = condition.getMatrixParameters();
-        final Iterator<Entry<String, List<String>>> iterator = matrixParameters.entrySet().iterator();
-        while (iterator.hasNext()) {
-            final Entry<String, List<String>> entry = iterator.next();
+        for (Entry<String, List<String>> entry : matrixParameters.entrySet()) {
             conds.append(entry.getKey()).append("=");
             conds.append(entry.getValue()).append(" ");
         }

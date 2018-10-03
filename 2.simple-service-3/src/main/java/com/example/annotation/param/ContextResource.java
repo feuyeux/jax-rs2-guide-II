@@ -45,9 +45,7 @@ public class ContextResource {
         iterating(buf, headerMap);
         buf.append("COOKIE:\n");
         final Map<String, Cookie> kukyMap = headers.getCookies();
-        final Iterator<Entry<String, Cookie>> i = kukyMap.entrySet().iterator();
-        while (i.hasNext()) {
-            final Entry<String, Cookie> e = i.next();
+        for (Entry<String, Cookie> e : kukyMap.entrySet()) {
             final String k = e.getKey();
             buf.append("key=").append(k).append(",value=");
             final Cookie cookie = e.getValue();
@@ -58,9 +56,7 @@ public class ContextResource {
     }
 
     private void iterating(final StringBuilder buf, final MultivaluedMap<String, String> pathMap) {
-        final Iterator<Entry<String, List<String>>> i = pathMap.entrySet().iterator();
-        while (i.hasNext()) {
-            final Entry<String, List<String>> e = i.next();
+        for (Entry<String, List<String>> e : pathMap.entrySet()) {
             final String k = e.getKey();
             buf.append("key=").append(k).append(",value=");
             final List<String> vList = e.getValue();

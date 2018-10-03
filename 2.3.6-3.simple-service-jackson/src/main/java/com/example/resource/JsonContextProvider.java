@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+import com.fasterxml.jackson.databind.type.TypeFactory;
 import com.fasterxml.jackson.module.jaxb.JaxbAnnotationIntrospector;
 
 import javax.ws.rs.ext.ContextResolver;
@@ -36,7 +37,7 @@ public class JsonContextProvider implements ContextResolver<ObjectMapper> {
 
     private static AnnotationIntrospector createIntrospector() {
         AnnotationIntrospector p = new JacksonAnnotationIntrospector();
-        AnnotationIntrospector s = new JaxbAnnotationIntrospector();
+        AnnotationIntrospector s = new JaxbAnnotationIntrospector(TypeFactory.defaultInstance());
         return AnnotationIntrospector.pair(p, s);
     }
 

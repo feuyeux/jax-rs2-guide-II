@@ -79,28 +79,20 @@ public class SsePubSubTest extends JerseyTest {
     public void testInboundEventReader() throws InterruptedException {
         final CountDownLatch startLatch = new CountDownLatch(1);
         final CountDownLatch stopLatch = new CountDownLatch(5);
-        final Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                final WebTarget target = target(ROOT_PATH);
-                target.register(SseFeature.class);
-                final EventInput eventInput = target.request().get(EventInput.class);
+        final Thread thread = new Thread(() -> {
+            final WebTarget target = target(ROOT_PATH);
+            target.register(SseFeature.class);
+            try (EventInput eventInput = target.request().get(EventInput.class)) {
                 startLatch.countDown();
-                try {
-                    eventInput.setParser(ChunkedInput.createParser("\n\n"));
-                    do {
-                        InboundEvent event = eventInput.read();
-                        log.info("What the server response: {}", event);
-                        assertNotNull(event.readData());
-                        stopLatch.countDown();
-                    } while (stopLatch.getCount() > 0);
-                } catch (ProcessingException e) {
-                    e.printStackTrace();
-                } finally {
-                    if (eventInput != null) {
-                        eventInput.close();
-                    }
-                }
+                eventInput.setParser(ChunkedInput.createParser("\n\n"));
+                do {
+                    InboundEvent event = eventInput.read();
+                    log.info("What the server response: {}", event);
+                    assertNotNull(event.readData());
+                    stopLatch.countDown();
+                } while (stopLatch.getCount() > 0);
+            } catch (ProcessingException e) {
+                e.printStackTrace();
             }
         });
         thread.start();

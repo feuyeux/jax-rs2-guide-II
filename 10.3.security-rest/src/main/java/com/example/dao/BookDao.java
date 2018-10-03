@@ -116,11 +116,10 @@ public class BookDao {
 
     @Transactional
     public void update(final Book entity) {
-        final StringBuilder jpql = new StringBuilder();
-        jpql.append("UPDATE Book b SET b.bookName='").append(entity.getBookName());
-        jpql.append("', b.publisher='").append(entity.getPublisher());
-        jpql.append("' WHERE b.bookId=").append(entity.getBookId());
-        entityManager.createQuery(jpql.toString()).executeUpdate();
+        String jpql = "UPDATE Book b SET b.bookName='" + entity.getBookName()
+            + "', b.publisher='" + entity.getPublisher()
+            + "' WHERE b.bookId=" + entity.getBookId();
+        entityManager.createQuery(jpql).executeUpdate();
     }
 
 }

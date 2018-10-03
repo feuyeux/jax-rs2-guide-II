@@ -7,7 +7,7 @@ import java.util.Set;
 public class AirApplication extends Application {
 	@Override
 	public Set<Class<?>> getClasses() {
-		final Set<Class<?>> classes = new HashSet<Class<?>>();
+		final Set<Class<?>> classes = new HashSet<>();
 		classes.add(MyResource.class);
 		return classes;
 	}
