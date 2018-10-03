@@ -1,14 +1,14 @@
 package com.example.resource;
 
+import javax.ws.rs.client.Invocation;
+import javax.ws.rs.core.Application;
+
 import com.example.AirAopConfig;
 import com.example.domain.Books;
 import org.apache.log4j.Logger;
 import org.glassfish.jersey.test.JerseyTest;
 import org.junit.Assert;
 import org.junit.Test;
-
-import javax.ws.rs.client.Invocation;
-import javax.ws.rs.core.Application;
 
 /**
  * Integration Test by Jersey Test Framework

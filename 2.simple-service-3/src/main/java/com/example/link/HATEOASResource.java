@@ -1,16 +1,21 @@
 package com.example.link;
 
-import com.example.domain.Book;
-import com.example.domain.BookWrapper;
-import com.example.exception.Jaxrs2GuideNotFoundException;
+import java.net.URI;
 
-import javax.ws.rs.*;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriBuilder;
 import javax.ws.rs.core.UriInfo;
-import java.net.URI;
 
+import com.example.domain.Book;
+import com.example.domain.BookWrapper;
+import com.example.exception.Jaxrs2GuideNotFoundException;
 
 @Path("hateoas-resource")
 public class HATEOASResource {
@@ -27,7 +32,6 @@ public class HATEOASResource {
         }
         return result;
     }
-
 
     @POST
     @Produces({MediaType.APPLICATION_XML})

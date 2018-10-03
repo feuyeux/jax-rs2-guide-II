@@ -1,10 +1,8 @@
 package com.example.annotation.param;
 
-import com.example.annotation.param.bean.ParamCache;
-import com.example.domain.Link;
-import com.example.domain.Yijing;
-import com.example.domain.Yijings;
-import org.apache.log4j.Logger;
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -14,11 +12,12 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriBuilder;
 import javax.ws.rs.core.UriInfo;
-import java.net.URI;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+
+import com.example.annotation.param.bean.ParamCache;
+import com.example.domain.Link;
+import com.example.domain.Yijing;
+import com.example.domain.Yijings;
+import org.apache.log4j.Logger;
 
 @Path("query-resource")
 public class QueryResource {

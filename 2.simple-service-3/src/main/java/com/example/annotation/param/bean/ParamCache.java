@@ -1,8 +1,8 @@
 package com.example.annotation.param.bean;
 
-import com.example.domain.Yijing;
-
 import java.util.ArrayList;
+
+import com.example.domain.Yijing;
 
 public class ParamCache {
     public final static ArrayList<Yijing> LIST;
@@ -90,7 +90,7 @@ public class ParamCache {
 
     @SuppressWarnings("unchecked")
     public static ArrayList<Yijing> copy() {
-        return (ArrayList<Yijing>) ParamCache.LIST.clone();
+        return (ArrayList<Yijing>)ParamCache.LIST.clone();
     }
 
     public static Yijing find(final String seqId) {

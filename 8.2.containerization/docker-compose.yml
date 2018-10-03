@@ -1,12 +1,12 @@
 app:
   image: feuyeux/spring-boot-docker
   links:
-    - redis
+  - redis
   ports:
-   - "18080:8080"
+  - "18080:8080"
 redis:
   image: index.tenxcloud.com/tenxcloud/redis
   environment:
-   - REDIS_PASS=cache_me
+  - REDIS_PASS=cache_me
   ports:
-    - "16379:6379"
+  - "16379:6379"

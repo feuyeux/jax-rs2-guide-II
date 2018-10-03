@@ -1,8 +1,8 @@
 package com.example.jackson;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import javax.xml.bind.annotation.XmlRootElement;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @XmlRootElement
 public class JsonHybridBook {

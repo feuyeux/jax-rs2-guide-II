@@ -55,7 +55,9 @@ public class Books implements Serializable {
         this.bookList = bookList;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String toString() {
         return "{" + bookList + "}";

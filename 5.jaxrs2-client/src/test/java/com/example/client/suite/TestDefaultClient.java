@@ -13,7 +13,7 @@ public class TestDefaultClient extends BasicTest {
         final Jaxrs2Client one = new DefaultClient();
         one.test();
     }
-    
+
     //@Test
     public void testPerformance() throws InterruptedException {
         int n = 0;

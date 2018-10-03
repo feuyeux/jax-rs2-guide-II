@@ -1,12 +1,12 @@
 package com.example.annotation.method;
 
+import javax.ws.rs.core.Application;
+import javax.ws.rs.core.Response;
+
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
 import org.junit.Assert;
 import org.junit.Test;
-
-import javax.ws.rs.core.Application;
-import javax.ws.rs.core.Response;
 
 public class GetTest extends JerseyTest {
     @Override

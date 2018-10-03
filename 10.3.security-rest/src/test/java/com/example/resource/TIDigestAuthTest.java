@@ -17,8 +17,8 @@ import javax.ws.rs.core.MediaType;
 /**
  * Need to launch Tomcat firstly
  * To use web.xml.2
- * @author hanl
  *
+ * @author hanl
  *//*
 
 public class TIDigestAuthTest {

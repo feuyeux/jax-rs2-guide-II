@@ -1,14 +1,21 @@
 package com.example.response;
 
-import com.example.exception.Jaxrs2GuideNotFoundException;
-import org.apache.log4j.Logger;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 
 import javax.ws.rs.DELETE;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
-import java.io.*;
+
+import com.example.exception.Jaxrs2GuideNotFoundException;
+import org.apache.log4j.Logger;
 
 /**
  * Root resource (exposed at "inResource" path)

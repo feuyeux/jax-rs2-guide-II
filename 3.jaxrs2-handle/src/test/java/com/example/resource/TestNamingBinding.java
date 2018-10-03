@@ -1,5 +1,9 @@
 package com.example.resource;
 
+import javax.ws.rs.client.Invocation;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.Application;
+import javax.ws.rs.core.MediaType;
 
 import com.example.AirAopConfig;
 import com.example.domain.Book;
@@ -7,11 +11,6 @@ import com.example.domain.Books;
 import org.glassfish.jersey.test.JerseyTest;
 import org.junit.Assert;
 import org.junit.Test;
-
-import javax.ws.rs.client.Invocation;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.Application;
-import javax.ws.rs.core.MediaType;
 
 public class TestNamingBinding extends JerseyTest {
     private static final String BASE_URI = "books/";

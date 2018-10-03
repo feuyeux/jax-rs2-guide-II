@@ -1,5 +1,8 @@
 package com.example.resource;
 
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.core.MediaType;
+
 import com.example.domain.Book;
 import com.example.domain.Books;
 import com.example.jettison.JsonBook;
@@ -11,9 +14,6 @@ import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
 import org.glassfish.jersey.test.TestProperties;
 import org.junit.Test;
-
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.core.MediaType;
 
 public class BookResourceTest extends JerseyTest {
     private static final Logger LOGGER = Logger.getLogger(BookResourceTest.class);
@@ -58,7 +58,7 @@ public class BookResourceTest extends JerseyTest {
     @Test
     public void testPost() {
         Entity<Book> e = Entity.entity(new Book(4L, "Java Restful Web Services实战II", "机械工业出版社")
-                , MediaType.APPLICATION_JSON_TYPE);
+            , MediaType.APPLICATION_JSON_TYPE);
         Book book = target("books").request(MediaType.APPLICATION_JSON_TYPE).post(e, Book.class);
         LOGGER.debug(book);
     }

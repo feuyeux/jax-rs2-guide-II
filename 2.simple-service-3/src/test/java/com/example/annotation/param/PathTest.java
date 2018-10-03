@@ -1,14 +1,14 @@
 package com.example.annotation.param;
 
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.Application;
+
 import org.apache.log4j.Logger;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
 import org.glassfish.jersey.test.TestProperties;
 import org.junit.Assert;
 import org.junit.Test;
-
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.Application;
 
 public class PathTest extends JerseyTest {
     private static final Logger LOGGER = Logger.getLogger(PathTest.class);
@@ -30,7 +30,8 @@ public class PathTest extends JerseyTest {
 
         /*http://localhost:9998/path-resource/Eric?hometown=Buenos Aires*/
         /*http://localhost:9998/path-resource/Eric?hometown=Buenos+Aires*/
-        result = target(path).path("Eric").queryParam("hometown", "Buenos Aires").request().get().readEntity(String.class);
+        result = target(path).path("Eric").queryParam("hometown", "Buenos Aires").request().get().readEntity(
+            String.class);
         Assert.assertEquals("Eric:Buenos Aires", result);
     }
 
@@ -52,7 +53,8 @@ public class PathTest extends JerseyTest {
     public void testRegion() {
         String result;
         /*http://localhost:9998/path-resource/Asia/China/northeast/liaoning/shenyang/huangu*/
-        final WebTarget pathTarget = target(path).path("Asia").path("China").path("northeast").path("liaoning").path("shenyang").path("huangu");
+        final WebTarget pathTarget = target(path).path("Asia").path("China").path("northeast").path("liaoning").path(
+            "shenyang").path("huangu");
         result = pathTarget.request().get().readEntity(String.class);
         PathTest.LOGGER.debug(result);
         Assert.assertEquals("Asia-China-northeast-liaoning-shenyang-huangu", result);

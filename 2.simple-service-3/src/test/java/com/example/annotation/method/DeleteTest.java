@@ -1,14 +1,14 @@
 package com.example.annotation.method;
 
+import javax.ws.rs.core.Application;
+import javax.ws.rs.core.Response;
+
 import org.apache.log4j.Logger;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
 import org.glassfish.jersey.test.TestProperties;
 import org.junit.Assert;
 import org.junit.Test;
-
-import javax.ws.rs.core.Application;
-import javax.ws.rs.core.Response;
 
 public class DeleteTest extends JerseyTest {
     private final static Logger LOGGER = Logger.getLogger(DeleteTest.class);

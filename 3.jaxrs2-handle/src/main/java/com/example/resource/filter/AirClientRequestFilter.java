@@ -1,8 +1,9 @@
 package com.example.resource.filter;
 
+import java.io.IOException;
+
 import javax.ws.rs.client.ClientRequestContext;
 import javax.ws.rs.client.ClientRequestFilter;
-import java.io.IOException;
 
 public class AirClientRequestFilter implements ClientRequestFilter {
 

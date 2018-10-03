@@ -1,12 +1,13 @@
 package com.example.domain;
 
+import java.io.Serializable;
+
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 
 @XmlRootElement(name = "gua")
-@XmlType(propOrder = { "sequence", "name", "pronounce" })
+@XmlType(propOrder = {"sequence", "name", "pronounce"})
 public class Yijing implements Serializable {
     private static final long serialVersionUID = 1L;
     private String sequence;
@@ -28,9 +29,17 @@ public class Yijing implements Serializable {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @XmlAttribute
     public String getPronounce() {
         return pronounce;
+    }
+
+    public void setPronounce(String pronounce) {
+        this.pronounce = pronounce;
     }
 
     @XmlAttribute
@@ -38,16 +47,8 @@ public class Yijing implements Serializable {
         return sequence;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public void setSequence(String sequence) {
         this.sequence = sequence;
-    }
-
-    public void setPronounce(String pronounce) {
-        this.pronounce = pronounce;
     }
 
     @Override

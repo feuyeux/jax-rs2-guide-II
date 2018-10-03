@@ -1,5 +1,12 @@
 package com.example;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Properties;
+
+import javax.annotation.PostConstruct;
+
 import kafka.utils.ShutdownableThread;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -8,14 +15,9 @@ import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Properties;
-
 @Service
 public class EagleService extends ShutdownableThread {
+    private static List<String> temp = new ArrayList<>();
     private KafkaConsumer<String, String> consumer;
     @Value("${group}")
     private String group;
@@ -23,7 +25,6 @@ public class EagleService extends ShutdownableThread {
     private String topic;
     @Value("${kafkaServerList}")
     private String kafkaServerList;
-    private static List<String> temp = new ArrayList<>();
 
     public EagleService(String name, boolean isInterruptible) {
         super(name, isInterruptible);
@@ -31,6 +32,10 @@ public class EagleService extends ShutdownableThread {
 
     public EagleService() {
         super("c", false);
+    }
+
+    public static List<String> getTemp() {
+        return temp;
     }
 
     @PostConstruct
@@ -41,8 +46,10 @@ public class EagleService extends ShutdownableThread {
         props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "true");
         props.put(ConsumerConfig.AUTO_COMMIT_INTERVAL_MS_CONFIG, "1000");
         props.put(ConsumerConfig.SESSION_TIMEOUT_MS_CONFIG, "30000");
-        props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.IntegerDeserializer");
-        props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringDeserializer");
+        props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG,
+            "org.apache.kafka.common.serialization.IntegerDeserializer");
+        props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG,
+            "org.apache.kafka.common.serialization.StringDeserializer");
         consumer = new KafkaConsumer<>(props);
     }
 
@@ -63,9 +70,5 @@ public class EagleService extends ShutdownableThread {
     @Override
     public boolean isInterruptible() {
         return false;
-    }
-
-    public static List<String> getTemp() {
-        return temp;
     }
 }

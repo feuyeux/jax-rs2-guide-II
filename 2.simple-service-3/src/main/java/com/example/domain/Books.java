@@ -1,10 +1,11 @@
 package com.example.domain;
 
+import java.io.Serializable;
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.io.Serializable;
-import java.util.List;
 
 /**
  * <p>Books class.</p>
@@ -54,7 +55,9 @@ public class Books implements Serializable {
         this.bookList = bookList;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String toString() {
         return "{" + bookList + "}";

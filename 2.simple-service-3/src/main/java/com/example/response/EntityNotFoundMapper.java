@@ -1,10 +1,10 @@
 package com.example.response;
 
-import com.example.exception.Jaxrs2GuideNotFoundException;
-
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
+
+import com.example.exception.Jaxrs2GuideNotFoundException;
 
 @Provider
 public class EntityNotFoundMapper implements ExceptionMapper<Jaxrs2GuideNotFoundException> {

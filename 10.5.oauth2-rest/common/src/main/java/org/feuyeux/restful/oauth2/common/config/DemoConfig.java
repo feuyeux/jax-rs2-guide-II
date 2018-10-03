@@ -5,6 +5,6 @@ package org.feuyeux.restful.oauth2.common.config;
  * on 16/3/11.
  */
 public interface DemoConfig {
-    String ROLE="KING";
-    String ROLE_TAG="ROLE_KING";
+    String ROLE = "KING";
+    String ROLE_TAG = "ROLE_KING";
 }

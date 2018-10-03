@@ -63,7 +63,7 @@ public class BookService {
      * <p>updateBook.</p>
      *
      * @param bookId a {@link java.lang.Integer} object.
-     * @param book a {@link com.example.domain.Book} object.
+     * @param book   a {@link com.example.domain.Book} object.
      * @return a {@link com.example.domain.Book} object.
      */
     public Book updateBook(final Integer bookId, final Book book) {

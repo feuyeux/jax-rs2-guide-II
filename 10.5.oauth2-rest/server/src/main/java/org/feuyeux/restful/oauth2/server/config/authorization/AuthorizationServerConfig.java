@@ -30,11 +30,11 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory().withClient("tarotClient")
-                .resourceIds("tarotResourceId")
-                .authorizedGrantTypes("authorization_code", "implicit")
-                .authorities("ROLE_CLIENT")
-                .scopes("read", "write")
-                .secret("secret");
+            .resourceIds("tarotResourceId")
+            .authorizedGrantTypes("authorization_code", "implicit")
+            .authorities("ROLE_CLIENT")
+            .scopes("read", "write")
+            .secret("secret");
     }
 
     @Bean
@@ -45,10 +45,10 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         endpoints
-                .approvalStoreDisabled()
-                .tokenStore(tokenStore)
-                .userApprovalHandler(userApprovalHandler)
-                .authenticationManager(authenticationManager);
+            .approvalStoreDisabled()
+            .tokenStore(tokenStore)
+            .userApprovalHandler(userApprovalHandler)
+            .authenticationManager(authenticationManager);
     }
 
     @Override

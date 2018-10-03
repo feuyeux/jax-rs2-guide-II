@@ -1,12 +1,6 @@
 language: java
 jdk:
-  - oraclejdk8
-
-script: "mvn cobertura:cobertura"
-
-services:
-  - cassandra
-  - rabbitmq
+- oraclejdk8
 
 after_success:
 - bash <(curl -s https://codecov.io/bash)

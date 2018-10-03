@@ -60,7 +60,8 @@ public class TIMyResourceJTFTest extends JerseyTest {
         System.out.println(">>Test Post");
         final Book newBook = new Book("Java Restful Web Service实战-" + System.nanoTime());
         final Entity<Book> bookEntity = Entity.entity(newBook, MediaType.APPLICATION_JSON_TYPE);
-        final Book savedBook = target(TIMyResourceJTFTest.BASEURI).request(MediaType.APPLICATION_JSON_TYPE).post(bookEntity, Book.class);
+        final Book savedBook = target(TIMyResourceJTFTest.BASEURI).request(MediaType.APPLICATION_JSON_TYPE).post
+        (bookEntity, Book.class);
         Assert.assertNotNull(savedBook.getBookId());
         System.out.println("<<Test Post");
 

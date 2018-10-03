@@ -1,13 +1,13 @@
 package com.example.annotation.method;
 
-import com.example.domain.Book;
-import com.example.domain.Books;
-import org.apache.log4j.Logger;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.atomic.AtomicLong;
+
+import com.example.domain.Book;
+import com.example.domain.Books;
+import org.apache.log4j.Logger;
 
 public class EBookResourceImpl implements BookResource {
     private final static Logger LOGGER = Logger.getLogger(EBookResourceImpl.class);
@@ -38,10 +38,9 @@ public class EBookResourceImpl implements BookResource {
         LOGGER.debug(bookId);
     }
 
-
     @Override
     public boolean moveBooks(Books books) {
-    	LOGGER.debug("MOVE method");
+        LOGGER.debug("MOVE method");
         return true;
     }
 }

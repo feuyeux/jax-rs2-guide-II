@@ -1,5 +1,7 @@
 package org.feuyeux.restful.oauth2.client.mvc;
 
+import java.net.URI;
+
 import org.feuyeux.restful.oauth2.common.domain.Tarots;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -7,8 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestOperations;
-
-import java.net.URI;
 
 @Controller
 public class ClientController {

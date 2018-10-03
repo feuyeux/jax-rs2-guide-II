@@ -1,8 +1,9 @@
 package com.example.client.entity;
 
+import java.io.Serializable;
+
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.io.Serializable;
 
 @XmlRootElement
 public class Book implements Serializable {
@@ -35,7 +36,7 @@ public class Book implements Serializable {
     }
 
     @XmlAttribute(
-            name = "bookId"
+        name = "bookId"
     )
     public Long getBookId() {
         return this.bookId;
@@ -46,7 +47,7 @@ public class Book implements Serializable {
     }
 
     @XmlAttribute(
-            name = "bookName"
+        name = "bookName"
     )
     public String getBookName() {
         return this.bookName;
@@ -57,7 +58,7 @@ public class Book implements Serializable {
     }
 
     @XmlAttribute(
-            name = "publisher"
+        name = "publisher"
     )
     public String getPublisher() {
         return this.publisher;

@@ -1,17 +1,18 @@
 package com.examples.sse;
 
+import java.io.IOException;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.glassfish.jersey.media.sse.EventOutput;
 import org.glassfish.jersey.media.sse.OutboundEvent;
 import org.glassfish.jersey.media.sse.OutboundEvent.Builder;
 import org.glassfish.jersey.media.sse.SseFeature;
-
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import java.io.IOException;
 
 @Path("pubsub")
 public class AirSsePubSubResource {
@@ -33,7 +34,8 @@ public class AirSsePubSubResource {
         new Thread(() -> {
             try {
                 for (int i = 1; i <= 5; i++) {
-                    eventOutput0.write(new Builder().name("handling progress").data(String.class, (i * 20) + "%").build());
+                    eventOutput0.write(new Builder().name("handling progress").data(String.class, (i * 20) + "%")
+                        .build());
                 }
                 eventOutput0.close();
             } catch (IOException e) {
@@ -46,6 +48,7 @@ public class AirSsePubSubResource {
     @POST
     public void saveMessage(String message) throws IOException {
         log.info("What the client post: {}", message);
-        eventOutput.write(new OutboundEvent.Builder().id(System.nanoTime() + "").name("post-message").data(String.class, message).build());
+        eventOutput.write(new OutboundEvent.Builder().id(System.nanoTime() + "").name("post-message")
+            .data(String.class, message).build());
     }
 }

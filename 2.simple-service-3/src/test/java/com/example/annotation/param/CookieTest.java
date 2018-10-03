@@ -1,14 +1,14 @@
 package com.example.annotation.param;
 
+import javax.ws.rs.client.Invocation.Builder;
+import javax.ws.rs.core.Application;
+
 import org.apache.log4j.Logger;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
 import org.glassfish.jersey.test.TestProperties;
 import org.junit.Assert;
 import org.junit.Test;
-
-import javax.ws.rs.client.Invocation.Builder;
-import javax.ws.rs.core.Application;
 
 public class CookieTest extends JerseyTest {
     private static final Logger LOGGER = Logger.getLogger(CookieTest.class);

@@ -1,8 +1,8 @@
 package com.example.client;
 
-import org.glassfish.jersey.client.ClientConfig;
-
 import javax.ws.rs.client.ClientBuilder;
+
+import org.glassfish.jersey.client.ClientConfig;
 
 public class DefaultClient extends Jaxrs2Client {
     public DefaultClient() {

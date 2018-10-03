@@ -1,14 +1,5 @@
 package com.example.link;
 
-import com.example.domain.Book;
-import com.example.domain.BookWrapper;
-import org.apache.log4j.Logger;
-import org.glassfish.jersey.server.ResourceConfig;
-import org.glassfish.jersey.test.JerseyTest;
-import org.glassfish.jersey.test.TestProperties;
-import org.junit.Assert;
-import org.junit.Test;
-
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
@@ -17,6 +8,15 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Application;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
+import com.example.domain.Book;
+import com.example.domain.BookWrapper;
+import org.apache.log4j.Logger;
+import org.glassfish.jersey.server.ResourceConfig;
+import org.glassfish.jersey.test.JerseyTest;
+import org.glassfish.jersey.test.TestProperties;
+import org.junit.Assert;
+import org.junit.Test;
 
 public class HATEOASTest extends JerseyTest {
 

@@ -1,5 +1,12 @@
 package com.example.resource;
 
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.Invocation;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.Application;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
 import com.example.domain.Book;
 import com.example.domain.Books;
 import com.example.filter.log.AirLogFilter;
@@ -10,13 +17,6 @@ import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
 import org.junit.Assert;
 import org.junit.Test;
-
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.Invocation;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.Application;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 
 public class TIResourceJtfTest extends JerseyTest {
     private static final Logger LOGGER = Logger.getLogger(TIResourceJtfTest.class);
@@ -70,7 +70,8 @@ public class TIResourceJtfTest extends JerseyTest {
         TIResourceJtfTest.LOGGER.debug(">>Test Post");
         final Book newBook = new Book("Java Restful Web Service实战-" + System.nanoTime());
         final Entity<Book> bookEntity = Entity.entity(newBook, MediaType.APPLICATION_JSON_TYPE);
-        final Book savedBook = target(TIResourceJtfTest.BASEURI).request(MediaType.APPLICATION_JSON_TYPE).post(bookEntity, Book.class);
+        final Book savedBook = target(TIResourceJtfTest.BASEURI).request(MediaType.APPLICATION_JSON_TYPE).post(
+            bookEntity, Book.class);
         Assert.assertNotNull(savedBook.getBookId());
         TIResourceJtfTest.LOGGER.debug("<<Test Post");
     }

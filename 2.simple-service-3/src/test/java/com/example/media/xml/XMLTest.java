@@ -1,5 +1,10 @@
 package com.example.media.xml;
 
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.Invocation.Builder;
+import javax.ws.rs.core.Application;
+import javax.ws.rs.core.MediaType;
+
 import com.example.domain.Book;
 import org.apache.log4j.Logger;
 import org.glassfish.jersey.server.ResourceConfig;
@@ -7,11 +12,6 @@ import org.glassfish.jersey.test.JerseyTest;
 import org.glassfish.jersey.test.TestProperties;
 import org.junit.Assert;
 import org.junit.Test;
-
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.Invocation.Builder;
-import javax.ws.rs.core.Application;
-import javax.ws.rs.core.MediaType;
 
 public class XMLTest extends JerseyTest {
     private static final Logger LOGGER = Logger.getLogger(XMLTest.class);

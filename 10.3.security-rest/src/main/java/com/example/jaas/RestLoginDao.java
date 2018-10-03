@@ -1,8 +1,5 @@
 package com.example.jaas;
 
-import org.apache.log4j.Logger;
-
-import javax.security.auth.login.LoginException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -10,13 +7,18 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.security.auth.login.LoginException;
+
+import org.apache.log4j.Logger;
+
 public class RestLoginDao {
-    private static final Logger LOG = Logger.getLogger(RestLoginDao.class);
     public static final String USER_QUERY = "select user_name from users where user_name=? and user_pass=?";
     public static final String ROLE_QUERY = "select role_name from  user_roles where user_name=?";
+    private static final Logger LOG = Logger.getLogger(RestLoginDao.class);
 
     public boolean isValidUser(final String userName, final char[] passWord) throws LoginException {
-        try (Connection connection = getConnection(); PreparedStatement stmt = connection.prepareStatement(RestLoginDao.USER_QUERY);) {
+        try (Connection connection = getConnection(); PreparedStatement stmt = connection.prepareStatement(
+            RestLoginDao.USER_QUERY);) {
             stmt.setString(1, userName);
             stmt.setString(2, new String(passWord));
             try (ResultSet rs = stmt.executeQuery();) {
@@ -33,7 +35,8 @@ public class RestLoginDao {
 
     public List<String> getRoles(final String userName, final RestUserPrincipal user) {
         final List<String> roleList = new ArrayList<>();
-        try (Connection connection = getConnection(); PreparedStatement stmt = connection.prepareStatement(RestLoginDao.ROLE_QUERY);) {
+        try (Connection connection = getConnection(); PreparedStatement stmt = connection.prepareStatement(
+            RestLoginDao.ROLE_QUERY);) {
             stmt.setString(1, userName);
             try (ResultSet rs = stmt.executeQuery();) {
                 while (rs.next()) {

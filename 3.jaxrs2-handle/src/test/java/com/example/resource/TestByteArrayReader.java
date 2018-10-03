@@ -1,12 +1,12 @@
 package com.example.resource;
 
+import javax.ws.rs.core.Application;
+import javax.ws.rs.core.Response;
+
 import org.apache.log4j.Logger;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
 import org.junit.Test;
-
-import javax.ws.rs.core.Application;
-import javax.ws.rs.core.Response;
 
 public class TestByteArrayReader extends JerseyTest {
     private static final Logger LOGGER = Logger.getLogger(TestByteArrayReader.class);

@@ -12,8 +12,8 @@ import javax.ws.rs.core.Application;
 import javax.ws.rs.core.EntityTag;
 import javax.ws.rs.core.Link;
 import javax.ws.rs.core.Response;
-import java.util.Date;
 
+import java.util.Date;
 
 public class TestResource extends JerseyTest {
 
@@ -45,14 +45,14 @@ public class TestResource extends JerseyTest {
     @Test
     public void testCacheControl() {
         Response head = target("rest").path("cache_control").request().get();
-        String cacheControl = (String) head.getHeaders().get("Cache-Control").get(0);
+        String cacheControl = (String)head.getHeaders().get("Cache-Control").get(0);
         System.out.println(cacheControl);
     }
 
     @Test
     public void testExpires() {
         Response head = target("rest").path("expires").request().get();
-        String expires = (String) head.getHeaders().get("Expires").get(0);
+        String expires = (String)head.getHeaders().get("Expires").get(0);
         System.out.println(expires);
     }
 
@@ -69,7 +69,6 @@ public class TestResource extends JerseyTest {
         System.out.println(head1.getStatus() + "\t" + head1.getLastModified());
         Assert.assertEquals(304, head1.getStatus());
     }
-
 
     @Test
     public void testETag() throws InterruptedException {

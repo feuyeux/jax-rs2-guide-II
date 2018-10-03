@@ -8,6 +8,7 @@ import org.glassfish.jersey.client.ClientConfig;
 
 import javax.ws.rs.client.*;
 import javax.ws.rs.core.MediaType;
+
 import java.util.Set;
 
 import static javax.ws.rs.HttpMethod.*;
@@ -27,7 +28,6 @@ public class PoolingClient<T> extends Jaxrs2Client {
         client = ClientBuilder.newClient(clientConfig);
         checkConfig();
     }
-
 
     public T rest(String method, String requestUrl,
                   Set<Pair<String, Object>> headParams, Set<Pair<String, Object>> queryParams,

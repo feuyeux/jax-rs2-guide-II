@@ -1,14 +1,20 @@
 package com.example.annotation.param;
 
-import org.apache.log4j.Logger;
+import java.util.List;
+import java.util.Map.Entry;
 
-import javax.ws.rs.*;
+import javax.ws.rs.DefaultValue;
+import javax.ws.rs.GET;
+import javax.ws.rs.MatrixParam;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.PathSegment;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map.Entry;
+
+import org.apache.log4j.Logger;
 
 @Path("path-resource")
 public class PathResource {
@@ -18,7 +24,8 @@ public class PathResource {
     /*[a-zA-Z0-9] is equivalent to \w*/
     @Path("{user: [a-zA-Z][a-zA-Z_0-9]*}")
     @Produces(MediaType.TEXT_PLAIN)
-    public String getUserInfo(@PathParam("user") final String user, @DefaultValue("Shen Yang") @QueryParam("hometown") final String hometown) {
+    public String getUserInfo(@PathParam("user") final String user,
+                              @DefaultValue("Shen Yang") @QueryParam("hometown") final String hometown) {
         return user + ":" + hometown;
     }
 
@@ -32,7 +39,8 @@ public class PathResource {
     @GET
     @Path("{beginMonth:\\d+},{beginYear:\\d+}-{endMonth:\\d+},{endYear:\\d+}")
     @Produces(MediaType.TEXT_PLAIN)
-    public String getByCondition2(@PathParam("beginMonth") final String m1, @PathParam("beginYear") final Integer y1, @PathParam("endMonth") final String m2,
+    public String getByCondition2(@PathParam("beginMonth") final String m1, @PathParam("beginYear") final Integer y1,
+                                  @PathParam("endMonth") final String m2,
                                   @PathParam("endYear") final Integer y2) {
         return y1 + "." + m1 + "~" + y2 + "." + m2;
     }
@@ -56,7 +64,8 @@ public class PathResource {
     @GET
     @Path("q2/{condition}")
     @Produces(MediaType.TEXT_PLAIN)
-    public String getByCondition4(@PathParam("condition") final PathSegment condition, @MatrixParam("program") final String program,
+    public String getByCondition4(@PathParam("condition") final PathSegment condition,
+                                  @MatrixParam("program") final String program,
                                   @MatrixParam("type") final String type) {
         return condition.getPath() + " program=[" + program + "] type=[" + type + "]";
     }
@@ -64,7 +73,8 @@ public class PathResource {
     @GET
     @Path("{region:.+}/shenyang/{district:\\w+}")
     @Produces(MediaType.TEXT_PLAIN)
-    public String getByAddress(@PathParam("region") final List<PathSegment> region, @PathParam("district") final String district) {
+    public String getByAddress(@PathParam("region") final List<PathSegment> region,
+                               @PathParam("district") final String district) {
         final StringBuilder result = new StringBuilder();
         for (final PathSegment pathSegment : region) {
             result.append(pathSegment.getPath()).append("-");

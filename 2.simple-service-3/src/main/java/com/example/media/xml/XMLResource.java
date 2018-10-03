@@ -1,9 +1,5 @@
 package com.example.media.xml;
 
-import com.example.domain.Book;
-import org.apache.log4j.Logger;
-import org.w3c.dom.Document;
-
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -13,6 +9,10 @@ import javax.xml.bind.JAXBElement;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.sax.SAXSource;
 import javax.xml.transform.stream.StreamSource;
+
+import com.example.domain.Book;
+import org.apache.log4j.Logger;
+import org.w3c.dom.Document;
 
 @Path("xml-resource")
 public class XMLResource {

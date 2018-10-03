@@ -1,9 +1,10 @@
 package com.example.domain;
 
-import javax.xml.bind.annotation.XmlElementRef;
-import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 import java.util.List;
+
+import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "yijings")
 public class Yijings implements Serializable {

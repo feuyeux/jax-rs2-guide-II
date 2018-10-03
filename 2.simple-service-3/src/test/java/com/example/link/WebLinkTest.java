@@ -1,12 +1,7 @@
 package com.example.link;
 
-import com.example.domain.Book;
-import org.apache.log4j.Logger;
-import org.glassfish.jersey.server.ResourceConfig;
-import org.glassfish.jersey.test.JerseyTest;
-import org.glassfish.jersey.test.TestProperties;
-import org.junit.Assert;
-import org.junit.Test;
+import java.net.URI;
+import java.util.Set;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -16,8 +11,14 @@ import javax.ws.rs.core.Application;
 import javax.ws.rs.core.Link;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.net.URI;
-import java.util.Set;
+
+import com.example.domain.Book;
+import org.apache.log4j.Logger;
+import org.glassfish.jersey.server.ResourceConfig;
+import org.glassfish.jersey.test.JerseyTest;
+import org.glassfish.jersey.test.TestProperties;
+import org.junit.Assert;
+import org.junit.Test;
 
 public class WebLinkTest extends JerseyTest {
     private static final Logger LOGGER = Logger.getLogger(WebLinkTest.class);

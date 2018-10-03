@@ -1,12 +1,21 @@
 package com.example.link;
 
-import com.example.domain.Book;
-import com.example.exception.Jaxrs2GuideNotFoundException;
-
-import javax.ws.rs.*;
-import javax.ws.rs.core.*;
 import java.net.URI;
 
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriBuilder;
+import javax.ws.rs.core.UriInfo;
+
+import com.example.domain.Book;
+import com.example.exception.Jaxrs2GuideNotFoundException;
 
 @Path("weblink-resource")
 public class WebLinkResource {
@@ -40,11 +49,13 @@ public class WebLinkResource {
         final URI location = ub.path("" + newId).build();
 
         final String uriTemplate = "http://{host}:{port}/{path}/{param}";
-        final URI location2 = UriBuilder.fromUri(uriTemplate).resolveTemplate("host", "localhost").resolveTemplate("port", "9998")
-                .resolveTemplate("path", "weblink-resource").resolveTemplate("param", newId).build();
+        final URI location2 = UriBuilder.fromUri(uriTemplate).resolveTemplate("host", "localhost").resolveTemplate(
+            "port", "9998")
+            .resolveTemplate("path", "weblink-resource").resolveTemplate("param", newId).build();
 
         final UriBuilder ub3 = uriInfo.getAbsolutePathBuilder();
-        final URI location3 = ub3.scheme("http").host("localhost").port(9998).path("weblink-resource").path("" + newId).build();
+        final URI location3 = ub3.scheme("http").host("localhost").port(9998).path("weblink-resource").path("" + newId)
+            .build();
 
         return Response.created(location).link(location2, "view1").link(location3, "view2").entity(book).build();
     }

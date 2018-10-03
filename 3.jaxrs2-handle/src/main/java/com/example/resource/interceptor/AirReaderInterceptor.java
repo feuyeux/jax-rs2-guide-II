@@ -1,12 +1,13 @@
 package com.example.resource.interceptor;
 
-import org.apache.log4j.Logger;
+import java.io.IOException;
 
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.ext.Provider;
 import javax.ws.rs.ext.ReaderInterceptor;
 import javax.ws.rs.ext.ReaderInterceptorContext;
-import java.io.IOException;
+
+import org.apache.log4j.Logger;
 
 @Provider
 public class AirReaderInterceptor implements ReaderInterceptor {

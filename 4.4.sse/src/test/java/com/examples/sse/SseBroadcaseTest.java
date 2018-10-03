@@ -1,5 +1,13 @@
 package com.examples.sse;
 
+import java.net.URISyntaxException;
+import java.util.concurrent.CountDownLatch;
+
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.Invocation;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.Application;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.glassfish.jersey.client.ClientConfig;
@@ -9,13 +17,6 @@ import org.glassfish.jersey.media.sse.SseFeature;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
 import org.junit.Assert;
-
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.Invocation;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.Application;
-import java.net.URISyntaxException;
-import java.util.concurrent.CountDownLatch;
 
 public class SseBroadcaseTest extends JerseyTest {
     private static final Logger log = LogManager.getLogger(SseBroadcaseTest.class);
@@ -28,8 +29,8 @@ public class SseBroadcaseTest extends JerseyTest {
     @Override
     protected Application configure() {
         return new ResourceConfig(
-                AirSseBroadcastResource.class,
-                SseFeature.class);
+            AirSseBroadcastResource.class,
+            SseFeature.class);
     }
 
     @Override

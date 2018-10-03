@@ -1,8 +1,8 @@
 package com.example.link;
 
-import com.example.domain.Book;
-
 import java.util.HashMap;
+
+import com.example.domain.Book;
 
 public class LinkCache {
 

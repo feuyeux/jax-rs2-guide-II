@@ -1,9 +1,9 @@
 package com.example.jaas;
 
+import java.io.Serializable;
+
 import org.apache.catalina.Role;
 import org.apache.catalina.UserDatabase;
-
-import java.io.Serializable;
 
 public class RestRolePrincipal implements Role, Serializable {
     private static final long serialVersionUID = 1L;
@@ -26,9 +26,19 @@ public class RestRolePrincipal implements Role, Serializable {
     }
 
     @Override
+    public void setDescription(final String arg0) {
+
+    }
+
+    @Override
     public String getRolename() {
         // TODO Auto-generated method stub
         return roleName;
+    }
+
+    @Override
+    public void setRolename(final String roleName) {
+        this.roleName = roleName;
     }
 
     @Override
@@ -37,16 +47,6 @@ public class RestRolePrincipal implements Role, Serializable {
         return null;
     }
 
-    @Override
-    public void setDescription(final String arg0) {
-
-    }
-
-    @Override
-    public void setRolename(final String roleName) {
-        this.roleName = roleName;
-    }
-    
     @Override
     public String toString() {
         return roleName;

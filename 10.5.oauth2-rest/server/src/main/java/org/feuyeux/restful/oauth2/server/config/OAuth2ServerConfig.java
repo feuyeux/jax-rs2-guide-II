@@ -3,7 +3,11 @@ package org.feuyeux.restful.oauth2.server.config;
 import org.feuyeux.restful.oauth2.common.config.DemoConfig;
 import org.feuyeux.restful.oauth2.server.oauth.UserApprovalHandler;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.*;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -20,17 +24,6 @@ public class OAuth2ServerConfig {
 
     @Autowired
     private TokenStore tokenStore;
-
-    @Configuration
-    @Order(10)
-    protected static class UiResourceConfiguration extends WebSecurityConfigurerAdapter {
-        @Override
-        protected void configure(HttpSecurity http) throws Exception {
-            http.requestMatchers().antMatchers("/rest/**")
-                    .and().authorizeRequests()
-                    .antMatchers("/rest/tarots").access("hasRole('"+ DemoConfig.ROLE_TAG+"')");
-        }
-    }
 
     @Bean
     public ApprovalStore approvalStore() throws Exception {
@@ -49,5 +42,16 @@ public class OAuth2ServerConfig {
         handler.setClientDetailsService(clientDetailsService);
         handler.setUseApprovalStore(true);
         return handler;
+    }
+
+    @Configuration
+    @Order(10)
+    protected static class UiResourceConfiguration extends WebSecurityConfigurerAdapter {
+        @Override
+        protected void configure(HttpSecurity http) throws Exception {
+            http.requestMatchers().antMatchers("/rest/**")
+                .and().authorizeRequests()
+                .antMatchers("/rest/tarots").access("hasRole('" + DemoConfig.ROLE_TAG + "')");
+        }
     }
 }

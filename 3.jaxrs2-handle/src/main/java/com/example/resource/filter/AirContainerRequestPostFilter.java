@@ -1,11 +1,12 @@
 package com.example.resource.filter;
 
-import org.apache.log4j.Logger;
+import java.io.IOException;
 
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.ContainerRequestFilter;
 import javax.ws.rs.ext.Provider;
-import java.io.IOException;
+
+import org.apache.log4j.Logger;
 
 @Provider
 public class AirContainerRequestPostFilter implements ContainerRequestFilter {

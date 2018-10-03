@@ -1,11 +1,11 @@
 package com.example.resource.bing;
 
-import com.example.resource.BookResource;
-
 import javax.ws.rs.POST;
 import javax.ws.rs.container.DynamicFeature;
 import javax.ws.rs.container.ResourceInfo;
 import javax.ws.rs.core.FeatureContext;
+
+import com.example.resource.BookResource;
 
 public class AirDynamicFeature implements DynamicFeature {
 

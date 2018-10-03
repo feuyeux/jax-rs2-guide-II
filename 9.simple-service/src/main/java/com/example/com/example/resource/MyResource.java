@@ -1,17 +1,28 @@
 package com.example.com.example.resource;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.*;
 import java.net.URI;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.ConcurrentHashMap;
 
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.CacheControl;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.EntityTag;
+import javax.ws.rs.core.HttpHeaders;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Request;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriBuilder;
+import javax.ws.rs.core.UriInfo;
+
 @Path("rest")
 public class MyResource {
+    static ConcurrentHashMap<String, Date> map = new ConcurrentHashMap<>();
+
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String getIt() {
@@ -51,10 +62,7 @@ public class MyResource {
     @Produces(MediaType.TEXT_PLAIN)
     public String getIt3(@Context final HttpHeaders headers) {
         String version = headers.getRequestHeaders().get("X-API-Version").get(0);
-        if (version.equals("2"))
-            return getIt2();
-        else
-            return getIt();
+        if (version.equals("2")) { return getIt2(); } else { return getIt(); }
     }
 
     @GET
@@ -76,8 +84,6 @@ public class MyResource {
         Date date = cal.getTime();
         return Response.ok(getIt()).expires(date).build();
     }
-
-    static ConcurrentHashMap<String, Date> map = new ConcurrentHashMap<>();
 
     @GET
     @Path("last_modified")

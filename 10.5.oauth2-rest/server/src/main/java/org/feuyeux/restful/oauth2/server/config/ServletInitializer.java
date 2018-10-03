@@ -1,5 +1,9 @@
 package org.feuyeux.restful.oauth2.server.config;
 
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRegistration;
+
 import org.feuyeux.restful.oauth2.server.rest.Application;
 import org.glassfish.jersey.servlet.ServletContainer;
 import org.springframework.util.ClassUtils;
@@ -7,10 +11,6 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.support.AbstractDispatcherServletInitializer;
-
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRegistration;
 
 public class ServletInitializer extends AbstractDispatcherServletInitializer {
     @Override
@@ -22,7 +22,7 @@ public class ServletInitializer extends AbstractDispatcherServletInitializer {
 
     @Override
     protected String[] getServletMappings() {
-        return new String[]{"/"};
+        return new String[] {"/"};
     }
 
     @Override
@@ -35,7 +35,8 @@ public class ServletInitializer extends AbstractDispatcherServletInitializer {
         super.onStartup(servletContext);
 
         // Register Jersey 2.0 servlet
-        ServletRegistration.Dynamic servletRegistration = servletContext.addServlet("Jersey", ServletContainer.class.getName());
+        ServletRegistration.Dynamic servletRegistration = servletContext.addServlet("Jersey",
+            ServletContainer.class.getName());
         servletRegistration.addMapping("/rest/*");
         servletRegistration.setLoadOnStartup(1);
         servletRegistration.setInitParameter("javax.ws.rs.Application", Application.class.getName());

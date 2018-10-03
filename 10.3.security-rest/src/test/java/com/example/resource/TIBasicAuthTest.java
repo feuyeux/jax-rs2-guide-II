@@ -52,7 +52,8 @@ public class TIBasicAuthTest {
         */
 /*2.5+*//*
 
-        HttpAuthenticationFeature feature = HttpAuthenticationFeature.basicBuilder().nonPreemptive().credentials("caroline", "zhang").build();
+        HttpAuthenticationFeature feature = HttpAuthenticationFeature.basicBuilder().nonPreemptive().credentials
+        ("caroline", "zhang").build();
         cc.register(feature);
         return cc;
     }

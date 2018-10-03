@@ -1,13 +1,21 @@
 package com.example.annotation.param;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.*;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.Application;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.Cookie;
+import javax.ws.rs.core.HttpHeaders;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.MultivaluedMap;
+import javax.ws.rs.core.PathSegment;
+import javax.ws.rs.core.Request;
+import javax.ws.rs.core.UriInfo;
 
 @Path("ctx-resource")
 public class ContextResource {
@@ -15,11 +23,11 @@ public class ContextResource {
     @Path("{region:.+}/shenyang/{district:\\w+}")
     @Produces(MediaType.TEXT_PLAIN)
     public String getByAddress(
-            @Context final Application application,
-            @Context final Request request,
-            @Context final javax.ws.rs.ext.Providers provider,
-            @Context final UriInfo uriInfo,
-            @Context final HttpHeaders headers) {
+        @Context final Application application,
+        @Context final Request request,
+        @Context final javax.ws.rs.ext.Providers provider,
+        @Context final UriInfo uriInfo,
+        @Context final HttpHeaders headers) {
         final StringBuilder buf = new StringBuilder();
         final String path = uriInfo.getPath();
         buf.append("PATH=").append(path).append("\n");

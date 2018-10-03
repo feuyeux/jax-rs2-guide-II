@@ -16,7 +16,6 @@ public class Jaxrs2GuideParam {
     @QueryParam("vehicle")
     private String vehicleParam;
 
-
     public String getAcceptParam() {
         return acceptParam;
     }

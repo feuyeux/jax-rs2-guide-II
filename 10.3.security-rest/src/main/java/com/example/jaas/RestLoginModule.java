@@ -1,19 +1,25 @@
 package com.example.jaas;
 
-import org.apache.log4j.Logger;
-
-import javax.security.auth.Subject;
-import javax.security.auth.callback.*;
-import javax.security.auth.login.LoginException;
-import javax.security.auth.spi.LoginModule;
 import java.io.IOException;
 import java.security.Principal;
 import java.util.List;
 import java.util.Map;
 
+import javax.security.auth.Subject;
+import javax.security.auth.callback.Callback;
+import javax.security.auth.callback.CallbackHandler;
+import javax.security.auth.callback.NameCallback;
+import javax.security.auth.callback.PasswordCallback;
+import javax.security.auth.callback.UnsupportedCallbackException;
+import javax.security.auth.login.LoginException;
+import javax.security.auth.spi.LoginModule;
+
+import org.apache.log4j.Logger;
+
 /*
  * set JAVA_OPTS=
- * -Djava.security.auth.login.config=D:\+aries\github\jax-rs2-guide\sample\6\security-rest\src\main\resources\restJaas.conf
+ * -Djava.security.auth.login.config=D:\+aries\github\jax-rs2-guide\sample\6\security-rest\src\main\resources
+ * \restJaas.conf
  */
 public class RestLoginModule implements LoginModule {
     private static final Logger LOG = Logger.getLogger(RestLoginModule.class);
@@ -33,7 +39,8 @@ public class RestLoginModule implements LoginModule {
     private RestLoginDao dao = new RestLoginDao();
 
     @Override
-    public void initialize(final Subject subject, final CallbackHandler callbackHandler, final Map<String, ?> sharedState, final Map<String, ?> options) {
+    public void initialize(final Subject subject, final CallbackHandler callbackHandler,
+                           final Map<String, ?> sharedState, final Map<String, ?> options) {
         this.subject = subject;
         this.callbackHandler = callbackHandler;
     }
@@ -50,8 +57,8 @@ public class RestLoginModule implements LoginModule {
 
         try {
             callbackHandler.handle(callbacks);
-            userName = ((NameCallback) callbacks[0]).getName();
-            passWord = ((PasswordCallback) callbacks[1]).getPassword();
+            userName = ((NameCallback)callbacks[0]).getName();
+            passWord = ((PasswordCallback)callbacks[1]).getPassword();
             if (userName == null || passWord == null) {
                 throw new LoginException("Callback handler does not return login data properly");
             }

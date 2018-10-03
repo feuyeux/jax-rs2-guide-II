@@ -1,5 +1,9 @@
 package org.feuyeux.restful.oauth2.server.oauth;
 
+import java.security.Principal;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 import org.springframework.security.oauth2.common.util.OAuth2Utils;
 import org.springframework.security.oauth2.provider.AuthorizationRequest;
 import org.springframework.security.oauth2.provider.ClientDetails;
@@ -11,10 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.security.Principal;
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 @Controller
 @SessionAttributes("authorizationRequest")
 public class ConfirmController {
@@ -25,7 +25,7 @@ public class ConfirmController {
 
     @RequestMapping("/oauth/confirm_access")
     public ModelAndView getAccessConfirmation(Map<String, Object> model, Principal principal) throws Exception {
-        AuthorizationRequest clientAuth = (AuthorizationRequest) model.remove("authorizationRequest");
+        AuthorizationRequest clientAuth = (AuthorizationRequest)model.remove("authorizationRequest");
         ClientDetails client = clientDetailsService.loadClientByClientId(clientAuth.getClientId());
         model.put("auth_request", clientAuth);
         model.put("client", client);
@@ -34,10 +34,10 @@ public class ConfirmController {
             scopes.put(OAuth2Utils.SCOPE_PREFIX + scope, "true");
         }
         approvalStore.getApprovals(principal.getName(), client.getClientId())
-                .stream()
-                .filter(approval -> clientAuth.getScope().contains(approval.getScope()))
-                .forEach(approval -> scopes.put(OAuth2Utils.SCOPE_PREFIX + approval.getScope(),
-                        approval.getStatus() == ApprovalStatus.APPROVED ? "true" : "false"));
+            .stream()
+            .filter(approval -> clientAuth.getScope().contains(approval.getScope()))
+            .forEach(approval -> scopes.put(OAuth2Utils.SCOPE_PREFIX + approval.getScope(),
+                approval.getStatus() == ApprovalStatus.APPROVED ? "true" : "false"));
         model.put("scopes", scopes);
         return new ModelAndView("confirm", model);
     }

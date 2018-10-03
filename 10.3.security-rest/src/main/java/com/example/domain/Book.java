@@ -1,9 +1,16 @@
 package com.example.domain;
 
-import javax.persistence.*;
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.io.Serializable;
 
 /**
  * <p>Book class.</p>
@@ -16,10 +23,10 @@ import java.io.Serializable;
 @XmlRootElement
 public class Book implements Serializable {
     private static final long serialVersionUID = 3749670031307574543L;
+    private static final int NAME_LENGTH = 100;
     private Integer bookId;
     private String bookName;
     private String publisher;
-    private static final int NAME_LENGTH = 100;
 
     /**
      * <p>Constructor for Book.</p>
@@ -49,7 +56,7 @@ public class Book implements Serializable {
     /**
      * <p>Constructor for Book.</p>
      *
-     * @param bookId a {@link java.lang.Integer} object.
+     * @param bookId   a {@link java.lang.Integer} object.
      * @param bookName a {@link java.lang.String} object.
      */
     public Book(final Integer bookId, final String bookName) {
@@ -121,7 +128,9 @@ public class Book implements Serializable {
         this.publisher = publisher;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String toString() {
         return bookId + ":" + bookName + ":" + publisher;

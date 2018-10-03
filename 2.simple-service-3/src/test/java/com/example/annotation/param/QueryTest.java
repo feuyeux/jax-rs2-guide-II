@@ -1,5 +1,13 @@
 package com.example.annotation.param;
 
+import java.util.List;
+
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Invocation;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.Application;
+import javax.ws.rs.core.Response;
+
 import com.example.domain.Link;
 import com.example.domain.Yijing;
 import com.example.domain.Yijings;
@@ -9,13 +17,6 @@ import org.glassfish.jersey.test.JerseyTest;
 import org.glassfish.jersey.test.TestProperties;
 import org.junit.Assert;
 import org.junit.Test;
-
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.Invocation;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.Application;
-import javax.ws.rs.core.Response;
-import java.util.List;
 
 public class QueryTest extends JerseyTest {
     private static final Logger LOGGER = Logger.getLogger(QueryTest.class);

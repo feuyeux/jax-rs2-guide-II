@@ -1,5 +1,14 @@
 package com.examples.sse;
 
+import java.net.URISyntaxException;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
+
+import javax.ws.rs.ProcessingException;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.Application;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.glassfish.jersey.client.ChunkedInput;
@@ -13,14 +22,6 @@ import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
 import org.junit.Assert;
 import org.junit.Test;
-
-import javax.ws.rs.ProcessingException;
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.Application;
-import java.net.URISyntaxException;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -55,9 +56,9 @@ public class SsePubSubTest extends JerseyTest {
                 try {
                     String data = inboundEvent.readData(String.class);
                     log.info("What the server response: {}:{}:{}",
-                            inboundEvent.getId(),
-                            inboundEvent.getName(),
-                            data);
+                        inboundEvent.getId(),
+                        inboundEvent.getName(),
+                        data);
                     Assert.assertEquals(messagePrefix + i++, data);
                     latch.countDown();
                 } catch (ProcessingException e) {

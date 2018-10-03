@@ -9,8 +9,8 @@ public class DemoApplication {
 
     public static void main(String[] args) {
         new SpringApplicationBuilder()
-                .bannerMode(Banner.Mode.OFF)
-                .sources(DemoApplication.class)
-                .run();
+            .bannerMode(Banner.Mode.OFF)
+            .sources(DemoApplication.class)
+            .run();
     }
 }

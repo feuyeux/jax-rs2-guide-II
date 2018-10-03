@@ -1,16 +1,24 @@
 package com.example.resource;
 
+import javax.annotation.security.RolesAllowed;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.SecurityContext;
+
 import com.example.domain.Book;
 import com.example.domain.Books;
 import com.example.service.BookService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import javax.annotation.security.RolesAllowed;
-import javax.ws.rs.*;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.SecurityContext;
 
 /**
  * <p>BookResource class.</p>
@@ -33,7 +41,7 @@ public class BookResource {
      */
     //@RolesAllowed(value={"admin"})
     @GET
-    @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public Books getBooks(@Context final SecurityContext sc) {
         logMe(sc);
         final Books books = bookService.getBooks();
@@ -47,7 +55,7 @@ public class BookResource {
             BookResource.LOGGER.info("User Role?=" + sc.isUserInRole("user"));
             BookResource.LOGGER.info("Auth way=" + sc.getAuthenticationScheme());
         } catch (final Exception e) {
-            LOGGER.debug("Cannot print credential info."+e);
+            LOGGER.debug("Cannot print credential info." + e);
         }
     }
 
@@ -59,7 +67,7 @@ public class BookResource {
      */
     @Path("{bookId:[0-9]*}")
     @GET
-    @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public Book getBookByPath(@PathParam("bookId") final Integer bookId) {
         final Book book = bookService.getBook(bookId);
         BookResource.LOGGER.debug(book);
@@ -74,7 +82,7 @@ public class BookResource {
      */
     @Path("/book")
     @GET
-    @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public Book getBookByQuery(@QueryParam("id") final Integer bookId) {
         final Book book = bookService.getBook(bookId);
         BookResource.LOGGER.debug(book);
@@ -88,8 +96,8 @@ public class BookResource {
      * @return a {@link com.example.domain.Book} object.
      */
     @POST
-    @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-    @Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.TEXT_XML })
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+    @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.TEXT_XML})
     public Book saveBook(@Context final SecurityContext sc, final Book book) {
         logMe(sc);
         if (sc.isUserInRole("admin")) {
@@ -103,13 +111,13 @@ public class BookResource {
      * <p>updateBook.</p>
      *
      * @param bookId a {@link java.lang.Integer} object.
-     * @param book a {@link com.example.domain.Book} object.
+     * @param book   a {@link com.example.domain.Book} object.
      * @return a {@link com.example.domain.Book} object.
      */
     @Path("{bookId:[0-9]*}")
     @PUT
-    @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-    @Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.TEXT_XML })
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+    @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.TEXT_XML})
     public Book updateBook(@PathParam("bookId") final Integer bookId, final Book book) {
         if (book == null) {
             return null;

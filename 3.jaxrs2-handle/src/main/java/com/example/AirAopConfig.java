@@ -1,10 +1,10 @@
 package com.example;
 
+import javax.ws.rs.ApplicationPath;
+
 import com.example.resource.BookResource;
 import com.example.resource.bing.AirNameBindingFilter;
 import org.glassfish.jersey.server.ResourceConfig;
-
-import javax.ws.rs.ApplicationPath;
 
 @ApplicationPath("/aop/*")
 public class AirAopConfig extends ResourceConfig {

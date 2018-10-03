@@ -1,17 +1,17 @@
 package com.example.jaas;
 
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
 import org.apache.catalina.Group;
 import org.apache.catalina.Role;
 import org.apache.catalina.User;
 import org.apache.catalina.UserDatabase;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
-
 public class RestUserPrincipal implements User {
-    private String userName;
     private final Set<Role> roles = new HashSet<>();
+    private String userName;
 
     public RestUserPrincipal(final String userName) {
         this.userName = userName;
@@ -40,6 +40,11 @@ public class RestUserPrincipal implements User {
     }
 
     @Override
+    public void setFullName(final String userName) {
+        setUsername(userName);
+    }
+
+    @Override
     public Iterator<Group> getGroups() {
         // TODO Auto-generated method stub
         return null;
@@ -49,6 +54,11 @@ public class RestUserPrincipal implements User {
     public String getPassword() {
         // TODO Auto-generated method stub
         return null;
+    }
+
+    @Override
+    public void setPassword(final String arg0) {
+        // TODO Auto-generated method stub
     }
 
     @Override
@@ -65,6 +75,11 @@ public class RestUserPrincipal implements User {
     @Override
     public String getUsername() {
         return userName;
+    }
+
+    @Override
+    public void setUsername(final String userName) {
+        this.userName = userName;
     }
 
     @Override
@@ -106,21 +121,6 @@ public class RestUserPrincipal implements User {
     @Override
     public void removeRoles() {
         roles.clear();
-    }
-
-    @Override
-    public void setFullName(final String userName) {
-        setUsername(userName);
-    }
-
-    @Override
-    public void setPassword(final String arg0) {
-        // TODO Auto-generated method stub
-    }
-
-    @Override
-    public void setUsername(final String userName) {
-        this.userName = userName;
     }
 
     @Override

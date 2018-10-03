@@ -1,10 +1,11 @@
 package com.example.resource.bing;
 
-import org.apache.log4j.Logger;
+import java.io.IOException;
 
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.ContainerRequestFilter;
-import java.io.IOException;
+
+import org.apache.log4j.Logger;
 
 public class AirDynamicBindingFilter implements ContainerRequestFilter {
     private static final Logger LOGGER = Logger.getLogger(AirDynamicBindingFilter.class);

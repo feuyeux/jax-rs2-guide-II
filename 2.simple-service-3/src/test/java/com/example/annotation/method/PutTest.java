@@ -1,5 +1,11 @@
 package com.example.annotation.method;
 
+import java.util.concurrent.atomic.AtomicLong;
+
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.core.Application;
+import javax.ws.rs.core.MediaType;
+
 import com.example.domain.Book;
 import org.apache.log4j.Logger;
 import org.glassfish.jersey.server.ResourceConfig;
@@ -7,11 +13,6 @@ import org.glassfish.jersey.test.JerseyTest;
 import org.glassfish.jersey.test.TestProperties;
 import org.junit.Assert;
 import org.junit.Test;
-
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.core.Application;
-import javax.ws.rs.core.MediaType;
-import java.util.concurrent.atomic.AtomicLong;
 
 public class PutTest extends JerseyTest {
     private final static Logger LOGGER = Logger.getLogger(PutTest.class);

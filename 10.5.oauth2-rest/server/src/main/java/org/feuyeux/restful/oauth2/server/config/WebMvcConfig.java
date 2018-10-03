@@ -1,5 +1,7 @@
 package org.feuyeux.restful.oauth2.server.config;
 
+import java.util.Collections;
+
 import org.feuyeux.restful.oauth2.server.oauth.ConfirmController;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,9 +18,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.ContentNegotiatingViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
-
-import java.util.Arrays;
-import java.util.Collections;
 
 @Configuration
 @EnableWebMvc
@@ -49,7 +48,8 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
     }
 
     @Bean
-    public ConfirmController accessConfirmController(ClientDetailsService clientDetailsService, ApprovalStore approvalStore) {
+    public ConfirmController accessConfirmController(ClientDetailsService clientDetailsService,
+                                                     ApprovalStore approvalStore) {
         ConfirmController accessConfirmationController = new ConfirmController();
         accessConfirmationController.setClientDetailsService(clientDetailsService);
         accessConfirmationController.setApprovalStore(approvalStore);

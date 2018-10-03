@@ -21,11 +21,13 @@ public class TIClientCertTest {
     private Client buildSecureClient(boolean admin) {
         String keystore;
         if (admin) {
-            keystore = "D:\\-aries\\github\\jax-rs2-guide\\sample\\6\\security-rest\\keystore\\restAdminClient.keystore";
+            keystore = "D:\\-aries\\github\\jax-rs2-guide\\sample\\6\\security-rest\\keystore\\restAdminClient
+            .keystore";
         } else {
             keystore = "D:\\-aries\\github\\jax-rs2-guide\\sample\\6\\security-rest\\keystore\\restUserClient.keystore";
         }
-        final SslConfigurator sslConfig = SslConfigurator.newInstance().trustStoreFile(keystore).trustStorePassword("restful").keyStoreFile(keystore)
+        final SslConfigurator sslConfig = SslConfigurator.newInstance().trustStoreFile(keystore).trustStorePassword
+        ("restful").keyStoreFile(keystore)
                 .keyPassword("restful");
 
         final SSLContext sslContext = sslConfig.createSSLContext();
@@ -54,7 +56,8 @@ public class TIClientCertTest {
         String bookName = "Java Restful Web Service使用指南-" + System.nanoTime();
         final Book newBook = new Book(bookName);
         final Entity<Book> bookEntity = Entity.entity(newBook, MediaType.APPLICATION_JSON_TYPE);
-        Book posted = buildSecureClient(true).target(BASE_URI).request(MediaType.APPLICATION_JSON_TYPE).post(bookEntity, Book.class);
+        Book posted = buildSecureClient(true).target(BASE_URI).request(MediaType.APPLICATION_JSON_TYPE).post
+        (bookEntity, Book.class);
         assertEquals(bookName, posted.getBookName());
     }
 }

@@ -1,16 +1,17 @@
 package org.feuyeux.restful.oauth2.server.rest;
 
-import org.feuyeux.restful.oauth2.common.domain.Tarot;
-import org.feuyeux.restful.oauth2.common.domain.Tarots;
-import org.springframework.stereotype.Service;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import java.util.ArrayList;
-import java.util.List;
+
+import org.feuyeux.restful.oauth2.common.domain.Tarot;
+import org.feuyeux.restful.oauth2.common.domain.Tarots;
+import org.springframework.stereotype.Service;
 
 @Service
 @Path("/")
@@ -112,7 +113,9 @@ public class RestService {
             list.add(tarot);
             tarot = new Tarot();
             tarot.setCard("魔鬼");
-            tarot.setV("附庸, 蹂躏, 束缚, 恶毒, 奉承, 没落, 未成功, 玄怪的体验, 不良的外在影响或警告, 黑魔法, 意料之外的失败, 无能实现他的理想, 暴力, 震惊, 意外事故, 自我惩罚, 魔鬼的引诱, 自我毁灭");
+            tarot.setV(
+                "附庸, 蹂躏, 束缚, 恶毒, 奉承, 没落, 未成功, 玄怪的体验, 不良的外在影响或警告, 黑魔法, 意料之外的失败, 无能实现他的理想, 暴力, 震惊, 意外事故, 自我惩罚, 魔鬼的引诱, "
+                    + "自我毁灭");
             tarot.setRv("摆脱束缚,抛弃枷锁,离异,透过他人认清自己的需要,克服重大难关,精神性体悟的开始");
             list.add(tarot);
             tarot = new Tarot();
@@ -127,12 +130,15 @@ public class RestService {
             list.add(tarot);
             tarot = new Tarot();
             tarot.setCard("月亮");
-            tarot.setV("欺诈迷惑, 朦胧晦暗, 暧昧不明, 直觉, 醒悟（理想破灭）,危险, 坏影响, 别有用心的动机, 虚假的朋友, 自私, 骗局, 狡滑诡诈, 不光彩的, 中伤, 诽谤, 表面情况, 未知的敌人");
+            tarot.setV(
+                "欺诈迷惑, 朦胧晦暗, 暧昧不明, 直觉, 醒悟（理想破灭）,危险, 坏影响, 别有用心的动机, 虚假的朋友, 自私, 骗局, 狡滑诡诈, 不光彩的, 中伤, 诽谤, 表面情况, 未知的敌人");
             tarot.setRv("在伤害发生前识破了小欺诈,无足轻重的错误,克服不当的诱惑,不劳而获,占某人的便宜");
             list.add(tarot);
             tarot = new Tarot();
             tarot.setCard("太阳");
-            tarot.setV("满意, 成就, 知足, 成功, 亲密关系, 爱情, 欢喜, 热爱, 无私的心境, 约定, 婚约、订婚, 快乐的婚姻, 日常生活中的愉悦, 一位好朋友, 精神奕奕, 温暖, 真诚, 源於单纯事物的喜悦, 艺术方面有所成就, 自由自在");
+            tarot.setV(
+                "满意, 成就, 知足, 成功, 亲密关系, 爱情, 欢喜, 热爱, 无私的心境, 约定, 婚约、订婚, 快乐的婚姻, 日常生活中的愉悦, 一位好朋友, 精神奕奕, 温暖, 真诚, 源於单纯事物的喜悦,"
+                    + " 艺术方面有所成就, 自由自在");
             tarot.setRv("不快乐,孤单寂寞,或许是破裂的盟约或婚姻,取消的计画,胜利延迟～尽管并不必然是全面的损失,阴霾的未来");
             list.add(tarot);
             tarot = new Tarot();

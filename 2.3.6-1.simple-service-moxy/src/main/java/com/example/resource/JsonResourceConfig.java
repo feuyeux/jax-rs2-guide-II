@@ -1,8 +1,8 @@
 package com.example.resource;
 
-import org.glassfish.jersey.server.ResourceConfig;
-
 import javax.ws.rs.ApplicationPath;
+
+import org.glassfish.jersey.server.ResourceConfig;
 
 @ApplicationPath("/api/*")
 public class JsonResourceConfig extends ResourceConfig {

@@ -1,22 +1,21 @@
 package com.example.client;
 
-import com.example.client.entity.Book;
-import org.apache.log4j.Logger;
-import org.glassfish.jersey.client.ClientConfig;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Configuration;
 import javax.ws.rs.core.MediaType;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Map.Entry;
 
+import com.example.client.entity.Book;
+import org.apache.log4j.Logger;
+import org.glassfish.jersey.client.ClientConfig;
 
 public class Jaxrs2Client {
-    protected final static Logger LOGGER = Logger.getLogger(Jaxrs2Client.class);
     public final static String BASE_URI = "http://localhost:9527/client/";
+    protected final static Logger LOGGER = Logger.getLogger(Jaxrs2Client.class);
     protected Client client;
     protected ClientConfig clientConfig;
 

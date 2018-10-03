@@ -1,10 +1,9 @@
 package com.example.resource;
 
-
-import org.apache.log4j.Logger;
-
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+
+import org.apache.log4j.Logger;
 
 @Path("test")
 public class ByteArrayResource {

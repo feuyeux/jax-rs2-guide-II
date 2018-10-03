@@ -15,6 +15,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import javax.ws.rs.client.*;
+
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
@@ -27,15 +28,14 @@ import static org.junit.Assert.assertEquals;
 @WebAppConfiguration
 public class DemoApplicationTests {
     private static final Logger log = LogManager.getLogger(DemoApplicationTests.class);
-
+    private final TestRestTemplate restTemplate = new TestRestTemplate();
     @Value("${local.server.port}")
     private int port;
 
-    private final TestRestTemplate restTemplate = new TestRestTemplate();
-
     @Test
     public void ok() {
-        ResponseEntity<String> entity = this.restTemplate.getForEntity("http://localhost:" + this.port + "/hello" + "/ok", String.class);
+        ResponseEntity<String> entity = this.restTemplate.getForEntity(
+            "http://localhost:" + this.port + "/hello" + "/ok", String.class);
         assertEquals(HttpStatus.OK, entity.getStatusCode());
         log.info(entity.getBody());
     }

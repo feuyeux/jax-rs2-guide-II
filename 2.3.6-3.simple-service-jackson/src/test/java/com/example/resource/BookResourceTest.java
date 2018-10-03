@@ -1,5 +1,8 @@
 package com.example.resource;
 
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.core.MediaType;
+
 import com.example.domain.Book;
 import com.example.domain.Books;
 import com.example.jackson.JsonBook;
@@ -14,9 +17,6 @@ import org.glassfish.jersey.test.TestProperties;
 import org.glassfish.jersey.test.util.runner.ConcurrentRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.core.MediaType;
 
 @RunWith(ConcurrentRunner.class)
 public class BookResourceTest extends JerseyTest {
@@ -42,13 +42,15 @@ public class BookResourceTest extends JerseyTest {
     }
 
     public void testHybrid() {
-        JsonHybridBook book = target("books").path("hybirdbook").request(MediaType.APPLICATION_JSON).get(JsonHybridBook.class);
+        JsonHybridBook book = target("books").path("hybirdbook").request(MediaType.APPLICATION_JSON).get(
+            JsonHybridBook.class);
         LOGGER.debug(book);
     }
 
     @Test
     public void testNoJaxb() {
-        JsonNoJaxbBook book = target("books").path("nojaxbbook").request(MediaType.APPLICATION_JSON).get(JsonNoJaxbBook.class);
+        JsonNoJaxbBook book = target("books").path("nojaxbbook").request(MediaType.APPLICATION_JSON).get(
+            JsonNoJaxbBook.class);
         LOGGER.debug(book);
     }
 
@@ -62,7 +64,8 @@ public class BookResourceTest extends JerseyTest {
 
     @Test
     public void testPost() {
-        Entity<Book> e = Entity.entity(new Book(4L, "Java Restful Web Services实战II", "机械工业出版社"), MediaType.APPLICATION_JSON_TYPE);
+        Entity<Book> e = Entity.entity(new Book(4L, "Java Restful Web Services实战II", "机械工业出版社"),
+            MediaType.APPLICATION_JSON_TYPE);
         Book book = target("books").request(MediaType.APPLICATION_JSON_TYPE).post(e, Book.class);
         LOGGER.debug(book);
     }

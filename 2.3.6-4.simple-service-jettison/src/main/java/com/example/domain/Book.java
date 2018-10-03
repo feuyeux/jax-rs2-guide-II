@@ -74,6 +74,6 @@ public class Book {
     @Override
     public String toString() {
         return String.format("%s[bookId=%d,isbn=%s,publishTime=%s,publisher=%s",
-                bookName, bookId, isbn, publishTime, publisher);
+            bookName, bookId, isbn, publishTime, publisher);
     }
 }

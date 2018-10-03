@@ -1,17 +1,18 @@
 package com.example.dao;
 
-import com.example.domain.Book;
-import org.apache.log4j.Logger;
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.Assert;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-import java.util.List;
+
+import com.example.domain.Book;
+import org.apache.log4j.Logger;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
 
 /**
  * <p>BookDao class.</p>
@@ -60,9 +61,9 @@ public class BookDao {
     /**
      * <p>findAll.</p>
      *
-     * @param isPaging a boolean.
+     * @param isPaging    a boolean.
      * @param firstResult a int.
-     * @param maxResults a int.
+     * @param maxResults  a int.
      * @return a {@link java.util.List} object.
      */
     public List<Book> findAll(final boolean isPaging, final int firstResult, final int maxResults) {
@@ -94,11 +95,11 @@ public class BookDao {
     }
 
     /**
-    * <p>store.</p>
-    *
-    * @param entity a {@link com.example.domain.Book} object.
-    * @return a {@link com.example.domain.Book} object.
-    */
+     * <p>store.</p>
+     *
+     * @param entity a {@link com.example.domain.Book} object.
+     * @return a {@link com.example.domain.Book} object.
+     */
     @Transactional
     public Book store(final Book entity) {
         return entityManager.merge(entity);
