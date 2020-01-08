@@ -21,7 +21,6 @@ public class TestPoolingClient extends BasicTest {
         while (n < times) {
             final Jaxrs2Client one = new PoolingClient();
             one.test();
-            Thread.currentThread();
             Thread.sleep(100);
             if (n++ % 10 == 0) {
                 System.out.println(n + ": " + PerformanceLog.getMemory());

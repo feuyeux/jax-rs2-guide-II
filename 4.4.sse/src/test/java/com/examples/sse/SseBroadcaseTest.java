@@ -1,13 +1,5 @@
 package com.examples.sse;
 
-import java.net.URISyntaxException;
-import java.util.concurrent.CountDownLatch;
-
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.Invocation;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.Application;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.glassfish.jersey.client.ClientConfig;
@@ -17,6 +9,15 @@ import org.glassfish.jersey.media.sse.SseFeature;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
 import org.junit.Assert;
+import org.junit.Test;
+
+import javax.ws.rs.ProcessingException;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.Invocation;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.Application;
+import java.net.URISyntaxException;
+import java.util.concurrent.CountDownLatch;
 
 public class SseBroadcaseTest extends JerseyTest {
     private static final Logger log = LogManager.getLogger(SseBroadcaseTest.class);
@@ -29,8 +30,8 @@ public class SseBroadcaseTest extends JerseyTest {
     @Override
     protected Application configure() {
         return new ResourceConfig(
-            AirSseBroadcastResource.class,
-            SseFeature.class);
+                AirSseBroadcastResource.class,
+                SseFeature.class);
     }
 
     @Override
@@ -40,7 +41,7 @@ public class SseBroadcaseTest extends JerseyTest {
         config.register(SseFeature.class);
     }
 
-    //@Test
+    @Test
     public void testBroadcast() throws InterruptedException, URISyntaxException {
         final Invocation.Builder request = target().path("broadcast/book").queryParam("total", MAX_COUNT).request();
         final Boolean posted = request.post(Entity.text(newBookName), Boolean.class);
@@ -48,6 +49,19 @@ public class SseBroadcaseTest extends JerseyTest {
 
         for (int i = 0; i < MAX_COUNT; i++) {
             final WebTarget endpoint = target().path("broadcast/book").queryParam("clientId", i + 1);
+            readerEventSources[i] = EventSource.target(endpoint).build();
+            EventSource source = readerEventSources[i];
+            source.register(inboundEvent -> {
+                try {
+                    String data = inboundEvent.readData(String.class);
+                    log.info("Response[{}]: {}", inboundEvent.getId(), data);
+                    Assert.assertEquals(newBookName, data);
+                    doneLatch.countDown();
+                } catch (ProcessingException e) {
+                    log.error("", e);
+                }
+            });
+            source.open();
         }
         doneLatch.await();
         for (EventSource source : readerEventSources) {

@@ -6,9 +6,11 @@ import org.glassfish.jersey.apache.connector.ApacheClientProperties;
 import org.glassfish.jersey.apache.connector.ApacheConnectorProvider;
 import org.glassfish.jersey.client.ClientConfig;
 
-import javax.ws.rs.client.*;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.Invocation;
+import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
-
 import java.util.Set;
 
 import static javax.ws.rs.HttpMethod.*;
@@ -36,7 +38,6 @@ public class PoolingClient<T> extends Jaxrs2Client {
         if (clientConfig == null) {
             clientConfig = new ClientConfig();
         }
-        Client client = ClientBuilder.newClient(clientConfig);
 
         //关注点2：构造WebTarget
         WebTarget webTarget = client.target(requestUrl);

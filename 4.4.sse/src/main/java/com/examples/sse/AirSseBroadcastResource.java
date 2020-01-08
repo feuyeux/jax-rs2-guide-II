@@ -1,21 +1,5 @@
 package com.examples.sse;
 
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.Executors;
-import java.util.concurrent.LinkedBlockingQueue;
-
-import javax.inject.Singleton;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.DefaultValue;
-import javax.ws.rs.GET;
-import javax.ws.rs.NotFoundException;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.MediaType;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.glassfish.jersey.media.sse.EventOutput;
@@ -23,6 +7,14 @@ import org.glassfish.jersey.media.sse.OutboundEvent;
 import org.glassfish.jersey.media.sse.SseBroadcaster;
 import org.glassfish.jersey.media.sse.SseFeature;
 import org.glassfish.jersey.server.ChunkedOutput;
+
+import javax.inject.Singleton;
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingQueue;
 
 @Singleton
 @Path("broadcast")
@@ -53,7 +45,8 @@ public class AirSseBroadcastResource {
         log.info("request from client {}", clientId);
         BroadcastProcess broadcastProcess = processQueue.peek();
         if (broadcastProcess != null) {
-            broadcastProcess.countDown();
+            long count = broadcastProcess.countDown();
+            log.info("broadcastProcess count down={}", count);
             final EventOutput eventOutput = new EventOutput();
             broadcastProcess.getBroadcaster().add(eventOutput);
             return eventOutput;
@@ -76,7 +69,7 @@ public class AirSseBroadcastResource {
         public BroadcastProcess(int total, String bookName) {
             this.processId = System.nanoTime();
             this.bookName = bookName;
-            log.info("initialize BroadcastProcess: process({}) processId={},,bookName={}", total, processId, bookName);
+            log.info("initialize BroadcastProcess: process({}) processId={},bookName={}", total, processId, bookName);
             latch = total > 0 ? new CountDownLatch(total) : null;
         }
 
@@ -103,7 +96,7 @@ public class AirSseBroadcastResource {
                 }
                 OutboundEvent.Builder eventBuilder = new OutboundEvent.Builder().mediaType(MediaType.TEXT_PLAIN_TYPE);
                 OutboundEvent event = eventBuilder.id(processId + "").name("New Book Name").data(String.class, bookName)
-                    .build();
+                        .build();
                 broadcaster.broadcast(event);
                 broadcaster.closeAll();
             } catch (InterruptedException e) {

@@ -15,3 +15,4 @@ target
 nb-configuration.xml
 Thumbs.db
 .*~
+.factorypath
