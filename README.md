@@ -41,7 +41,7 @@
 
 #### 最新Jersey官方文档
 
-[**Jersey User Guide**](https://jersey.java.net/documentation/latest/user-guide.html)
+[**Jersey User Guide**](https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/index.html)
 
 #### Jersey缺陷管理系统
 
@@ -55,43 +55,46 @@
 #### Jersey版本发布历史
 | 版本号    | 发布日期        | 发版说明                                     |
 | :----- | :---------- | :--------------------------------------- |
-| 2.27   | 13/Apr/18 | [Jersey 2.27](https://jersey.github.io/release-notes/2.27.html) |
-| 2.26   | 06/Sep/17 | [Jersey 2.26](https://jersey.github.io/release-notes/2.26.html) |
-| 2.25   | 08/Dec/16   | [Jersey 2.25](https://jersey.github.io/release-notes/2.25.html) |
-| 2.24.1 | 21/Nov/16   | [Jersey 2.24.1](https://jersey.github.io/release-notes/2.24.1.html) |
-| 2.24   | 27/Oct/16   | [Jersey 2.24](https://jersey.github.io/release-notes/2.24.html) |
-| 2.23.2 | 08/Aug/16   | [Jersey 2.23.2](https://jersey.github.io/release-notes/2.23.2.html) |
-| 2.23.1 | 07/Jun/16   | [Jersey 2.23.1](https://jersey.github.io/release-notes/2.23.1.html) |
-| 2.23   | 18/May/16   | [Jersey 2.23](https://jersey.github.io/release-notes/2.23.html) |
-| 2.22.2 | 16/Feb/16   | [Jersey 2.22.2](https://jersey.github.io/release-notes/2.22.2.html) |
-| 2.22.1 | 07/Oct/15   | [Jersey 2.22.1](https://jersey.github.io/release-notes/2.22.1.html) |
-| 2.22   | 23/Sep/15   | [Jersey 2.22](https://jersey.github.io/release-notes/2.22.html) |
-| 2.21.1 | 16/Sep/15   | [Jersey 2.21.1](https://jersey.github.io/release-notes/2.21.1.html) |
-| 2.21   | 15/Aug/15   | [Jersey 2.21](https://jersey.github.io/release-notes/2.21.html) |
-| 2.20   | 06/Aug/15   | [Jersey 2.20](https://jersey.github.io/release-notes/2.20.html) |
-| 2.19   | 29/Jun/15   | [Jersey 2.19](https://jersey.github.io/release-notes/2.19.html) |
-| 2.18   | 05/Jun/15   | [Jersey 2.18](https://jersey.github.io/release-notes/2.18.html) |
-| 2.17   | 11/Mar/15   | [Jersey 2.17](https://jersey.github.io/release-notes/2.17.html) |
-| 2.16   | 11/Feb/15   | [Jersey 2.16](https://jersey.github.io/release-notes/2.16.html) |
-| 2.15   | 03/Dec/14   | [Jersey 2.15](https://jersey.github.io/release-notes/2.15.html) |
-| 2.14   | 01/Oct/14   | [Jersey 2.14](https://jersey.github.io/release-notes/2.14.html) |
-| 2.13   | 30/Sep/14   | [Jersey 2.13](https://jersey.github.io/release-notes/2.13.html) |
-| 2.12   | 26/Aug/14   | [Jersey 2.12](https://jersey.github.io/release-notes/2.12.html) |
-| 2.11   | 23/Jul/14   | [Jersey 2.11](https://jersey.github.io/release-notes/2.11.html) |
-| 2.10.1 | 01/Jul/14   | [Jersey 2.10.1](https://jersey.github.io/release-notes/2.10.1.html) |
-| 2.10   | 24/Jun/14   | [Jersey 2.10](https://jersey.github.io/release-notes/2.10.html) |
-| 2.9.1  | 30/May/14   | [Jersey 2.9.1](https://jersey.github.io/release-notes/2.9.1.html) |
-| 2.9    | 23/May/14   | [Jersey 2.9](https://jersey.github.io/release-notes/2.9.html) |
-| 2.8    | 29/Apr/14   | [Jersey 2.8](https://jersey.github.io/release-notes/2.8.html) |
-| 2.7    | 13/Mar/14   | [Jersey 2.7](https://jersey.github.io/release-notes/2.7.html) |
-| 2.6    | 19/Feb/14   | [Jersey 2.6](https://jersey.github.io/release-notes/2.6.html) |
-| 2.5.1  | 02/Jan/14   | [Jersey 2.5.1](https://jersey.github.io/release-notes/2.5.1.html) |
-| 2.5    | 18/Dec/13   | [Jersey 2.5](https://jersey.github.io/release-notes/2.5.html) |
-| 2.4.1  | 08/Nov/13   | [Jersey 2.4.1](https://jersey.github.io/release-notes/2.4.1.html) |
-| 2.4    | 25/Oct/13   | [Jersey 2.4](https://jersey.github.io/release-notes/2.4.html) |
-| 2.3.1  | 27/Sep/13   | [Jersey 2.3.1](https://jersey.github.io/release-notes/2.3.1.html) |
-| 2.3    | 20/Sep/13   | [Jersey 2.3](https://jersey.github.io/release-notes/2.3.html) |
-| 2.2    | 14/Aug/13   | [Jersey 2.2](https://jersey.github.io/release-notes/2.2.html) |
-| 2.1    | 15/Jul/13   | [Jersey 2.1](https://jersey.github.io/release-notes/2.1.html) |
-| 2.0.1  | 03/Jan/14   | [Jersey 2.1](https://jersey.github.io/release-notes/2.0.1.html) |
-| 2.0    | 28/May/13   | [Jersey 2.0](https://jersey.github.io/release-notes/2.0.html) |
+| 2.29.1  | 10/Sep/19 | [Jersey 2.29.1](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.29.1.html) |
+| 2.29  | 12/Aug/19 | [Jersey 2.29](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.29.html) |
+| 2.28   | 25/Jan/19 | [Jersey 2.27](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.28.html) |
+| 2.27   | 13/Apr/18 | [Jersey 2.27](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.27.html) |
+| 2.26   | 06/Sep/17 | [Jersey 2.26](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.26.html) |
+| 2.25   | 08/Dec/16   | [Jersey 2.25](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.25.html) |
+| 2.24.1 | 21/Nov/16   | [Jersey 2.24.1](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.24.1.html) |
+| 2.24   | 27/Oct/16   | [Jersey 2.24](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.24.html) |
+| 2.23.2 | 08/Aug/16   | [Jersey 2.23.2](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.23.2.html) |
+| 2.23.1 | 07/Jun/16   | [Jersey 2.23.1](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.23.1.html) |
+| 2.23   | 18/May/16   | [Jersey 2.23](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.23.html) |
+| 2.22.2 | 16/Feb/16   | [Jersey 2.22.2](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.22.2.html) |
+| 2.22.1 | 07/Oct/15   | [Jersey 2.22.1](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.22.1.html) |
+| 2.22   | 23/Sep/15   | [Jersey 2.22](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.22.html) |
+| 2.21.1 | 16/Sep/15   | [Jersey 2.21.1](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.21.1.html) |
+| 2.21   | 15/Aug/15   | [Jersey 2.21](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.21.html) |
+| 2.20   | 06/Aug/15   | [Jersey 2.20](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.20.html) |
+| 2.19   | 29/Jun/15   | [Jersey 2.19](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.19.html) |
+| 2.18   | 05/Jun/15   | [Jersey 2.18](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.18.html) |
+| 2.17   | 11/Mar/15   | [Jersey 2.17](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.17.html) |
+| 2.16   | 11/Feb/15   | [Jersey 2.16](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.16.html) |
+| 2.15   | 03/Dec/14   | [Jersey 2.15](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.15.html) |
+| 2.14   | 01/Oct/14   | [Jersey 2.14](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.14.html) |
+| 2.13   | 30/Sep/14   | [Jersey 2.13](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.13.html) |
+| 2.12   | 26/Aug/14   | [Jersey 2.12](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.12.html) |
+| 2.11   | 23/Jul/14   | [Jersey 2.11](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.11.html) |
+| 2.10.1 | 01/Jul/14   | [Jersey 2.10.1](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.10.1.html) |
+| 2.10   | 24/Jun/14   | [Jersey 2.10](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.10.html) |
+| 2.9.1  | 30/May/14   | [Jersey 2.9.1](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.9.1.html) |
+| 2.9    | 23/May/14   | [Jersey 2.9](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.9.html) |
+| 2.8    | 29/Apr/14   | [Jersey 2.8](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.8.html) |
+| 2.7    | 13/Mar/14   | [Jersey 2.7](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.7.html) |
+| 2.6    | 19/Feb/14   | [Jersey 2.6](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.6.html) |
+| 2.5.1  | 02/Jan/14   | [Jersey 2.5.1](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.5.1.html) |
+| 2.5    | 18/Dec/13   | [Jersey 2.5](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.5.html) |
+| 2.4.1  | 08/Nov/13   | [Jersey 2.4.1](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.4.1.html) |
+| 2.4    | 25/Oct/13   | [Jersey 2.4](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.4.html) |
+| 2.3.1  | 27/Sep/13   | [Jersey 2.3.1](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.3.1.html) |
+| 2.3    | 20/Sep/13   | [Jersey 2.3](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.3.html) |
+| 2.2    | 14/Aug/13   | [Jersey 2.2](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.2.html) |
+| 2.1    | 15/Jul/13   | [Jersey 2.1](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.1.html) |
+| 2.0.1  | 03/Jan/14   | [Jersey 2.1](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.0.1.html) |
+| 2.0    | 28/May/13   | [Jersey 2.0](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.0.html) |
