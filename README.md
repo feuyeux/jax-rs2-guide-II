@@ -40,16 +40,9 @@
 32. [10.5.oauth2-rest](10.5.oauth2-rest)
 
 #### 最新Jersey官方文档
-
 [**Jersey User Guide**](https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/index.html)
 
-#### Jersey缺陷管理系统
-
-- [**Jersey Jira**](https://java.net/jira/browse/JERSEY/)
-- [Jersey版本信息](https://java.net/jira/browse/JERSEY/?selectedTab=com.atlassian.jira.jira-projects-plugin:versions-panel)
-
 #### Jersey问答
-
 [**Jersey StackOverflow**](http://stackoverflow.com/questions/tagged/jersey)
 
 #### Jersey版本发布历史
