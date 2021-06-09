@@ -4,6 +4,14 @@
 
 <img width="350" src="cover.png"/>
 
+
+#### Build
+```bash
+git clone https://github.com/feuyeux/jax-rs2-guide-II.git
+cd jax-rs2-guide-II
+mvn clean install -DskipTests
+```
+
 #### 源代码目录
 
 1. [1.5.my-first-service](1.5.my-first-service)
