@@ -14,7 +14,7 @@
 
     <properties>
         <JDK.version>1.8</JDK.version>
-        <jersey.version>2.22.2</jersey.version>
+        <jersey.version>2.35</jersey.version>
         <junit.version>4.13.1</junit.version>
         <slf4j.version>1.4.3</slf4j.version>
         <log4j.version>1.2.17</log4j.version>
