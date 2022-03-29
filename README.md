@@ -1,9 +1,8 @@
 ### 《Java Restful Web Service实战·第二版》示例源代码
-[![Build Status](https://travis-ci.com/feuyeux/jax-rs2-guide-II.svg?branch=master)](https://travis-ci.org/feuyeux/jax-rs2-guide-II)
+[![Build Status](https://travis-ci.com/feuyeux/jax-rs2-guide-II.svg?branch=master)](https://travis-ci.com/feuyeux/jax-rs2-guide-II)
 [![codecov](https://codecov.io/gh/feuyeux/jax-rs2-guide-II/branch/master/graph/badge.svg)](https://codecov.io/gh/feuyeux/jax-rs2-guide-II)
 
-<img width="350" src="cover.png"/>
-
+<img width="333" src="cover.png"/>
 
 #### Build
 ```bash
