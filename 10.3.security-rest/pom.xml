@@ -14,13 +14,12 @@
 
     <properties>
         <JDK.version>1.8</JDK.version>
-        <jersey.version>2.22.2</jersey.version>
+        <jersey.version>2.35</jersey.version>
         <junit.version>4.13.1</junit.version>
         <slf4j.version>1.4.3</slf4j.version>
         <log4j.version>1.2.17</log4j.version>
-
-        <spring.version>5.2.18.RELEASE</spring.version>
-        <eclipselink.version>2.5.0</eclipselink.version>
+        <spring.version>5.3.14</spring.version>
+        <eclipselink.version>2.7.9</eclipselink.version>
         <jquery.version>2.0.3</jquery.version>
         <mysql-connector.version>8.0.16</mysql-connector.version>
 
@@ -29,7 +28,7 @@
         <maven-war-plugin.version>2.3</maven-war-plugin.version>
         <maven-resources-plugin.version>2.6</maven-resources-plugin.version>
         <maven-eclipse-plugin.version>2.9</maven-eclipse-plugin.version>
-        <tomcat.version>7.0.42</tomcat.version>
+        <tomcat.version>7.0.109</tomcat.version>
     </properties>
 
     <build>
