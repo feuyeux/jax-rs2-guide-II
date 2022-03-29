@@ -17,9 +17,9 @@
     <properties>
         <encoding>UTF-8</encoding>
         <java.version>1.8</java.version>
-        <jersey.version>2.25</jersey.version>
+        <jersey.version>2.35</jersey.version>
         <jquery.version>2.0.3</jquery.version>
-        <log4j2.version>2.16.0</log4j2.version>
+        <log4j2.version>2.17.2</log4j2.version>
     </properties>
 
     <build>
