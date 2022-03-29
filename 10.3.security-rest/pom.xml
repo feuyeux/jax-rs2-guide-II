@@ -18,7 +18,7 @@
         <junit.version>4.13.1</junit.version>
         <slf4j.version>1.7.32</slf4j.version>
         <log4j.version>1.2.17</log4j.version>
-        <spring.version>5.3.14</spring.version>
+        <spring.version>5.3.17</spring.version>
         <eclipselink.version>2.7.9</eclipselink.version>
         <jquery.version>2.0.3</jquery.version>
         <mysql-connector.version>8.0.28</mysql-connector.version>
@@ -28,7 +28,7 @@
         <maven-war-plugin.version>2.3</maven-war-plugin.version>
         <maven-resources-plugin.version>2.6</maven-resources-plugin.version>
         <maven-eclipse-plugin.version>2.9</maven-eclipse-plugin.version>
-        <tomcat.version>7.0.109</tomcat.version>
+        <tomcat.version>10.0.18</tomcat.version>
     </properties>
 
     <build>
@@ -98,7 +98,7 @@
         <!-- jersey-spring -->
         <dependency>
             <groupId>org.glassfish.jersey.ext</groupId>
-            <artifactId>jersey-spring3</artifactId>
+            <artifactId>jersey-spring5</artifactId>
             <version>${jersey.version}</version>
         </dependency>
         <!-- spring -->
