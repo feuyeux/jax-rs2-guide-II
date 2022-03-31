@@ -13,7 +13,7 @@
     <properties>
         <JDK.version>1.8</JDK.version>
         <jersey.version>2.35</jersey.version>
-        <spring.version>5.3.17</spring.version>
+        <spring.version>5.3.18</spring.version>
         <junit.version>4.13.2</junit.version>
         <jquery.version>2.2.1</jquery.version>
         <mysql-connector.version>8.0.28</mysql-connector.version>
