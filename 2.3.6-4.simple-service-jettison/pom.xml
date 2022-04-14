@@ -15,7 +15,7 @@
     <properties>
         <JDK.version>1.8</JDK.version>
         <guava.version>30.1.1-jre</guava.version>
-        <jersey.version>2.31</jersey.version>
+        <jersey.version>2.35</jersey.version>
         <jquery.version>2.2.1</jquery.version>
         <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
         <maven-war-plugin.version>2.6</maven-war-plugin.version>
