@@ -56,11 +56,16 @@ mvn clean install -DskipTests
 **[GlassFish Jersey Core](https://mvnrepository.com/artifact/org.glassfish.jersey.core)**
 
 #### Jersey版本发布历史
+https://projects.eclipse.org/projects/ee4j.jersey
+
 |版本号|发布日期|发版说明|
 |:-----|:----------|:---------------------------------------|
+|3.1.0	|2022-04-30	|[Jersey 3.1.0](https://projects.eclipse.org/projects/ee4j.jersey/releases/3.1.0)|
+|3.0.4	|2022-02-09|[Jersey 3.0.4](https://projects.eclipse.org/projects/ee4j.jersey/releases/3.0.4)|
 |3.0.2|23/Aug/21|[Jersey 3.0.2](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/3.0.2.html)|
 |3.0.1|27Jan/21|[Jersey 3.0.1](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/3.0.1.html)|
 |3.0.0|01/Dec/20|[Jersey 3.0.0](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/3.0.0.html)|
+|2.35|	2021-09-03|[Jersey 2.35](https://projects.eclipse.org/projects/ee4j.jersey/releases/2.35)|
 |2.34|16/Aug/21|[Jersey 2.34](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.34.html)|
 |2.33|18/Dec/20|[Jersey 2.33](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.33.html)|
 |2.32|25/Sep/20|[Jersey 2.32](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.32.html)|
