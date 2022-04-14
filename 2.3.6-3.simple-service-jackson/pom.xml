@@ -13,15 +13,15 @@
 
     <properties>
         <JDK.version>1.8</JDK.version>
-        <guava.version>30.1.1-jre</guava.version>
+        <guava.version>31.1-jre</guava.version>
         <jersey.version>2.31</jersey.version>
         <jquery.version>2.2.1</jquery.version>
         <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
         <maven-war-plugin.version>2.6</maven-war-plugin.version>
         <maven-resources-plugin.version>2.7</maven-resources-plugin.version>
-        <maven-eclipse-plugin.version>2.9</maven-eclipse-plugin.version>
-        <junit.version>4.13.1</junit.version>
-        <slf4j.version>1.4.3</slf4j.version>
+        <maven-eclipse-plugin.version>2.10</maven-eclipse-plugin.version>
+        <junit.version>4.13.2</junit.version>
+        <slf4j.version>1.7.36</slf4j.version>
         <log4j.version>1.2.17</log4j.version>
     </properties>
 
@@ -47,6 +47,7 @@
             </plugin>
             <plugin>
                 <!-- support eclipse's web server -->
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-eclipse-plugin -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-eclipse-plugin</artifactId>
                 <version>${maven-eclipse-plugin.version}</version>
