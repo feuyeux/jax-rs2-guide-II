@@ -21,7 +21,7 @@
         <spring.version>5.3.18</spring.version>
         <eclipselink.version>2.7.9</eclipselink.version>
         <jquery.version>2.0.3</jquery.version>
-        <mysql-connector.version>8.0.28</mysql-connector.version>
+        <mysql-connector.version>8.0.29</mysql-connector.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven-compiler-plugin.version>2.5.1</maven-compiler-plugin.version>
