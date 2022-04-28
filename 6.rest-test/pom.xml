@@ -13,10 +13,10 @@
     <properties>
         <JDK.version>1.8</JDK.version>
         <jersey.version>2.35</jersey.version>
-        <spring.version>5.3.17</spring.version>
+        <spring.version>5.3.19</spring.version>
         <junit.version>4.13.2</junit.version>
         <jquery.version>2.2.1</jquery.version>
-        <mysql-connector.version>8.0.28</mysql-connector.version>
+        <mysql-connector.version>8.0.29</mysql-connector.version>
         <eclipselink.version>2.6.0</eclipselink.version>
         <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
         <maven-war-plugin.version>2.6</maven-war-plugin.version>
