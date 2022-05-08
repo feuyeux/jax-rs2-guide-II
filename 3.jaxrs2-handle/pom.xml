@@ -16,7 +16,7 @@
         <jersey.version>2.35</jersey.version>
         <spring.version>3.2.3.RELEASE</spring.version>
         <eclipselink.version>2.5.0</eclipselink.version>
-        <jquery.version>2.2.1</jquery.version>
+        <jquery.version>3.0.0</jquery.version>
         <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
         <maven-war-plugin.version>2.6</maven-war-plugin.version>
         <maven-resources-plugin.version>2.7</maven-resources-plugin.version>
