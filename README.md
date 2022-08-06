@@ -1,17 +1,19 @@
-### 《Java Restful Web Service实战·第二版》示例源代码
+## 《Java Restful Web Service实战·第二版》示例源代码
+
 [![Build Status](https://travis-ci.com/feuyeux/jax-rs2-guide-II.svg?branch=master)](https://travis-ci.com/feuyeux/jax-rs2-guide-II)
 [![codecov](https://codecov.io/gh/feuyeux/jax-rs2-guide-II/branch/master/graph/badge.svg)](https://codecov.io/gh/feuyeux/jax-rs2-guide-II)
 
 <img width="333" src="cover.png"/>
 
-#### Build
+### Build
+
 ```bash
 git clone https://github.com/feuyeux/jax-rs2-guide-II.git
 cd jax-rs2-guide-II
 mvn clean install -DskipTests
 ```
 
-#### 源代码目录
+### 源代码目录
 
 1. [1.5.my-first-service](1.5.my-first-service)
 2. [1.5.my-first-webapp](1.5.my-first-webapp)
@@ -46,26 +48,31 @@ mvn clean install -DskipTests
 31. [10.3.security-rest](10.3.security-rest)
 32. [10.5.oauth2-rest](10.5.oauth2-rest)
 
-#### 最新Jersey官方文档
+### 最新Jersey官方文档
+
 [**Jersey User Guide**](https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/index.html)
 
-#### Jersey问答
+### Jersey问答
+
 [**Jersey StackOverflow**](http://stackoverflow.com/questions/tagged/jersey)
 
-#### Jersey Maven仓库信息
+### Jersey Maven仓库信息
+
 **[GlassFish Jersey Core](https://mvnrepository.com/artifact/org.glassfish.jersey.core)**
 
-#### Jersey版本发布历史
-https://projects.eclipse.org/projects/ee4j.jersey
+### Jersey版本发布历史
+
+<https://projects.eclipse.org/projects/ee4j.jersey>
 
 |版本号|发布日期|发版说明|
 |:-----|:----------|:---------------------------------------|
-|3.1.0	|2022-04-30	|[Jersey 3.1.0](https://projects.eclipse.org/projects/ee4j.jersey/releases/3.1.0)|
-|3.0.4	|2022-02-09|[Jersey 3.0.4](https://projects.eclipse.org/projects/ee4j.jersey/releases/3.0.4)|
+|3.1.0|2022-06-22|[Jersey 3.1.0](https://projects.eclipse.org/projects/ee4j.jersey/releases/3.1.0)|
+|3.0.5 |2022-06-15|[Jersey 3.0.4](https://projects.eclipse.org/projects/ee4j.jersey/releases/3.0.5)|
+|3.0.4|2022-02-09|[Jersey 3.0.4](https://projects.eclipse.org/projects/ee4j.jersey/releases/3.0.4)|
 |3.0.2|23/Aug/21|[Jersey 3.0.2](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/3.0.2.html)|
 |3.0.1|27Jan/21|[Jersey 3.0.1](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/3.0.1.html)|
 |3.0.0|01/Dec/20|[Jersey 3.0.0](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/3.0.0.html)|
-|2.35|	2021-09-03|[Jersey 2.35](https://projects.eclipse.org/projects/ee4j.jersey/releases/2.35)|
+|2.35|2021-09-03|[Jersey 2.35](https://projects.eclipse.org/projects/ee4j.jersey/releases/2.35)|
 |2.34|16/Aug/21|[Jersey 2.34](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.34.html)|
 |2.33|18/Dec/20|[Jersey 2.33](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.33.html)|
 |2.32|25/Sep/20|[Jersey 2.32](https://eclipse-ee4j.github.io/jersey.github.io/release-notes/2.32.html)|

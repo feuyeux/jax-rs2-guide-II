@@ -1,5 +1,4 @@
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
         <groupId>my.restful</groupId>
         <artifactId>jax-rs2-guideII</artifactId>
@@ -20,7 +19,7 @@
         <log4j.version>1.2.17</log4j.version>
         <spring.version>5.3.19</spring.version>
         <eclipselink.version>2.7.9</eclipselink.version>
-        <jquery.version>2.0.3</jquery.version>
+        <jquery.version>3.6.0</jquery.version>
         <mysql-connector.version>8.0.29</mysql-connector.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -28,7 +27,7 @@
         <maven-war-plugin.version>2.3</maven-war-plugin.version>
         <maven-resources-plugin.version>2.6</maven-resources-plugin.version>
         <maven-eclipse-plugin.version>2.9</maven-eclipse-plugin.version>
-        <tomcat.version>10.0.18</tomcat.version>
+        <tomcat.version>10.0.23</tomcat.version>
     </properties>
 
     <build>
@@ -187,21 +186,4 @@
             </exclusions>
         </dependency>
     </dependencies>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>snapshots.codehaus.org</id>
-            <name>Codehaus.org Snapshots Maven Repository</name>
-            <url>http://nexus.codehaus.org/snapshots</url>
-            <layout>default</layout>
-        </pluginRepository>
-    </pluginRepositories>
-
-    <repositories>
-        <repository>
-            <id>release.maven.java.net</id>
-            <name>java.net Maven Release Repository</name>
-            <url>https://maven.java.net/content/groups/public</url>
-            <layout>default</layout>
-        </repository>
-    </repositories>
 </project>
