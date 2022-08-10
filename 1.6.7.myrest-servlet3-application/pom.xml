@@ -3,14 +3,14 @@
     <parent>
         <groupId>my.restful</groupId>
         <artifactId>jax-rs2-guideII</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
     <artifactId>myrest-servlet3-application2</artifactId>
     <packaging>war</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
     <build>
         <plugins>
             <plugin>
@@ -38,8 +38,4 @@
             <version>${jersey.version}</version>
         </dependency>
     </dependencies>
-
-    <properties>
-        <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
-    </properties>
 </project>

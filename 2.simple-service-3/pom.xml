@@ -1,16 +1,15 @@
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
         <groupId>my.restful</groupId>
         <artifactId>jax-rs2-guideII</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
     <artifactId>simple-service-3</artifactId>
     <packaging>war</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
     <name>simple-service-3</name>
 
     <properties>
@@ -18,14 +17,13 @@
         <jersey.version>2.35</jersey.version>
         <spring.version>3.2.3.RELEASE</spring.version>
         <eclipselink.version>2.5.0</eclipselink.version>
-        <jquery.version>2.2.1</jquery.version>
-        <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
+        <jquery.version>3.6.0</jquery.version>
         <maven-war-plugin.version>2.6</maven-war-plugin.version>
         <maven-resources-plugin.version>2.7</maven-resources-plugin.version>
         <maven-eclipse-plugin.version>2.9</maven-eclipse-plugin.version>
         <junit.version>4.12</junit.version>
         <slf4j.version>1.7.36</slf4j.version>
-        <log4j.version>1.2.17</log4j.version>
+        <log4j.version>1.2.15</log4j.version>
     </properties>
 
     <build>
@@ -34,7 +32,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.5.1</version>
+                <version>${maven-compiler-plugin.version}</version>
                 <inherited>true</inherited>
                 <configuration>
                     <source>${JDK.version}</source>

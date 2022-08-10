@@ -2,22 +2,21 @@
     <parent>
         <groupId>my.restful</groupId>
         <artifactId>jax-rs2-guideII</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.example</groupId>
     <artifactId>rest-test</artifactId>
     <packaging>war</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
     <properties>
         <JDK.version>1.8</JDK.version>
         <jersey.version>2.35</jersey.version>
         <spring.version>5.3.19</spring.version>
         <junit.version>4.13.2</junit.version>
-        <jquery.version>2.2.1</jquery.version>
+        <jquery.version>3.6.0</jquery.version>
         <mysql-connector.version>8.0.29</mysql-connector.version>
-        <eclipselink.version>2.6.0</eclipselink.version>
-        <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
+        <eclipselink.version>2.7.9</eclipselink.version>
         <maven-war-plugin.version>2.6</maven-war-plugin.version>
         <maven-resources-plugin.version>2.7</maven-resources-plugin.version>
         <maven-eclipse-plugin.version>2.9</maven-eclipse-plugin.version>
