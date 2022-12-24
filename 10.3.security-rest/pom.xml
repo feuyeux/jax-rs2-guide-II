@@ -13,7 +13,7 @@
 
     <properties>
         <JDK.version>1.8</JDK.version>
-        <jersey.version>2.35</jersey.version>
+        <jersey.version>2.38</jersey.version>
         <junit.version>4.13.1</junit.version>
         <slf4j.version>1.7.32</slf4j.version>
         <log4j.version>1.2.15</log4j.version>
