@@ -23,7 +23,7 @@
         <java.version>1.8</java.version>
         <spring.security.version>5.7.8</spring.security.version>
         <spring-security-oauth2.version>2.0.9.RELEASE</spring-security-oauth2.version>
-        <spring-boot.version>2.6.13</spring-boot.version>
+        <spring-boot.version>3.0.11</spring-boot.version>
         <spring.version>5.2.24.RELEASE</spring.version>
         <junit.version>4.13.1</junit.version>
         <jersey.version>2.27</jersey.version>
