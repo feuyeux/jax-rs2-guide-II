@@ -17,7 +17,7 @@
         <junit.version>4.13.1</junit.version>
         <slf4j.version>1.7.32</slf4j.version>
         <log4j.version>1.2.15</log4j.version>
-        <spring.version>5.3.19</spring.version>
+        <spring.version>5.3.32</spring.version>
         <eclipselink.version>2.7.9</eclipselink.version>
         <jquery.version>3.6.0</jquery.version>
         <mysql-connector.version>8.0.31</mysql-connector.version>
