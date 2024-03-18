@@ -26,7 +26,7 @@
          <maven-war-plugin.version>2.3</maven-war-plugin.version>
         <maven-resources-plugin.version>2.6</maven-resources-plugin.version>
         <maven-eclipse-plugin.version>2.9</maven-eclipse-plugin.version>
-        <tomcat.version>10.0.27</tomcat.version>
+        <tomcat.version>10.1.14</tomcat.version>
     </properties>
 
     <build>
