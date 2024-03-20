@@ -11,7 +11,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <properties>
         <JDK.version>1.8</JDK.version>
-        <jersey.version>2.36</jersey.version>
+        <jersey.version>2.42</jersey.version>
         <spring.version>5.3.19</spring.version>
         <junit.version>4.13.2</junit.version>
         <jquery.version>3.6.0</jquery.version>
