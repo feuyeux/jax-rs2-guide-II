@@ -36,7 +36,7 @@
         <module>10.5.oauth2-rest</module>
     </modules>
     <properties>
-        <jersey.version>2.35</jersey.version>
+        <jersey.version>2.41</jersey.version>
         <junit.version>4.13.2</junit.version>
         <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
     </properties>
