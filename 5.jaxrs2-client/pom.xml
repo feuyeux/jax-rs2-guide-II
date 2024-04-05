@@ -10,20 +10,6 @@
     <packaging>war</packaging>
     <version>0.0.1-SNAPSHOT</version>
 
-    <properties>
-        <JDK.version>1.8</JDK.version>
-        <jersey.version>3.0.13</jersey.version>
-
-        <junit.version>4.13.1</junit.version>
-        <slf4j.version>1.7.36</slf4j.version>
-        <log4j.version>1.2.15</log4j.version>
-
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven-war-plugin.version>2.3</maven-war-plugin.version>
-        <maven-resources-plugin.version>2.6</maven-resources-plugin.version>
-        <maven-eclipse-plugin.version>2.9</maven-eclipse-plugin.version>
-    </properties>
-
     <build>
         <plugins>
             <plugin>
@@ -106,12 +92,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- log -->
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>${log4j.version}</version>
-        </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
