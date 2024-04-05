@@ -10,19 +10,6 @@
     <packaging>war</packaging>
     <version>0.0.1-SNAPSHOT</version>
 
-    <properties>
-        <JDK.version>1.8</JDK.version>
-        <guava.version>32.0.0-jre</guava.version>
-        <jersey.version>2.35</jersey.version>
-        <jquery.version>3.6.0</jquery.version>
-        <maven-war-plugin.version>2.6</maven-war-plugin.version>
-        <maven-resources-plugin.version>2.7</maven-resources-plugin.version>
-        <maven-eclipse-plugin.version>2.9</maven-eclipse-plugin.version>
-        <junit.version>4.13.1</junit.version>
-        <slf4j.version>1.7.32</slf4j.version>
-        <log4j.version>1.2.15</log4j.version>
-    </properties>
-
     <build>
         <plugins>
             <plugin>

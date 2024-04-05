@@ -7,10 +7,8 @@ import java.util.concurrent.atomic.AtomicLong;
 
 import com.example.domain.Book;
 import com.example.domain.Books;
-import org.apache.log4j.Logger;
 
 public class EBookResourceImpl implements BookResource {
-    private final static Logger LOGGER = Logger.getLogger(EBookResourceImpl.class);
     public static AtomicLong serverBookSequence = new AtomicLong();
 
     @Override
@@ -23,7 +21,7 @@ public class EBookResourceImpl implements BookResource {
         SimpleDateFormat f = new SimpleDateFormat("d MMM yyyy HH:mm:ss");
         Date lastUpdate = Calendar.getInstance().getTime();
         //...
-        LOGGER.debug(book.getBookId());
+
         return f.format(lastUpdate);
     }
 
@@ -35,12 +33,12 @@ public class EBookResourceImpl implements BookResource {
 
     @Override
     public void delete(long bookId) {
-        LOGGER.debug(bookId);
+       // LOGGER.debug(bookId);
     }
 
     @Override
     public boolean moveBooks(Books books) {
-        LOGGER.debug("MOVE method");
+        //LOGGER.debug("MOVE method");
         return true;
     }
 }

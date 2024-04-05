@@ -9,12 +9,9 @@ import java.util.List;
 
 import javax.security.auth.login.LoginException;
 
-import org.apache.log4j.Logger;
-
 public class RestLoginDao {
     public static final String USER_QUERY = "select user_name from users where user_name=? and user_pass=?";
     public static final String ROLE_QUERY = "select role_name from  user_roles where user_name=?";
-    private static final Logger LOG = Logger.getLogger(RestLoginDao.class);
 
     public boolean isValidUser(final String userName, final char[] passWord) throws LoginException {
         try (Connection connection = getConnection(); PreparedStatement stmt = connection.prepareStatement(
@@ -27,7 +24,6 @@ public class RestLoginDao {
                 }
             }
         } catch (final Exception e) {
-            RestLoginDao.LOG.error("Error when loading user from the database " + e);
             e.printStackTrace();
         }
         return false;
@@ -45,7 +41,6 @@ public class RestLoginDao {
                 }
             }
         } catch (final Exception e) {
-            RestLoginDao.LOG.error("Error when loading user from the database " + e);
             e.printStackTrace();
         }
         return roleList;

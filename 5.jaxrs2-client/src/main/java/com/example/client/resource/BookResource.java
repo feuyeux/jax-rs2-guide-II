@@ -40,7 +40,7 @@ public class BookResource {
     @Produces({MediaType.APPLICATION_XML})
     public Book getBookByPath(@QueryParam("bookId") final Long bookId) {
         final Book book = new Book(bookId);
-        BookResource.LOGGER.debug(book);
+        
         final List<Object> matchedResources = uriInfo.getMatchedResources();
         for (final Object matchedResource : matchedResources) {
             BookResource.LOGGER.debug(matchedResource.getClass());

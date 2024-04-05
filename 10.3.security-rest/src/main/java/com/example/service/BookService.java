@@ -3,7 +3,6 @@ package com.example.service;
 import com.example.dao.BookDao;
 import com.example.domain.Book;
 import com.example.domain.Books;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +14,6 @@ import org.springframework.stereotype.Service;
  * @version $Id: $Id
  */
 public class BookService {
-    private static final Logger LOGGER = Logger.getLogger(BookService.class);
     @Autowired
     private BookDao bookDao;
 
@@ -45,7 +43,6 @@ public class BookService {
         try {
             return bookDao.findById(bookId);
         } catch (final Exception e) {
-            BookService.LOGGER.error(e);
             return new Book(-1, "");
         }
     }

@@ -18,13 +18,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
-import org.apache.log4j.Logger;
-
 @Path("books")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class BookResource {
-    private static final Logger LOGGER = Logger.getLogger(BookResource.class);
     private static final HashMap<Long, JsonObject> memoryBase;
 
     static {
@@ -54,7 +51,7 @@ public class BookResource {
         for (Entry<Long, JsonObject> cursor : entries) {
             Long key = cursor.getKey();
             JsonObject value = cursor.getValue();
-            BookResource.LOGGER.debug(key);
+            //BookResource.LOGGER.debug(key);
             arrayBuilder.add(value);
         }
         return arrayBuilder.build();
@@ -64,7 +61,7 @@ public class BookResource {
     @GET
     public JsonObject getBookByQuery(@QueryParam("id") final Long bookId) {
         final JsonObject book = BookResource.memoryBase.get(bookId);
-        BookResource.LOGGER.debug(book);
+        //
         return book;
     }
 

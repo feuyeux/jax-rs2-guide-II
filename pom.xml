@@ -37,25 +37,26 @@
     </modules>
     <properties>
         <jersey.version>2.41</jersey.version>
-        <junit.version>4.13.2</junit.version>
-        <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring.security.version>5.8.11</spring.security.version>
+        <spring-security-oauth2.version>2.5.2.RELEASE</spring-security-oauth2.version>
+        <spring.version>5.3.32</spring.version>
+        <spring-boot.version>2.6.4</spring-boot.version>
+        <spring-cloud.version>2.2.5.RELEASE</spring-cloud.version>
 
-        <JDK.version>1.8</JDK.version>
-        <spring.version>3.2.3.RELEASE</spring.version>
+        <jackson.version>2.16.1</jackson.version>
         <eclipselink.version>2.5.0</eclipselink.version>
         <jquery.version>3.6.0</jquery.version>
 
         <junit.version>4.13.2</junit.version>
         <slf4j.version>1.7.36</slf4j.version>
 
-        <JDK.version>1.8</JDK.version>
         <guava.version>32.0.0-jre</guava.version>
-
+        <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
         <maven-war-plugin.version>2.6</maven-war-plugin.version>
         <maven-resources-plugin.version>2.7</maven-resources-plugin.version>
         <maven-eclipse-plugin.version>2.9</maven-eclipse-plugin.version>
-
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <JDK.version>1.8</JDK.version>
     </properties>
 
     <dependencies>

@@ -18,13 +18,12 @@ import javax.ws.rs.core.MediaType;
 
 import com.example.domain.Book;
 import com.example.domain.Books;
-import org.apache.log4j.Logger;
+
 
 @Path("books")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class BookResource {
-    private static final Logger LOGGER = Logger.getLogger(BookResource.class);
     private static final HashMap<Long, Book> memoryBase;
 
     static {
@@ -40,11 +39,9 @@ public class BookResource {
         final List<Book> bookList = new ArrayList<>();
         final Set<Map.Entry<Long, Book>> entries = BookResource.memoryBase.entrySet();
         for (Entry<Long, Book> cursor : entries) {
-            BookResource.LOGGER.debug(cursor.getKey());
             bookList.add(cursor.getValue());
         }
         final Books books = new Books(bookList);
-        BookResource.LOGGER.debug(books);
         return books;
     }
 
@@ -52,7 +49,6 @@ public class BookResource {
     @GET
     public Book getBookByPath(@PathParam("bookId") final Long bookId) {
         final Book book = BookResource.memoryBase.get(bookId);
-        BookResource.LOGGER.debug(book);
         return book;
     }
 
@@ -60,7 +56,6 @@ public class BookResource {
     @GET
     public Book getBookByQuery(@QueryParam("id") final Long bookId) {
         final Book book = BookResource.memoryBase.get(bookId);
-        BookResource.LOGGER.debug(book);
         return book;
     }
 

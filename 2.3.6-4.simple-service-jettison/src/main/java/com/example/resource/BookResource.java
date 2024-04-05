@@ -17,11 +17,9 @@ import com.example.domain.Book;
 import com.example.domain.Books;
 import com.example.jettison.JsonBook;
 import com.example.jettison.JsonBook2;
-import org.apache.log4j.Logger;
 
 @Path("books")
 public class BookResource {
-    private static final Logger LOGGER = Logger.getLogger(BookResource.class);
     private static final HashMap<Long, Book> memoryBase;
 
     static {
@@ -36,7 +34,7 @@ public class BookResource {
     @GET
     public JsonBook getBook() {
         final JsonBook book = new JsonBook();
-        BookResource.LOGGER.debug(book);
+
         return book;
     }
 
@@ -44,7 +42,7 @@ public class BookResource {
     @GET
     public JsonBook2 getBook2() {
         final JsonBook2 book = new JsonBook2();
-        BookResource.LOGGER.debug(book);
+        
         return book;
     }
 
@@ -53,11 +51,9 @@ public class BookResource {
         final List<Book> bookList = new ArrayList<>();
         final Set<Map.Entry<Long, Book>> entries = BookResource.memoryBase.entrySet();
         for (Entry<Long, Book> cursor : entries) {
-            BookResource.LOGGER.debug(cursor.getKey());
             bookList.add(cursor.getValue());
         }
         final Books books = new Books(bookList);
-        BookResource.LOGGER.debug(books);
         return books;
     }
 
@@ -65,7 +61,7 @@ public class BookResource {
     @GET
     public Book getBookByPath(@PathParam("bookId") final Long bookId) {
         final Book book = BookResource.memoryBase.get(bookId);
-        BookResource.LOGGER.debug(book);
+        
         return book;
     }
 
@@ -73,7 +69,7 @@ public class BookResource {
     @GET
     public Book getBookByQuery(@QueryParam("id") final Long bookId) {
         final Book book = BookResource.memoryBase.get(bookId);
-        BookResource.LOGGER.debug(book);
+        
         return book;
     }
 

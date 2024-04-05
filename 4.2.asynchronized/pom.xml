@@ -15,12 +15,6 @@
     <name>asynchronized</name>
     <description>Async Demo project for JAX-RS2 Spring Boot Based</description>
 
-    <properties>
-        <encoding>UTF-8</encoding>
-        <java.version>1.8</java.version>
-        <spring-boot.version>3.2.3</spring-boot.version>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -55,9 +49,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin.version}</version>
                 <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                    <encoding>${encoding}</encoding>
+                    <source>${JDK.version}</source>
+                    <target>${JDK.version}</target>
                 </configuration>
             </plugin>
             <plugin>

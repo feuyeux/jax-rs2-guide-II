@@ -64,7 +64,7 @@ public class BookResource {
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public Book getBookByPath(@PathParam("bookId") final Long bookId) {
         final Book book = BookResource.memoryBase.get(bookId);
-        BookResource.LOGGER.debug(book);
+        
         return book;
     }
 
@@ -79,7 +79,7 @@ public class BookResource {
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public Book getBookByQuery(@QueryParam("id") final Long bookId) {
         final Book book = BookResource.memoryBase.get(bookId);
-        BookResource.LOGGER.debug(book);
+        
         return book;
     }
 

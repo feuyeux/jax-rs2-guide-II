@@ -17,7 +17,6 @@ import javax.ws.rs.core.SecurityContext;
 import com.example.domain.Book;
 import com.example.domain.Books;
 import com.example.service.BookService;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -30,7 +29,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Path("books")
 @javax.annotation.security.RunAs("user")
 public class BookResource {
-    private static final Logger LOGGER = Logger.getLogger(BookResource.class);
     @Autowired
     private BookService bookService;
 
@@ -45,17 +43,16 @@ public class BookResource {
     public Books getBooks(@Context final SecurityContext sc) {
         logMe(sc);
         final Books books = bookService.getBooks();
-        BookResource.LOGGER.debug(books);
         return books;
     }
 
     private void logMe(final SecurityContext sc) {
         try {
-            BookResource.LOGGER.info("User=" + sc.getUserPrincipal().getName());
-            BookResource.LOGGER.info("User Role?=" + sc.isUserInRole("user"));
-            BookResource.LOGGER.info("Auth way=" + sc.getAuthenticationScheme());
+//            BookResource.LOGGER.info("User=" + sc.getUserPrincipal().getName());
+//            BookResource.LOGGER.info("User Role?=" + sc.isUserInRole("user"));
+//            BookResource.LOGGER.info("Auth way=" + sc.getAuthenticationScheme());
         } catch (final Exception e) {
-            LOGGER.debug("Cannot print credential info." + e);
+            //LOGGER.debug("Cannot print credential info." + e);
         }
     }
 
@@ -70,7 +67,6 @@ public class BookResource {
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public Book getBookByPath(@PathParam("bookId") final Integer bookId) {
         final Book book = bookService.getBook(bookId);
-        BookResource.LOGGER.debug(book);
         return book;
     }
 
@@ -85,7 +81,6 @@ public class BookResource {
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public Book getBookByQuery(@QueryParam("id") final Integer bookId) {
         final Book book = bookService.getBook(bookId);
-        BookResource.LOGGER.debug(book);
         return book;
     }
 

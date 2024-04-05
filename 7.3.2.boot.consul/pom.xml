@@ -2,11 +2,11 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.6.4</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <groupId>my.restful</groupId>
+        <artifactId>jax-rs2-guideII</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
+
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
@@ -17,19 +17,18 @@
     <name>boot.consul</name>
     <description>Demo project for Spring Boot</description>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>1.8</java.version>
-    </properties>
-
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-consul-config -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-consul-config</artifactId>
+            <version>${spring-cloud.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-consul-discovery</artifactId>
+            <version>${spring-cloud.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>com.netflix.ribbon</groupId>
@@ -40,11 +39,13 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jersey</artifactId>
+            <version>${spring-boot.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
+            <version>${spring-boot.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -66,6 +67,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot.version}</version>
             </plugin>
         </plugins>
     </build>

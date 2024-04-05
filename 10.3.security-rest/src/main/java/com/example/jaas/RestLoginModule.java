@@ -14,7 +14,6 @@ import javax.security.auth.callback.UnsupportedCallbackException;
 import javax.security.auth.login.LoginException;
 import javax.security.auth.spi.LoginModule;
 
-import org.apache.log4j.Logger;
 
 /*
  * set JAVA_OPTS=
@@ -22,7 +21,6 @@ import org.apache.log4j.Logger;
  * \restJaas.conf
  */
 public class RestLoginModule implements LoginModule {
-    private static final Logger LOG = Logger.getLogger(RestLoginModule.class);
 
     private Subject subject;
     private CallbackHandler callbackHandler;
@@ -62,8 +60,6 @@ public class RestLoginModule implements LoginModule {
             if (userName == null || passWord == null) {
                 throw new LoginException("Callback handler does not return login data properly");
             }
-            RestLoginModule.LOG.info("username=" + userName);
-            //logger.info("password" + password);
             if (dao.isValidUser(userName, passWord)) {
                 succeeded = true;
                 return succeeded;
@@ -76,7 +72,6 @@ public class RestLoginModule implements LoginModule {
 
     @Override
     public boolean commit() throws LoginException {
-        RestLoginModule.LOG.info("committing...");
         if (!succeeded) {
             return false;
         } else {
@@ -100,10 +95,10 @@ public class RestLoginModule implements LoginModule {
                 }
             }
             commitSucceeded = true;
-            RestLoginModule.LOG.info("principals=" + subject.getPrincipals());
+            //RestLoginModule.LOG.info("principals=" + subject.getPrincipals());
             for (final Principal p : subject.getPrincipals()) {
                 if (p instanceof RestRolePrincipal) {
-                    RestLoginModule.LOG.info(" ROLE: " + p.getName());
+                    //RestLoginModule.LOG.info(" ROLE: " + p.getName());
                 }
             }
             return commitSucceeded;

@@ -9,7 +9,6 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 
 import com.example.domain.Book;
-import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
@@ -22,7 +21,6 @@ import org.springframework.util.Assert;
  */
 @Repository
 public class BookDao {
-    private static final Logger LOGGER = Logger.getLogger(BookDao.class);
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -44,7 +42,7 @@ public class BookDao {
         try {
             return entityManager.find(Book.class, id);
         } catch (final Exception e) {
-            BookDao.LOGGER.error(e);
+            //BookDao.LOGGER.error(e);
             return null;
         }
     }
