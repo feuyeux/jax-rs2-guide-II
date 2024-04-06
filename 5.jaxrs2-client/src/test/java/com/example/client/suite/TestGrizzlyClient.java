@@ -7,9 +7,9 @@ import org.junit.Test;
 
 public class TestGrizzlyClient extends BasicTest {
 
-    @Test
-    public void testTalk() {
-        final Jaxrs2Client one = new GrizzlyClient();
-        one.test();
-    }
+  @Test
+  public void testTalk() {
+    final Jaxrs2Client one = new GrizzlyClient();
+    one.test();
+  }
 }

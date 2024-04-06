@@ -1,7 +1,6 @@
 package com.example.dao;
 
 import javax.persistence.EntityManagerFactory;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -14,24 +13,24 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 public class JpaConfig {
-    @Bean
-    public EntityManagerFactory entityManagerFactory() {
-        LocalEntityManagerFactoryBean factory = new LocalEntityManagerFactoryBean();
-        EclipseLinkJpaVendorAdapter vendorAdapter = new EclipseLinkJpaVendorAdapter();
-        vendorAdapter.setGenerateDdl(true);
-        factory.setJpaVendorAdapter(vendorAdapter);
-        //factory.setDataSource(dataSource());
-        factory.setPersistenceUnitName("jpa-mysql");
-        //factory.setPackagesToScan("com.example");
-        factory.setJpaDialect(new EclipseLinkJpaDialect());
-        factory.afterPropertiesSet();
-        return factory.getObject();
-    }
+  @Bean
+  public EntityManagerFactory entityManagerFactory() {
+    LocalEntityManagerFactoryBean factory = new LocalEntityManagerFactoryBean();
+    EclipseLinkJpaVendorAdapter vendorAdapter = new EclipseLinkJpaVendorAdapter();
+    vendorAdapter.setGenerateDdl(true);
+    factory.setJpaVendorAdapter(vendorAdapter);
+    // factory.setDataSource(dataSource());
+    factory.setPersistenceUnitName("jpa-mysql");
+    // factory.setPackagesToScan("com.example");
+    factory.setJpaDialect(new EclipseLinkJpaDialect());
+    factory.afterPropertiesSet();
+    return factory.getObject();
+  }
 
-    @Bean
-    public PlatformTransactionManager transactionManager() {
-        JpaTransactionManager txManager = new JpaTransactionManager();
-        txManager.setEntityManagerFactory(entityManagerFactory());
-        return txManager;
-    }
+  @Bean
+  public PlatformTransactionManager transactionManager() {
+    JpaTransactionManager txManager = new JpaTransactionManager();
+    txManager.setEntityManagerFactory(entityManagerFactory());
+    return txManager;
+  }
 }

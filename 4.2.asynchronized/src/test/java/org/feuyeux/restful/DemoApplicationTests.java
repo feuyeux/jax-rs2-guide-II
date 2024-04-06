@@ -1,5 +1,12 @@
 package org.feuyeux.restful;
 
+import static org.junit.Assert.assertEquals;
+
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+import javax.ws.rs.client.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.feuyeux.restful.domain.Books;
@@ -14,75 +21,70 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import javax.ws.rs.client.*;
-
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
-
-import static org.junit.Assert.assertEquals;
-
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = DemoApplication.class)
 @WebAppConfiguration
 public class DemoApplicationTests {
-    private static final Logger log = LogManager.getLogger(DemoApplicationTests.class);
-    private final TestRestTemplate restTemplate = new TestRestTemplate();
-    @Value("${local.server.port}")
-    private int port;
+  private static final Logger log = LogManager.getLogger(DemoApplicationTests.class);
+  private final TestRestTemplate restTemplate = new TestRestTemplate();
 
-    @Test
-    public void ok() {
-        ResponseEntity<String> entity = this.restTemplate.getForEntity(
+  @Value("${local.server.port}")
+  private int port;
+
+  @Test
+  public void ok() {
+    ResponseEntity<String> entity =
+        this.restTemplate.getForEntity(
             "http://localhost:" + this.port + "/hello" + "/ok", String.class);
-        assertEquals(HttpStatus.OK, entity.getStatusCode());
-        log.info(entity.getBody());
-    }
+    assertEquals(HttpStatus.OK, entity.getStatusCode());
+    log.info(entity.getBody());
+  }
 
-    @Test
-    public void testAsync() throws InterruptedException, ExecutionException {
-        final Invocation.Builder request = target("http://localhost:" + this.port + "/books").request();
-        final AsyncInvoker async = request.async();
-        final Future<Books> responseFuture = async.get(Books.class);
-        long beginTime = System.currentTimeMillis();
-        try {
-            Books result = responseFuture.get(AsyncResource.TIMEOUT + 1, TimeUnit.SECONDS);
-            log.debug("Testing result size = {}", result.getBookList().size());
-        } catch (TimeoutException e) {
-            log.debug("Fail to request asynchronously", e);
-        } finally {
-            log.debug("Elapsed time = {}", System.currentTimeMillis() - beginTime);
-        }
+  @Test
+  public void testAsync() throws InterruptedException, ExecutionException {
+    final Invocation.Builder request = target("http://localhost:" + this.port + "/books").request();
+    final AsyncInvoker async = request.async();
+    final Future<Books> responseFuture = async.get(Books.class);
+    long beginTime = System.currentTimeMillis();
+    try {
+      Books result = responseFuture.get(AsyncResource.TIMEOUT + 1, TimeUnit.SECONDS);
+      log.debug("Testing result size = {}", result.getBookList().size());
+    } catch (TimeoutException e) {
+      log.debug("Fail to request asynchronously", e);
+    } finally {
+      log.debug("Elapsed time = {}", System.currentTimeMillis() - beginTime);
     }
+  }
 
-    @Test
-    public void testAsyncCallBack() throws InterruptedException, ExecutionException {
-        final AsyncInvoker async = target("http://localhost:" + this.port + "/books").request().async();
-        final Future<Books> responseFuture = async.get(new InvocationCallback<Books>() {
-            @Override
-            public void completed(Books result) {
+  @Test
+  public void testAsyncCallBack() throws InterruptedException, ExecutionException {
+    final AsyncInvoker async = target("http://localhost:" + this.port + "/books").request().async();
+    final Future<Books> responseFuture =
+        async.get(
+            new InvocationCallback<Books>() {
+              @Override
+              public void completed(Books result) {
                 log.debug("On Completed: " + result.getBookList().size());
-            }
+              }
 
-            @Override
-            public void failed(Throwable throwable) {
+              @Override
+              public void failed(Throwable throwable) {
                 log.debug("On Failed: " + throwable.getMessage());
                 throwable.printStackTrace();
-            }
-        });
-        log.debug("First response time::" + System.currentTimeMillis());
-        try {
-            responseFuture.get(AsyncResource.TIMEOUT + 1, TimeUnit.SECONDS);
-        } catch (TimeoutException e) {
-            log.debug("", e);
-        } finally {
-            log.debug("Second response time::" + System.currentTimeMillis());
-        }
+              }
+            });
+    log.debug("First response time::" + System.currentTimeMillis());
+    try {
+      responseFuture.get(AsyncResource.TIMEOUT + 1, TimeUnit.SECONDS);
+    } catch (TimeoutException e) {
+      log.debug("", e);
+    } finally {
+      log.debug("Second response time::" + System.currentTimeMillis());
     }
+  }
 
-    private WebTarget target(String url) {
-        Client client = ClientBuilder.newClient();
-        return client.target(url);
-    }
+  private WebTarget target(String url) {
+    Client client = ClientBuilder.newClient();
+    return client.target(url);
+  }
 }

@@ -2,64 +2,59 @@ package com.example.client.entity;
 
 import java.io.Serializable;
 import java.util.List;
-
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * <p>Books class.</p>
+ * Books class.
  *
  * @author hanl
  * @version $Id: $Id
  */
 @XmlRootElement(name = "books")
 public class Books implements Serializable {
-    private static final long serialVersionUID = -5070487415443208853L;
-    private List<Book> bookList;
+  private static final long serialVersionUID = -5070487415443208853L;
+  private List<Book> bookList;
 
-    /**
-     * <p>Constructor for Books.</p>
-     */
-    public Books() {
-        super();
-    }
+  /** Constructor for Books. */
+  public Books() {
+    super();
+  }
 
-    /**
-     * <p>Constructor for Books.</p>
-     *
-     * @param bookList a {@link List} object.
-     */
-    public Books(final List<Book> bookList) {
-        super();
-        this.bookList = bookList;
-    }
+  /**
+   * Constructor for Books.
+   *
+   * @param bookList a {@link List} object.
+   */
+  public Books(final List<Book> bookList) {
+    super();
+    this.bookList = bookList;
+  }
 
-    /**
-     * <p>Getter for the field <code>bookList</code>.</p>
-     *
-     * @return a {@link List} object.
-     */
-    @XmlElement(name = "book")
-    @XmlElementWrapper
-    public List<Book> getBookList() {
-        return bookList;
-    }
+  /**
+   * Getter for the field <code>bookList</code>.
+   *
+   * @return a {@link List} object.
+   */
+  @XmlElement(name = "book")
+  @XmlElementWrapper
+  public List<Book> getBookList() {
+    return bookList;
+  }
 
-    /**
-     * <p>Setter for the field <code>bookList</code>.</p>
-     *
-     * @param bookList a {@link List} object.
-     */
-    public void setBookList(final List<Book> bookList) {
-        this.bookList = bookList;
-    }
+  /**
+   * Setter for the field <code>bookList</code>.
+   *
+   * @param bookList a {@link List} object.
+   */
+  public void setBookList(final List<Book> bookList) {
+    this.bookList = bookList;
+  }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public String toString() {
-        return "{" + bookList + "}";
-    }
+  /** {@inheritDoc} */
+  @Override
+  public String toString() {
+    return "{" + bookList + "}";
+  }
 }

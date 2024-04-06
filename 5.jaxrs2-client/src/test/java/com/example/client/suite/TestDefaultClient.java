@@ -8,24 +8,24 @@ import org.junit.Test;
 
 public class TestDefaultClient extends BasicTest {
 
-    @Test
-    public void testTalk() {
-        final Jaxrs2Client one = new DefaultClient();
-        one.test();
-    }
+  @Test
+  public void testTalk() {
+    final Jaxrs2Client one = new DefaultClient();
+    one.test();
+  }
 
-    //@Test
-    public void testPerformance() throws InterruptedException {
-        int n = 0;
-        final int times = 1000;
-        while (n < times) {
-            final Jaxrs2Client one = new DefaultClient();
-            one.test();
-            Thread.currentThread();
-            Thread.sleep(100);
-            if (n++ % 10 == 0) {
-                System.out.println(n + ": " + PerformanceLog.getMemory());
-            }
-        }
+  // @Test
+  public void testPerformance() throws InterruptedException {
+    int n = 0;
+    final int times = 1000;
+    while (n < times) {
+      final Jaxrs2Client one = new DefaultClient();
+      one.test();
+      Thread.currentThread();
+      Thread.sleep(100);
+      if (n++ % 10 == 0) {
+        System.out.println(n + ": " + PerformanceLog.getMemory());
+      }
     }
+  }
 }

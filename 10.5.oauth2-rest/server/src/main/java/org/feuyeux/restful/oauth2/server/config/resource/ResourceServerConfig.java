@@ -9,16 +9,18 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Res
 @Configuration
 @EnableResourceServer
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
-    @Override
-    public void configure(ResourceServerSecurityConfigurer resources) {
-        resources.resourceId("tarotResourceId");
-    }
+  @Override
+  public void configure(ResourceServerSecurityConfigurer resources) {
+    resources.resourceId("tarotResourceId");
+  }
 
-    @Override
-    public void configure(HttpSecurity http) throws Exception {
-        http
-            .requestMatchers().antMatchers("/rest/**")
-            .and()
-            .authorizeRequests().antMatchers("/rest/tarots").access("#oauth2.hasScope('read')");
-    }
+  @Override
+  public void configure(HttpSecurity http) throws Exception {
+    http.requestMatchers()
+        .antMatchers("/rest/**")
+        .and()
+        .authorizeRequests()
+        .antMatchers("/rest/tarots")
+        .access("#oauth2.hasScope('read')");
+  }
 }

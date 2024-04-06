@@ -35,7 +35,7 @@ public class TIClientCertTest {
         return client;
     }
 
-    //when BookResource.getBooks uses:: @RolesAllowed(value={"admin"}) 
+    //when BookResource.getBooks uses:: @RolesAllowed(value={"admin"})
     //Then:: @Test(expected = javax.ws.rs.ForbiddenException.class)
     @Test
     public void testGetAll() {

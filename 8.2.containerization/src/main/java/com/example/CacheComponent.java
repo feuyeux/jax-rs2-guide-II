@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 @Service
 @CacheConfig(cacheNames = "saying")
 public class CacheComponent {
-    @Cacheable
-    public String hi(String v) {
-        return v + "-" + System.nanoTime();
-    }
+  @Cacheable
+  public String hi(String v) {
+    return v + "-" + System.nanoTime();
+  }
 }

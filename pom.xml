@@ -1,5 +1,5 @@
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>my.restful</groupId>
     <artifactId>jax-rs2-guideII</artifactId>
@@ -30,26 +30,72 @@
         <module>7.3.2.boot.consul</module>
         <module>7.3.3.boot.etcd</module>
         <module>8.2.containerization</module>
-        <module>8.3.boot.zk.kaka</module>
+        <module>8.3.boot.zk.kafka</module>
         <module>9.simple-service</module>
         <module>10.3.security-rest</module>
         <module>10.5.oauth2-rest</module>
     </modules>
+
     <properties>
-        <jersey.version>2.41</jersey.version>
+        <jersey.version>2.42</jersey.version>
+
+        <spring.version>5.3.33</spring.version>
+        <spring-boot.version>2.7.18</spring-boot.version>
+        <spring-cloud.version>2.2.8.RELEASE</spring-cloud.version>
+        <spring-cloud-zk.version>2.2.5.RELEASE</spring-cloud-zk.version>
+        <spring.security.version>5.8.11</spring.security.version>
+        <spring-security-oauth2.version>2.5.2.RELEASE</spring-security-oauth2.version>
+        <tomcat.version>10.0.23</tomcat.version>
+
+        <jackson.version>2.16.1</jackson.version>
+        <eclipselink.version>2.5.0</eclipselink.version>
+        <jquery.version>3.6.0</jquery.version>
+
         <junit.version>4.13.2</junit.version>
-        <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
+        <slf4j.version>1.7.36</slf4j.version>
+        <log4j2.version>2.23.1</log4j2.version>
+        <guava.version>32.0.0-jre</guava.version>
+
+        <mysql-connector.version>8.0.31</mysql-connector.version>
+
+        <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
+        <maven-war-plugin.version>2.6</maven-war-plugin.version>
+        <maven-resources-plugin.version>2.7</maven-resources-plugin.version>
+        <maven-eclipse-plugin.version>2.9</maven-eclipse-plugin.version>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <JDK.version>1.8</JDK.version>
     </properties>
-    <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
+
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <inherited>true</inherited>
+                <configuration>
+                    <source>${JDK.version}</source>
+                    <target>${JDK.version}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.coveo</groupId>
+                <artifactId>fmt-maven-plugin</artifactId>
+                <version>2.9.1</version>
+                <configuration>
+                    <skip>false</skip>
+                    <skipSortingImports>false</skipSortingImports>
+                    <style>google</style>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>format</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>

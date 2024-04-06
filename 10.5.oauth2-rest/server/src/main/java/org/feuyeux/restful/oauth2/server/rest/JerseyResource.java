@@ -8,10 +8,9 @@ import javax.ws.rs.core.MediaType;
 @Path("hello")
 public class JerseyResource {
 
-    @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public String getHello() {
-        return "hello Jersey";
-    }
-
+  @GET
+  @Produces(MediaType.TEXT_PLAIN)
+  public String getHello() {
+    return "hello Jersey";
+  }
 }

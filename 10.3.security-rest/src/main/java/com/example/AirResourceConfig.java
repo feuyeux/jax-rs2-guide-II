@@ -1,23 +1,20 @@
 package com.example;
 
-import javax.ws.rs.ApplicationPath;
-
 import com.example.resource.BookResource;
+import javax.ws.rs.ApplicationPath;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.server.filter.RolesAllowedDynamicFeature;
 
 /**
- * <p>AirResourceConfig class.</p>
+ * AirResourceConfig class.
  *
  * @author hanl
  * @version $Id: $Id
  */
 @ApplicationPath("/webapi/*")
 public class AirResourceConfig extends ResourceConfig {
-    /**
-     * <p>Constructor for AirResourceConfig.</p>
-     */
-    public AirResourceConfig() {
-        super(RolesAllowedDynamicFeature.class, BookResource.class);
-    }
+  /** Constructor for AirResourceConfig. */
+  public AirResourceConfig() {
+    super(RolesAllowedDynamicFeature.class, BookResource.class);
+  }
 }

@@ -1,28 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.6.4</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <groupId>my.restful</groupId>
+        <artifactId>jax-rs2-guideII</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <modelVersion>4.0.0</modelVersion>
-
-    <groupId>com.example</groupId>
     <artifactId>boot.etcd</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-
-    <name>boot.etcd</name>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>1.8</java.version>
-        <spring-boot.version>3.2.3</spring-boot.version>
-        <jackson.version>2.16.1</jackson.version>
-    </properties>
 
     <build>
         <plugins>
@@ -38,14 +25,15 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-commons</artifactId>
-            <version>1.3.6.RELEASE</version>
+            <version>${spring-cloud.version}</version>
             <exclusions>
                 <exclusion>
-                  <artifactId>spring-security-crypto</artifactId>
-                  <groupId>org.springframework.security</groupId>
+                    <artifactId>spring-security-crypto</artifactId>
+                    <groupId>org.springframework.security</groupId>
                 </exclusion>
-             </exclusions>
+            </exclusions>
         </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-cluster-etcd -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -127,7 +115,7 @@
                     <artifactId>jetty-util-ajax</artifactId>
                     <groupId>org.eclipse.jetty</groupId>
                 </exclusion>
-             </exclusions>
+            </exclusions>
         </dependency>
 
         <dependency>
@@ -148,7 +136,7 @@
                     <artifactId>spring-boot-starter</artifactId>
                     <groupId>org.springframework.boot</groupId>
                 </exclusion>
-             </exclusions>
+            </exclusions>
         </dependency>
 
         <dependency>

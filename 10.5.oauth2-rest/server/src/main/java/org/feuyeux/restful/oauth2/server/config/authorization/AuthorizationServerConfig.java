@@ -17,42 +17,42 @@ import org.springframework.security.oauth2.provider.token.store.InMemoryTokenSto
 @Configuration
 @EnableAuthorizationServer
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
-    @Autowired
-    private TokenStore tokenStore;
+  @Autowired private TokenStore tokenStore;
 
-    @Autowired
-    private UserApprovalHandler userApprovalHandler;
+  @Autowired private UserApprovalHandler userApprovalHandler;
 
-    @Autowired
-    @Qualifier("authenticationManagerBean")
-    private AuthenticationManager authenticationManager;
+  @Autowired
+  @Qualifier("authenticationManagerBean")
+  private AuthenticationManager authenticationManager;
 
-    @Override
-    public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.inMemory().withClient("tarotClient")
-            .resourceIds("tarotResourceId")
-            .authorizedGrantTypes("authorization_code", "implicit")
-            .authorities("ROLE_CLIENT")
-            .scopes("read", "write")
-            .secret("secret");
-    }
+  @Override
+  public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
+    clients
+        .inMemory()
+        .withClient("tarotClient")
+        .resourceIds("tarotResourceId")
+        .authorizedGrantTypes("authorization_code", "implicit")
+        .authorities("ROLE_CLIENT")
+        .scopes("read", "write")
+        .secret("secret");
+  }
 
-    @Bean
-    public TokenStore tokenStore() {
-        return new InMemoryTokenStore();
-    }
+  @Bean
+  public TokenStore tokenStore() {
+    return new InMemoryTokenStore();
+  }
 
-    @Override
-    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-        endpoints
-            .approvalStoreDisabled()
-            .tokenStore(tokenStore)
-            .userApprovalHandler(userApprovalHandler)
-            .authenticationManager(authenticationManager);
-    }
+  @Override
+  public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+    endpoints
+        .approvalStoreDisabled()
+        .tokenStore(tokenStore)
+        .userApprovalHandler(userApprovalHandler)
+        .authenticationManager(authenticationManager);
+  }
 
-    @Override
-    public void configure(AuthorizationServerSecurityConfigurer oauthServer) throws Exception {
-        oauthServer.realm("tarotResourceRealm");
-    }
+  @Override
+  public void configure(AuthorizationServerSecurityConfigurer oauthServer) throws Exception {
+    oauthServer.realm("tarotResourceRealm");
+  }
 }

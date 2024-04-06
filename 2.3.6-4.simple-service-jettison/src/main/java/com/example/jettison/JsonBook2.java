@@ -5,29 +5,29 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class JsonBook2 {
-    private String bookId;
-    private String bookName;
+  private String bookId;
+  private String bookName;
 
-    public JsonBook2() {
-        bookId = "1";
-        bookName = "Java Restful Web Services实战";
-    }
+  public JsonBook2() {
+    bookId = "1";
+    bookName = "Java Restful Web Services实战";
+  }
 
-    @XmlElement
-    public String getBookId() {
-        return bookId;
-    }
+  @XmlElement
+  public String getBookId() {
+    return bookId;
+  }
 
-    public void setBookId(String bookId) {
-        this.bookId = bookId;
-    }
+  public void setBookId(String bookId) {
+    this.bookId = bookId;
+  }
 
-    @XmlElement
-    public String getBookName() {
-        return bookName;
-    }
+  @XmlElement
+  public String getBookName() {
+    return bookName;
+  }
 
-    public void setBookName(String bookName) {
-        this.bookName = bookName;
-    }
+  public void setBookName(String bookName) {
+    this.bookName = bookName;
+  }
 }

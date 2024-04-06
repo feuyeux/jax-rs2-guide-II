@@ -8,65 +8,63 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class BookService {
-    @Autowired
-    private BookDao bookDao;
+  @Autowired private BookDao bookDao;
 
-    public BookService() {
-    }
+  public BookService() {}
 
-    /**
-     * <p>saveBook.</p>
-     *
-     * @param book a {@link com.example.domain.Book} object.
-     * @return a {@link com.example.domain.Book} object.
-     */
-    public Book saveBook(final Book book) {
-        return bookDao.store(book);
-    }
+  /**
+   * saveBook.
+   *
+   * @param book a {@link com.example.domain.Book} object.
+   * @return a {@link com.example.domain.Book} object.
+   */
+  public Book saveBook(final Book book) {
+    return bookDao.store(book);
+  }
 
-    /**
-     * <p>getBook.</p>
-     *
-     * @param bookId a {@link java.lang.Integer} object.
-     * @return a {@link com.example.domain.Book} object.
-     */
-    public Book getBook(final Long bookId) {
-        try {
-            return bookDao.findById(bookId);
-        } catch (final Exception e) {
-            return new Book(-1L, "");
-        }
+  /**
+   * getBook.
+   *
+   * @param bookId a {@link java.lang.Integer} object.
+   * @return a {@link com.example.domain.Book} object.
+   */
+  public Book getBook(final Long bookId) {
+    try {
+      return bookDao.findById(bookId);
+    } catch (final Exception e) {
+      return new Book(-1L, "");
     }
+  }
 
-    /**
-     * <p>getBooks.</p>
-     *
-     * @return a {@link com.example.domain.Books} object.
-     */
-    public Books getBooks() {
-        return new Books(bookDao.findAll());
-    }
+  /**
+   * getBooks.
+   *
+   * @return a {@link com.example.domain.Books} object.
+   */
+  public Books getBooks() {
+    return new Books(bookDao.findAll());
+  }
 
-    /**
-     * <p>updateBook.</p>
-     *
-     * @param bookId a {@link java.lang.Integer} object.
-     * @param book   a {@link com.example.domain.Book} object.
-     * @return a {@link com.example.domain.Book} object.
-     */
-    public Book updateBook(final Long bookId, final Book book) {
-        book.setBookId(bookId);
-        bookDao.update(book);
-        return book;
-    }
+  /**
+   * updateBook.
+   *
+   * @param bookId a {@link java.lang.Integer} object.
+   * @param book a {@link com.example.domain.Book} object.
+   * @return a {@link com.example.domain.Book} object.
+   */
+  public Book updateBook(final Long bookId, final Book book) {
+    book.setBookId(bookId);
+    bookDao.update(book);
+    return book;
+  }
 
-    /**
-     * <p>deleteBook.</p>
-     *
-     * @param bookId a {@link java.lang.Integer} object.
-     * @return a boolean.
-     */
-    public boolean deleteBook(final Long bookId) {
-        return bookDao.remove(bookId);
-    }
+  /**
+   * deleteBook.
+   *
+   * @param bookId a {@link java.lang.Integer} object.
+   * @return a boolean.
+   */
+  public boolean deleteBook(final Long bookId) {
+    return bookDao.remove(bookId);
+  }
 }

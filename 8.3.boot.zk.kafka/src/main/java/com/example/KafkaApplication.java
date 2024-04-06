@@ -7,9 +7,9 @@ import org.springframework.context.annotation.PropertySource;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@PropertySource("file:/opt/zk.kaka.properties")
+@PropertySource("file:/opt/zk.kafka.properties")
 public class KafkaApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(KafkaApplication.class, args);
-    }
+  public static void main(String[] args) {
+    SpringApplication.run(KafkaApplication.class, args);
+  }
 }
