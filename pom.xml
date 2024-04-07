@@ -45,7 +45,7 @@
         <spring-cloud-zk.version>2.2.5.RELEASE</spring-cloud-zk.version>
         <spring.security.version>5.8.11</spring.security.version>
         <spring-security-oauth2.version>2.5.2.RELEASE</spring-security-oauth2.version>
-        <tomcat.version>10.0.23</tomcat.version>
+        <tomcat.version>10.1.19</tomcat.version>
 
         <jackson.version>2.16.1</jackson.version>
         <eclipselink.version>2.5.0</eclipselink.version>
