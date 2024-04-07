@@ -45,18 +45,17 @@
         <spring-cloud-zk.version>2.2.5.RELEASE</spring-cloud-zk.version>
         <spring.security.version>5.8.11</spring.security.version>
         <spring-security-oauth2.version>2.5.2.RELEASE</spring-security-oauth2.version>
-        <tomcat.version>10.0.23</tomcat.version>
+        <tomcat.version>10.1.19</tomcat.version>
 
         <jackson.version>2.16.1</jackson.version>
         <eclipselink.version>2.7.14</eclipselink.version>
-        <jquery.version>3.6.0</jquery.version>
-
+        <jquery.version>3.7.1</jquery.version>
         <junit.version>4.13.2</junit.version>
         <slf4j.version>1.7.36</slf4j.version>
         <log4j2.version>2.23.1</log4j2.version>
         <guava.version>32.0.0-jre</guava.version>
 
-        <mysql-connector.version>8.0.31</mysql-connector.version>
+        <mysql-connector.version>8.0.33</mysql-connector.version>
 
         <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
         <maven-war-plugin.version>2.6</maven-war-plugin.version>
