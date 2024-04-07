@@ -48,9 +48,8 @@
         <tomcat.version>10.1.19</tomcat.version>
 
         <jackson.version>2.16.1</jackson.version>
-        <eclipselink.version>2.5.0</eclipselink.version>
+        <eclipselink.version>2.7.14</eclipselink.version>
         <jquery.version>3.7.1</jquery.version>
-
         <junit.version>4.13.2</junit.version>
         <slf4j.version>1.7.36</slf4j.version>
         <log4j2.version>2.23.1</log4j2.version>
