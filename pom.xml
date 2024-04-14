@@ -40,9 +40,9 @@
         <jersey.version>2.42</jersey.version>
 
         <spring.version>5.3.33</spring.version>
-        <spring-boot.version>2.7.18</spring-boot.version>
+        <spring-boot.version>3.0.0</spring-boot.version>
         <spring-cloud.version>2.2.9.RELEASE</spring-cloud.version>
-        <spring-cloud-zk.version>2.2.5.RELEASE</spring-cloud-zk.version>
+        <spring-cloud-zk.version>3.1.5</spring-cloud-zk.version>
         <spring.security.version>5.8.11</spring.security.version>
         <spring-security-oauth2.version>2.5.2.RELEASE</spring-security-oauth2.version>
         <tomcat.version>10.1.19</tomcat.version>
