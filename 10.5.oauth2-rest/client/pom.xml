@@ -6,10 +6,8 @@
         <artifactId>oauth2-rest</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-
     <artifactId>client</artifactId>
     <packaging>war</packaging>
-
     <build>
         <plugins>
             <plugin>
@@ -61,7 +59,7 @@
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-core</artifactId>
-            <version>8.5.100</version>
+            <version>${tomcat.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
