@@ -1,13 +1,13 @@
 <!-- markdown-disable MD033 MD045 -->
 <!-- markdownlint-disable MD033 -->
 
-## 《Java Restful Web Service实战·第二版》示例源代码
+# 《Java Restful Web Service实战·第二版》示例源代码
 
 [![codecov](https://codecov.io/gh/feuyeux/jax-rs2-guide-II/branch/master/graph/badge.svg)](https://codecov.io/gh/feuyeux/jax-rs2-guide-II)
 
-<img width="333" src="cover.png"/>
+<img width="333" src="cover.png" alt="book cover png"/>
 
-### Build
+## Build
 
 ```bash
 git clone https://github.com/feuyeux/jax-rs2-guide-II.git
@@ -15,7 +15,7 @@ cd jax-rs2-guide-II
 mvn clean install -DskipTests
 ```
 
-### 源代码目录
+## 源代码目录
 
 1. [1.5.my-first-service](1.5.my-first-service)
 2. [1.5.my-first-webapp](1.5.my-first-webapp)
@@ -49,19 +49,19 @@ mvn clean install -DskipTests
 30. [10.3.security-rest](10.3.security-rest)
 31. [10.5.oauth2-rest](10.5.oauth2-rest)
 
-### 最新Jersey官方文档
+## Jersey官方文档
 
 [**Jersey User Guide**](https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/index.html)
 
-### Jersey问答
+## Jersey问答
 
 [**Jersey StackOverflow**](http://stackoverflow.com/questions/tagged/jersey)
 
-### Jersey Maven仓库信息
+## Jersey Maven仓库
 
 **[GlassFish Jersey Core](https://mvnrepository.com/artifact/org.glassfish.jersey.core)**
 
-### Jersey版本发布历史
+## Jersey发布历史
 
 <https://projects.eclipse.org/projects/ee4j.jersey>
 
@@ -148,3 +148,7 @@ mvn clean install -DskipTests
 - **[JAX-RS (JSR311)](https://jcp.org/en/jsr/detail?id=311)**
 - **[JAX-RS 2.0 (JSR339)](https://jcp.org/en/jsr/detail?id=339)**
 - **[JAX-RS 2.1 (JSR370)](https://jcp.org/en/jsr/detail?id=370)**
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=feuyeux/jax-rs2-guide-II&type=Date)](https://star-history.com/#feuyeux/jax-rs2-guide-II&Date)
