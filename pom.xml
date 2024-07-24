@@ -39,7 +39,7 @@
     <properties>
         <jersey.version>2.43</jersey.version>
 
-        <spring.version>5.3.35</spring.version>
+        <spring.version>5.3.36</spring.version>
         <spring-boot.version>2.7.18</spring-boot.version>
         <spring-cloud-consul.version>2.2.8.RELEASE</spring-cloud-consul.version>
         <spring-cloud.version>2.2.9.RELEASE</spring-cloud.version>
