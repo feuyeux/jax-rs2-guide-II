@@ -44,7 +44,7 @@
         <spring-cloud-consul.version>2.2.8.RELEASE</spring-cloud-consul.version>
         <spring-cloud.version>2.2.9.RELEASE</spring-cloud.version>
         <spring-cloud-zk.version>2.2.5.RELEASE</spring-cloud-zk.version>
-        <spring.security.version>5.8.15</spring.security.version>
+        <spring.security.version>6.4.9</spring.security.version>
         <spring-security-oauth2.version>2.5.2.RELEASE</spring-security-oauth2.version>
         <tomcat.version>8.5.100</tomcat.version>
         <jackson.version>2.17.1</jackson.version>
